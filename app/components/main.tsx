@@ -1,35 +1,17 @@
 import { useState } from 'react';
 import { Items } from './items'
-import { Menu } from '../domain/Menu';
-import { MENUS } from '../hooks/menu.json';
 import { Summary } from './summary';
 import { Twitter } from './twitter';
+import { doGacha } from '../hooks/doGatya';
 
 export const Main: React.FC = () => {
   const [result, useResult] = useState([])
   const input = 1000;
 
-  const doGacha = (budget: number): Menu[] => {
-    const result: Menu[] = [];
-    let left = budget
-
-    while (left <= budget) {
-      const candidates = MENUS.filter(menu => menu.price <= left)
-      if (!candidates.length) break;
-      const randNum = Math.floor(Math.random() * candidates.length);
-      const food = candidates[randNum];
-      left -= food.price
-      result.push(food);
-    }
-    return result;
-  }
-
   const handleButton = () => {
     const newResult = doGacha(input)
     useResult(newResult)
   }
-
-
 
   return (
     <main>
