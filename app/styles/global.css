@@ -1,10 +1,23 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'ヒラギノ角ゴシック', 'Hiragino Sans', YuGothic, 'Yu Gothic', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: #007c00;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
 @media (max-width: 600px) {
     .grid {
         width: 100%;
         flex-direction: column;
     }
 }
-
 
 .page {
     margin: 2em auto;
@@ -26,25 +39,22 @@
     color: #d70002;
 }
 
-.footer {
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
 .buttonarea {
     text-align: center;
 }
 
 .btn {
     display: inline-block;
-    width: 10em;
+    width: 12em;
     padding: 1em 1em;
-    text-decoration: none;
-    background: rgba(0, 124, 0, 0.8);
-    color: #ffffff;
+    border-style: none;
     border-bottom: solid 4px #007c00;
     border-radius: 3px;
+    background: rgba(0, 124, 0, 0.8);
+    text-decoration: none;
+    font-size: 1em;
+    color: #ffffff;
+
 }
 
 .btn:active {
@@ -59,13 +69,7 @@
     text-align: center;
 }
 
-.menus {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.box {
+.card {
     display: block;
     position: relative;
     margin: 1em 0;
@@ -73,41 +77,29 @@
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
 
-.menu {
-    padding: 0.5em 1em;
-    background: rgba(0, 124, 0, 0.1);
-}
-
-.rst {
-    padding: 1em 1em;
-    background: rgba(0, 124, 0, 0.3);
-}
-
-.box h2 {
+.card h2 {
     color: #d70002;
     font-size: 1.3em;
     margin: 0;
     padding: 0;
 }
 
-.box p {
+.card p {
     color: #848484;
     font-size: 0.8em;
     margin: 0;
     padding: 0;
 }
 
-.metanav {
-    text-align: right;
-    font-size: 0.8em;
-    padding: 0.3em;
-    margin-bottom: 1em;
-    background: #fafafa;
+.menus {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.error {
-    background: #f0d6d6;
-    padding: 0.5em;
+.menu {
+    padding: 0.5em 1em;
+    background: rgba(0, 124, 0, 0.1);
 }
 
 .ribbon {
@@ -115,7 +107,7 @@
     position: absolute;
     left: 0;
     top: 0px;
-    box-sizing: border-box;
+    box-sizing: border-card;
     padding: 0 12px;
     margin: 0;
     height: 30px;
@@ -127,50 +119,17 @@
     box-shadow: 0 2px 2px rgba(0, 124, 0, 0.1);
 }
 
-html,
-body {
-    padding: 0;
-    margin: 0;
-    font-family: 'ヒラギノ角ゴシック', 'Hiragino Sans', YuGothic, 'Yu Gothic', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: #007c00;
+.summary {
+    padding: 1em 1em;
+    background: rgba(0, 124, 0, 0.3);
 }
 
-h1,
-h2 {
-    margin: 0;
+.tweet {
+    margin-top: 30px;
+    text-align: center;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-.no-spin::-webkit-inner-spin-button,
-.no-spin::-webkit-outer-spin-button {
-    -webkit-appearance: none !important;
-    margin: 0 !important;
-    -moz-appearance: textfield !important;
-}
-
-#NumberInput {
-    width: 200px;
-    font-size: 2em;
-    color: #d70002;
-    font-family : inherit;
-    font-weight: bold;
-    text-align: right;
-    border: none;
-}
-
-.OrderInput {
-    font-size: 2em;
-    color: #d70002;
-    font-family: inherit;
-    font-weight: bold;
-    text-align: right;
-    border: none;
-}
-
-.kossoriInput {
-    display: inline-flex;
+.error {
+    background: #f0d6d6;
+    padding: 0.5em;
 }
