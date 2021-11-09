@@ -12,10 +12,11 @@ jobs:
         with:
           node-version: 16.x
       - name: install
+        working-directory: app
         run: yarn install
       - name: build
+        working-directory: app
         run: |
-          cd app
           yarn run build
           touch out/.nojekyll
       - name: deploy
