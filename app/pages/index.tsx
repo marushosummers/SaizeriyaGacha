@@ -1,14 +1,16 @@
-import Head from 'next/head'
+import { _Head } from '../components/head'
 import { Main } from '../components/main'
 
-export const Home = (): JSX.Element => (
-  <div className="container">
-    <Head>
-      <title>サイゼリヤ1000円ガチャ</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+const Home = (): JSX.Element => (
+  <>
+    <_Head
+      title={'サイゼリヤ1000円ガチャ'}
+      description={'サイゼリヤのメニューをガチャガチャしよう！'}
+      keyword={'サイゼリヤ,1000円,ガチャ'}
+      url={process.env.baseUrl}
+    />
     <Main/>
-  </div>
+  </>
 )
 
 export default Home

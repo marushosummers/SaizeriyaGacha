@@ -1,0 +1,26 @@
+name: deploy to github pages
+on:
+  push:
+    branches:
+      - feature/refactor/v1
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.0
+        with:
+          node-version: 12.x
+      - name: install
+        run: yarn install
+      - name: build
+        run: |
+          cd app
+          yarn run build
+          touch out/.nojekyll
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3.6.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: feature/refactor/v1
+          publish_dir: ./app/out

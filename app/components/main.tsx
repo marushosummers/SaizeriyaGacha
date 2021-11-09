@@ -14,25 +14,21 @@ export const Main: React.FC = () => {
   }
 
   return (
-    <main>
-      <div className="page">
-        <div className="heading">
-          <h1>サイゼリヤ</h1>
-          <h1>1000円ガチャ</h1>
-        </div>
-        <div className="buttonarea">
-          <button onClick={() => { handleButton() }} className="btn">
-            {"ガチャを回す"}
-          </button>
-        </div>
-        <div className="result">
-          <Items result={result} />
-          <Summary result={result} />
-          <Twitter result={result} />
-        </div>
-
+    <div className="page">
+      <div className="heading">
+        <h1>サイゼリヤ</h1>
+        <h1>1000円ガチャ</h1>
       </div>
-    </main>
-
+      <div className="buttonarea">
+        <button onClick={() => { handleButton() }} className="btn">
+          {"ガチャを回す"}
+        </button>
+      </div>
+      <div className="result">
+        <Items result={result} />
+        <Summary result={result} />
+        <Twitter result={result} />
+      </div>
+    </div>
   );
 }
