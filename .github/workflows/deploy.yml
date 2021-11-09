@@ -16,6 +16,8 @@ jobs:
         run: yarn install
       - name: build
         working-directory: app
+        env:
+          GITHUB_PAGES: true
         run: |
           yarn run build
           touch out/.nojekyll
