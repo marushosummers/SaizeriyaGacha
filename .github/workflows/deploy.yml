@@ -19,7 +19,7 @@ jobs:
         env:
           GITHUB_PAGES: true
         run: |
-          yarn run build
+          yarn production-build
           touch out/.nojekyll
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3.6.4
