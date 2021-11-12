@@ -22,16 +22,16 @@ export const _Head: React.FC<Props> = (props) => {
       <meta name="keywords" content={keyword} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={`/apple-touch-icon.png`} />
+      <meta property="og:image" content={`${url}/apple-touch-icon.png`} />
       <meta property="og:site_name" content={title} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`/apple-touch-icon.png`} />
+      <meta name="twitter:image" content={`${url}/apple-touch-icon.png`} />
       <link rel="canonical" href={url} />
       <link rel="shortcut icon" href={`${url}/favicon.ico`} />
-      <link rel="apple-touch-icon" href={`/apple-touch-icon.png`} />
+      <link rel="apple-touch-icon" href={`${url}/apple-touch-icon.png`} />
     </Head>
   );
 };

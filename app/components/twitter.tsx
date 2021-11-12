@@ -19,7 +19,7 @@ export const Twitter: React.FC<Props> = (props) => {
     return (
       <div className="tweet">
         <TwitterShareButton
-          url={process.env.BASE_URL}
+          url={process.env.NEXT_PUBLIC_BASE_URL}
           title={tweetText}
         >
           <TwitterIcon size={40} round />

@@ -8,7 +8,7 @@ const Home = ({menus}): JSX.Element => (
       title={'サイゼリヤ1000円ガチャ'}
       description={'サイゼリヤのメニューをガチャガチャしよう！'}
       keyword={'サイゼリヤ,1000円,ガチャ'}
-      url={process.env.BASE_URL}
+      url={process.env.NEXT_PUBLIC_BASE_URL}
     />
     <Main menus={menus} />
   </>
