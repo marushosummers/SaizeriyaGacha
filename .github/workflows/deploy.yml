@@ -1,0 +1,32 @@
+name: deploy to github pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: install
+        working-directory: app
+        run: yarn install
+      - name: build
+        working-directory: app
+        env:
+          GITHUB_PAGES: true
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}}
+          NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
+          API_URL: ${{secrets.API_URL}}
+          API_TOKEN: ${{secrets.API_TOKEN}}
+        run: |
+          yarn production-build
+          touch out/.nojekyll
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3.6.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./app/out
