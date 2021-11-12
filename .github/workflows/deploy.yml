@@ -18,6 +18,10 @@ jobs:
         working-directory: app
         env:
           GITHUB_PAGES: true
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}}
+          NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
+          API_URL: ${{secrets.API_URL}}
+          API_TOKEN: ${{secrets.API_TOKEN}}
         run: |
           yarn production-build
           touch out/.nojekyll
