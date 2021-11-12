@@ -1,12 +1,11 @@
 import { useState } from 'react';
+import { NextPage } from 'next'
 import { Items } from './items'
 import { Summary } from './summary';
 import { Twitter } from './twitter';
 import { doGacha } from '../hooks/doGatya';
-import { NextPage } from 'next'
-
 import { Menu } from '../domain/Menu';
-
+import * as gtag from '../lib/gtag'
 interface Props {
   menus: Menu[]
 }
@@ -18,6 +17,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
   const handleButton = () => {
     const newResult = doGacha(menus, input)
     useResult(newResult)
+    gtag.event({
+      action: 'click',
+      category: 'gacha',
+      label: '1000yen',
+    })
   }
 
   return (
