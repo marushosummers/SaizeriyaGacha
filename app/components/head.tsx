@@ -17,6 +17,7 @@ export const _Head: React.FC<Props> = (props) => {
   return (
     <Head>
       <title>{title}</title>
+      <meta name="viewport" content="width=750" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta name="keywords" content={keyword} />
