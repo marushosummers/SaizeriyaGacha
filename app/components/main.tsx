@@ -3,13 +3,20 @@ import { Items } from './items'
 import { Summary } from './summary';
 import { Twitter } from './twitter';
 import { doGacha } from '../hooks/doGatya';
+import { NextPage } from 'next'
 
-export const Main: React.FC = () => {
+import { Menu } from '../domain/Menu';
+
+interface Props {
+  menus: Menu[]
+}
+
+export const Main: NextPage<Props> = ({ menus }) => {
   const [result, useResult] = useState([])
   const input = 1000;
 
   const handleButton = () => {
-    const newResult = doGacha(input)
+    const newResult = doGacha(menus, input)
     useResult(newResult)
   }
 
@@ -32,3 +39,5 @@ export const Main: React.FC = () => {
     </div>
   );
 }
+
+export default Main;
