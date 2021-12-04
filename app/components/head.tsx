@@ -17,6 +17,17 @@ export const _Head: React.FC<Props> = (props) => {
   return (
     <Head>
       <title>{title}</title>
+      {/* safari */}
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
+      <meta name="apple-mobile-web-app-title" content="saizeriya1000" />
+      <link
+        rel="apple-touch-icon"
+        sizes="120x120"
+        href="/apple-touch-icon-120x120.png"
+      />
+      {/* 一般 */}
+      <link rel="manifest" href="/manifest.json" />
       <meta name="viewport" content="width=750" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
