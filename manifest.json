@@ -1,0 +1,13 @@
+{
+    "short_name": "Saizeriya1000",
+    "name": "Saizeriya 1000円ガチャ",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/apple-touch-icon-120x120.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
