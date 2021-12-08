@@ -6,13 +6,16 @@ interface Props {
   description: string;
   keyword: string;
   url: string;
+  noindex?: boolean;
 }
 
-export const _Head: React.FC<Props> = (props) => {
-  const title = props.title;
-  const description = props.description;
-  const keyword = props.keyword;
-  const url = props.url;
+export const _Head: React.FC<Props> = ({
+  title,
+  description,
+  keyword,
+  url,
+  noindex = false,
+}: Props) => {
 
   return (
     <Head>
@@ -44,6 +47,9 @@ export const _Head: React.FC<Props> = (props) => {
       <link rel="canonical" href={url} />
       <link rel="shortcut icon" href={`${url}/favicon.ico`} />
       <link rel="apple-touch-icon" href={`${url}/apple-touch-icon.png`} />
+
+      {/* noindex */}
+      {noindex && <meta key="robots" name="robots" content="noindex" />}
     </Head>
   );
 };
