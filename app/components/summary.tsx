@@ -14,8 +14,18 @@ export const Summary: React.FC<Props> = (props) => {
   const [totalPrice, totalCalorie, totalSalt] = getSummary(result)
 
     return (
-      <div className="card summary">
-      <h2>計 {totalPrice}円   {totalCalorie}kcal   塩分 {Math.round(totalSalt * 10) / 10}g</h2>
+      <div className="summary">
+        <div className="summary-label">
+          <h2>合計</h2>
+        </div>
+        <div className="summary-content">
+          <ul>
+            <li><span className="total-price">{totalPrice.toLocaleString()} 円</span></li>
+            <li><span className="total-cal">{totalCalorie.toLocaleString()} kcal</span></li>
+            <li><span className="total-solt">塩分 {totalSalt.toLocaleString()} g</span></li>
+
+          </ul>
+        </div>
     </div>
 	);
 }

@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Link from 'next/link';
 
 export const AboutContent: NextPage = () => {
   return (
@@ -20,6 +21,7 @@ export const AboutContent: NextPage = () => {
       <p>トラフィックデータは匿名で収集されており、個人を特定するものではありません</p>
       <p>Cookieの利用については、Webブラウザのユーザー設定により拒否をすることができます</p>
 
+      <Link href="/">トップへ</Link>
     </div>
   );
 }
