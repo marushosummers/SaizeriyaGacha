@@ -9,7 +9,8 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "serve": "serve ./out"
   },
   "husky": {
     "hooks": {
@@ -25,12 +26,14 @@
   },
   "dependencies": {
     "@types/gtag.js": "^0.0.8",
-    "next": "latest",
+    "@types/styled-components": "^5.1.17",
+    "next": "^12.0.7",
     "next-pwa": "^5.4.4",
     "next-share": "^0.12.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "serve": "^13.0.2"
+    "serve": "^13.0.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.5",
@@ -40,6 +43,8 @@
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "babel-jest": "^27.0.2",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "babel-plugin-styled-components": "^2.0.2",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-react": "^7.19.0",
@@ -49,6 +54,7 @@
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.0.10",
     "prettier": "^2.0.2",
+    "react-loader-spinner": "^4.0.0",
     "typescript": "^4.1.3"
   }
 }

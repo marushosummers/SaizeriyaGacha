@@ -6,13 +6,16 @@ interface Props {
   description: string;
   keyword: string;
   url: string;
+  noindex?: boolean;
 }
 
-export const _Head: React.FC<Props> = (props) => {
-  const title = props.title;
-  const description = props.description;
-  const keyword = props.keyword;
-  const url = props.url;
+export const _Head: React.FC<Props> = ({
+  title,
+  description,
+  keyword,
+  url,
+  noindex = false,
+}: Props) => {
 
   return (
     <Head>
@@ -28,7 +31,7 @@ export const _Head: React.FC<Props> = (props) => {
       />
       {/* 一般 */}
       <link rel="manifest" href="/manifest.json" />
-      <meta name="viewport" content="width=750" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta name="keywords" content={keyword} />
@@ -44,6 +47,15 @@ export const _Head: React.FC<Props> = (props) => {
       <link rel="canonical" href={url} />
       <link rel="shortcut icon" href={`${url}/favicon.ico`} />
       <link rel="apple-touch-icon" href={`${url}/apple-touch-icon.png`} />
+
+      {/* Font */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@800&display=swap"
+        rel="stylesheet"
+      />
+
+      {/* noindex */}
+      {noindex && <meta key="robots" name="robots" content="noindex" />}
     </Head>
   );
 };
