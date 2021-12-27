@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { NextPage } from 'next'
 import Link from 'next/Link';
-import { Items } from './items'
-import { Summary } from './summary';
-import { Twitter } from './twitter';
+import { Result } from './result';
 import { doGacha } from '../hooks/doGatya';
 import { Menu } from '../domain/Menu';
 import { Spinner } from './spinner';
@@ -67,11 +65,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
         <h1>サイゼリヤ</h1>
         <h1>1000円ガチャ</h1>
       </div>
-      <div className="result">
-        <Items result={result} />
-        <Summary result={result} />
-        <Twitter result={result} />
-      </div>
+      <Result result={result} />
       <div className={ btnareaClass }>
         <div className="buttonarea-container">
           <button onClick={() => { handleButton() }} className="btn" disabled={loading}>
