@@ -18,6 +18,9 @@ export const Twitter: React.FC<Props> = (props) => {
   const tweetText = getTweetText(result)
     return (
       <div className="tweet">
+        <div className="balloon">
+          { "結果をツイート" }
+        </div>
         <TwitterShareButton
           url={process.env.NEXT_PUBLIC_BASE_URL}
           title={tweetText}

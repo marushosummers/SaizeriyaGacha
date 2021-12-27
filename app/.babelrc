@@ -9,6 +9,7 @@
         "ssr": true,
         "displayName": true,
       }
-    ]
+    ],
+    "inline-react-svg"
   ]
 }
