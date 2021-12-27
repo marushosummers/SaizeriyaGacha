@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NextPage } from 'next'
-import Link from 'next/Link';
+import Link from 'next/link';
 import { Result } from './result';
 import { doGacha } from '../hooks/doGatya';
 import { Menu } from '../domain/Menu';

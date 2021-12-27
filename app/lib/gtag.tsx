@@ -13,7 +13,7 @@ export const pageview = (path: string):void => {
   })
 }
 
-export const event = ({ action, category, label, value = '' }: Event) => {
+export const event = ({ action, category, label, value = '' }: Event): void => {
   if (!existsGaId) {
     return
   }
@@ -25,7 +25,7 @@ export const event = ({ action, category, label, value = '' }: Event) => {
   })
 }
 
-export const usePageView = () => {
+export const usePageView = (): void => {
   const router = useRouter()
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const usePageView = () => {
   }, [router.events])
 }
 
-export const GoogleAnalytics = () => (
+export const GoogleAnalytics = (): JSX.Element => (
   <>
     {existsGaId && (
       <>
