@@ -12,6 +12,11 @@ body {
     flex-direction: column;
 }
 
+a {
+    color: rgba(0, 100, 0);
+    text-decoration: underline;
+}
+
 h1,
 h2 {
     margin: 0;
@@ -206,9 +211,11 @@ h2 {
     text-align: center;
     margin: 0 auto 10px;
     padding: 7px 10px;
-    width: 80px;
+    width: 100px;
+    height: 15px;
     color: rgba(0, 124, 0, 1);
-    font-size: 0.3px;
+    font-size: 0.7em;
+
     background: #E5F2E5;
     border-radius: 15px;
 }
