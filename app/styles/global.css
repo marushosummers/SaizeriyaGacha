@@ -331,6 +331,7 @@ footer {
         border-left: 5px double #007c00;
         padding: 1em;
         background: white;
+        min-width: 50vw;
     }
 
 
