@@ -32,6 +32,7 @@ export const _Head: React.FC<Props> = ({
       {/* 一般 */}
       <link rel="manifest" href="/manifest.json" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta property="description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta name="keywords" content={keyword} />

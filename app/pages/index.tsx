@@ -6,7 +6,7 @@ const Home = ({menus}): JSX.Element => (
   <>
     <_Head
       title={'サイゼリヤ1000円ガチャ'}
-      description={'サイゼリヤのメニューをガチャしよう！'}
+      description={'サイゼリヤのメニューでガチャしよう！'}
       keyword={'サイゼリヤ,1000円,ガチャ'}
       url={process.env.NEXT_PUBLIC_BASE_URL}
     />
