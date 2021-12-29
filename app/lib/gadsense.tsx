@@ -20,7 +20,7 @@ export const GoogleBoxAds = (): JSX.Element => {
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7072512565"
       data-ad-format="auto"
-      data-full-width-responsive="true"
+      data-full-width-responsive="false"
       ></ins>
   );
 }
