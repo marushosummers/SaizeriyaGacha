@@ -8,6 +8,7 @@ import { Spinner } from './spinner';
 import  CloseBtn from './close.svg';
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep';
+import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense';
 interface Props {
   menus: Menu[]
 }
@@ -58,9 +59,12 @@ export const Main: NextPage<Props> = ({ menus }) => {
     useBtnareaFloat(false);
   }
 
-
   return (
-    <div className={ pageClass }>
+    <div className="main">
+      <div className="column-spacer"></div>
+      <GoogleColumnAds />
+      <div className={pageClass}>
+        {Boolean(result.length) && <GoogleHeaderAds />}
       <div className="heading">
         <h1>サイゼリヤ</h1>
         <h1>1000円ガチャ</h1>
@@ -81,8 +85,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
           </div>
         </div>
       </div>
+        {Boolean(!result.length) && <GoogleBoxAds />}
       <div className={`spacer ${invisibleClass}`}>
       </div>
+      </div>
+      <GoogleColumnAds />
     </div>
   );
 }
