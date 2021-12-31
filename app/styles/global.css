@@ -41,6 +41,7 @@ h2 {
     border: 5px double #007c00;
     background: white;
     width: 90vw;
+    min-height: 97vh;
 }
 .page {
     display: flex;

@@ -4,7 +4,7 @@ import { Divider } from './divider'
 
 export const AboutContent: NextPage = () => {
   return (
-    <div className="page">
+    <div className="frame">
       <div className="about">
         <h2>サイゼリヤガチャについて</h2>
         <Divider />
