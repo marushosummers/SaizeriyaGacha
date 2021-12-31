@@ -9,7 +9,7 @@ export const GoogleAdsHeader = (): JSX.Element => (
 
 export const GoogleBoxAds = (): JSX.Element => {
   useEffect(() => {
-    if (window.adsbygoogle) {
+    if (window.adsbygoogle && process.env.NODE_ENV !== "development") {
       window.adsbygoogle.push({});
     }
   }, []);
@@ -27,23 +27,25 @@ export const GoogleBoxAds = (): JSX.Element => {
 
 export const GoogleHeaderAds = (): JSX.Element => {
   useEffect(() => {
-    if (window.adsbygoogle) {
+    if (window.adsbygoogle && process.env.NODE_ENV !== "development") {
       window.adsbygoogle.push({});
     }
-  }, []);
+  });
 
   return (
     <ins
       className="adsbygoogle ads-header"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="1694695821"
+      data-ad-format="auto"
+      data-full-width-responsive="false"
     ></ins>
   );
 }
 
 export const GoogleColumnAds = (): JSX.Element => {
   useEffect(() => {
-    if (window.adsbygoogle) {
+    if (window.adsbygoogle && process.env.NODE_ENV !== "development") {
       window.adsbygoogle.push({});
     }
   }, []);
@@ -53,6 +55,8 @@ export const GoogleColumnAds = (): JSX.Element => {
       className="adsbygoogle ads-column"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7849040636"
+      data-ad-format="vertical"
+      data-full-width-responsive="false"
     ></ins>
   );
 }

@@ -32,7 +32,7 @@ h2 {
 .page {
     display: flex;
     flex-direction: column;
-    margin: 2px 5px;
+    margin: 0 5px;
     border: 5px double #007c00;
     padding: 2px 10px;
     background: white;
@@ -44,17 +44,18 @@ h2 {
     display: flex;
     flex-flow: column;
     justify-content: center;
+    margin: 2px 5px;
 }
 
 .heading {
     border-bottom: 2px solid #007c00;
     text-align: center;
-    margin-bottom: 1em;
-    padding-bottom: 0.5em;
+    margin-bottom: 0.2em;
+    padding-bottom: 0.2em;
 }
 
 .heading h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     color: #d70002;
 }
 
@@ -287,7 +288,9 @@ footer {
 .ads-block {
     display: block;
     text-align: center;
-    width: 100%;
+    margin: 0 auto;
+    width: 320px;
+    height: 200px;
 }
 
 .ads-header {
@@ -319,19 +322,20 @@ footer {
 
     .ads-column {
         display:inline-block;
-        min-width:180px;
-        max-width:300px;
-        width:100%;
+        width:300px;
+        height: 600px;
     }
 
     .page {
         margin: 0 auto;
         width: 600px;
+        border-bottom: none;
+        border-top: none;
         border-right: 5px double #007c00;
         border-left: 5px double #007c00;
         padding: 1em;
         background: white;
-        min-width: 50vw;
+        min-width: 10vw;
     }
 
 

@@ -63,31 +63,33 @@ export const Main: NextPage<Props> = ({ menus }) => {
     <div className="main">
       <div className="column-spacer"></div>
       <GoogleColumnAds />
-      <div className={pageClass}>
+      <div className="main-content">
         {Boolean(result.length) && <GoogleHeaderAds />}
-      <div className="heading">
-        <h1>サイゼリヤ</h1>
-        <h1>1000円ガチャ</h1>
-      </div>
-      <Result result={result} />
-      <div className={ btnareaClass }>
-        <div className="buttonarea-container">
-          <button onClick={() => { handleButton() }} className="btn" disabled={loading}>
-            {loading ? <Spinner /> : "ガチャを回す"}
-          </button>
-          <CloseBtn onClick={() => { handleCloseButton() }} className={`close-btn ${invisibleClass}`} />
-          <div className="footerlink">
-            <a href="https://shop.saizeriya.co.jp/sz_restaurant/" target="_blank" rel="noopener noreferrer">店舗検索 (公式)</a>
-            <br />
-            <Link href="/about">このサイトについて</Link>
-          {" / "}
-          <a href="https://twitter.com/saizeriyagacha" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <div className={pageClass}>
+        <div className="heading">
+          <h1>サイゼリヤ</h1>
+          <h1>1000円ガチャ</h1>
+        </div>
+        <Result result={result} />
+        <div className={ btnareaClass }>
+          <div className="buttonarea-container">
+            <button onClick={() => { handleButton() }} className="btn" disabled={loading}>
+              {loading ? <Spinner /> : "ガチャを回す"}
+            </button>
+            <CloseBtn onClick={() => { handleCloseButton() }} className={`close-btn ${invisibleClass}`} />
+            <div className="footerlink">
+              <a href="https://shop.saizeriya.co.jp/sz_restaurant/" target="_blank" rel="noopener noreferrer">店舗検索 (公式)</a>
+              <br />
+              <Link href="/about">このサイトについて</Link>
+            {" / "}
+            <a href="https://twitter.com/saizeriyagacha" target="_blank" rel="noopener noreferrer">Twitter</a>
+            </div>
           </div>
         </div>
-      </div>
-        {Boolean(!result.length) && <GoogleBoxAds />}
-      <div className={`spacer ${invisibleClass}`}>
-      </div>
+          {Boolean(!result.length) && <GoogleBoxAds />}
+        <div className={`spacer ${invisibleClass}`}>
+        </div>
+        </div>
       </div>
       <GoogleColumnAds />
     </div>
