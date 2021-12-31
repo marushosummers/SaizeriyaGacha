@@ -30,7 +30,7 @@ export const GoogleHeaderAds = (): JSX.Element => {
     if (window.adsbygoogle && process.env.NODE_ENV !== "development") {
       window.adsbygoogle.push({});
     }
-  });
+  }, []);
 
   return (
     <ins
