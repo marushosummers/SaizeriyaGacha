@@ -61,9 +61,9 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   return (
     <div className="main">
+      <div className="column-spacer"></div>
       <GoogleColumnAds />
       <div className="main-content">
-        <div className="column-spacer"></div>
         {Boolean(result.length) && <GoogleHeaderAds />}
         <div className={pageClass}>
         <div className="heading">
