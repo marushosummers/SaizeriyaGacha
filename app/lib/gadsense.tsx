@@ -31,14 +31,11 @@ export const GoogleBoxAds = (): JSX.Element => {
 
 export const GoogleHeaderAds = (): JSX.Element => {
   useEffect(() => {
-    if (window.adsbygoogle && process.env.NODE_ENV !== "development") {
-      const ads = document.getElementsByClassName("ads-header").length;
-      for (let i = 0; i < ads; i++) {
-        try {
-          window.adsbygoogle.push({});
-        } catch (e) {
-          console.error(e);
-        }
+    if (process.env.NODE_ENV !== "development") {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error(err);
       }
     }
   }, []);
@@ -54,14 +51,11 @@ export const GoogleHeaderAds = (): JSX.Element => {
 
 export const GoogleColumnAds = (): JSX.Element => {
   useEffect(() => {
-    if (window.adsbygoogle && process.env.NODE_ENV !== "development") {
-      const ads = document.getElementsByClassName("ads-column").length;
-      for (let i = 0; i < ads; i++) {
-        try {
-          window.adsbygoogle.push({});
-        } catch (e) {
-          console.error(e);
-        }
+    if (process.env.NODE_ENV !== "development") {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error(err);
       }
     }
   }, []);
