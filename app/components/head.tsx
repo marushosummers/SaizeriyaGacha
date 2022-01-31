@@ -32,10 +32,10 @@ export const _Head: React.FC<Props> = ({
       {/* 一般 */}
       <link rel="manifest" href="/manifest.json" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta property="description" content={description} />
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keyword} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta name="keywords" content={keyword} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={`${url}/apple-touch-icon.png`} />
