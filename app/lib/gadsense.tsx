@@ -14,7 +14,9 @@ export const GoogleBoxAds = (): JSX.Element => {
       for (let i = 0; i < ads; i++) {
         try {
           window.adsbygoogle.push({});
-        } catch (e) { }
+        } catch (e) {
+          console.error(e);
+        }
       }
     }
   }, []);
@@ -37,7 +39,9 @@ export const GoogleHeaderAds = (): JSX.Element => {
       for (let i = 0; i < ads; i++) {
         try {
           window.adsbygoogle.push({});
-        } catch (e) { }
+        } catch (e) {
+          console.error(e);
+        }
       }
     }
   }, []);
@@ -58,7 +62,9 @@ export const GoogleColumnAds = (): JSX.Element => {
       for (let i = 0; i < ads; i++) {
         try {
           window.adsbygoogle.push({});
-        } catch (e) { }
+        } catch (e) {
+          console.error(e);
+        }
       }
     }
   }, []);
