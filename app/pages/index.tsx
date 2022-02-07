@@ -1,9 +1,15 @@
 import { GetStaticProps } from 'next'
+import styled from "styled-components";
+
 import { _Head } from '../components/head'
 import { Main } from '../components/main'
 
+const Wrapper = styled.section`
+    background: none;
+  `;
+
 const Home = ({menus}): JSX.Element => (
-  <>
+  <Wrapper>
     <_Head
       title={'サイゼリヤ1000円ガチャ'}
       description={'サイゼリヤのメニューでガチャしよう！'}
@@ -11,7 +17,7 @@ const Home = ({menus}): JSX.Element => (
       url={process.env.NEXT_PUBLIC_BASE_URL}
     />
     <Main menus={menus} />
-  </>
+  </Wrapper>
 )
 
 export const getStaticProps: GetStaticProps = async () => {

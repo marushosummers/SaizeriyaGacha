@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NextPage } from 'next'
 import Link from 'next/link';
 import { Result } from './result';
@@ -9,6 +9,7 @@ import  CloseBtn from './close.svg';
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep';
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense';
+
 interface Props {
   menus: Menu[]
 }
