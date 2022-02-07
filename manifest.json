@@ -3,6 +3,8 @@
     "name": "Saizeriya 1000円ガチャ",
     "display": "standalone",
     "start_url": "/",
+    "background_color": "#007c00",
+    "theme_color": "#007c00",
     "icons": [
         {
             "src": "/apple-touch-icon.png",
