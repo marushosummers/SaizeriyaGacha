@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NextPage } from 'next'
 import Link from 'next/link';
 import { Result } from './result';
@@ -18,6 +18,16 @@ export const Main: NextPage<Props> = ({ menus }) => {
   const [btnareaFloat, useBtnareaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const input = 1000;
+
+  // Unregister old service worker
+  useEffect(() => {
+    window.navigator.serviceWorker.getRegistrations()
+      .then(registrations => {
+        for (const registration of registrations) {
+          registration.unregister();
+        }
+      });
+  }, [])
 
   // TODO: refactor
   let pageClass = "page";
