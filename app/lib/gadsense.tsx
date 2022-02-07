@@ -44,6 +44,7 @@ export const GoogleHeaderAds = (): JSX.Element => {
     <ins
       className="adsbygoogle ads-header"
       data-ad-client="ca-pub-7961076646821939"
+      data-full-width-responsive="true"
       data-ad-slot="1694695821"
     ></ins>
   );
