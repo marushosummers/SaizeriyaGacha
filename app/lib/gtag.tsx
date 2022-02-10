@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
 import Script from 'next/script'
-import { useEffect } from 'react'
 
 // ref: https://panda-program.com/posts/nextjs-google-analytics
 
