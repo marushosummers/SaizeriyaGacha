@@ -25,25 +25,6 @@ export const event = ({ action, category, label, value = '' }: Event): void => {
   })
 }
 
-export const usePageView = (): void => {
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!existsGaId) {
-      return
-    }
-
-    const handleRouteChange = (path: string) => {
-      pageview(path)
-    }
-
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-}
-
 export const GoogleAnalytics = (): JSX.Element => (
   <>
     {existsGaId && (
