@@ -9,6 +9,7 @@ import CloseBtn from './close.svg'
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
+import styled from "styled-components";
 
 interface Props {
   menus: Menu[]
@@ -19,16 +20,6 @@ export const Main: NextPage<Props> = ({ menus }) => {
   const [btnareaFloat, useBtnareaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const input = 1000
-
-  // Unregister old service worker
-  // useEffect(() => {
-  //   window.navigator.serviceWorker.getRegistrations()
-  //     .then(registrations => {
-  //       for (const registration of registrations) {
-  //         registration.unregister();
-  //       }
-  //     });
-  // }, [])
 
   // TODO: refactor
   let pageClass = 'page'
@@ -71,36 +62,35 @@ export const Main: NextPage<Props> = ({ menus }) => {
   }
 
   return (
-    <div className="main">
+    <Container>
       <GoogleColumnAds />
-      <div className="main-content">
+      <Content>
         {Boolean(result.length) && <GoogleHeaderAds />}
         <div className="frame">
-          <div className="column-spacer"></div>
+          <Spacer />
           <div className={pageClass}>
-            <div className="heading">
-              <h1>サイゼリヤ</h1>
-              <h1>1000円ガチャ</h1>
-            </div>
+            <TitleComponent>
+              <Title>サイゼリヤ</Title>
+              <Title>1000円ガチャ</Title>
+            </TitleComponent>
             <Result result={result} />
             <div className={btnareaClass}>
               <div className="buttonarea-container">
-                <button
+                <Button
                   onClick={() => {
                     handleButton()
                   }}
-                  className="btn"
                   disabled={loading}
                 >
                   {loading ? <Spinner /> : 'ガチャを回す'}
-                </button>
+                </Button>
                 <CloseBtn
                   onClick={() => {
                     handleCloseButton()
                   }}
                   className={`close-btn ${invisibleClass}`}
                 />
-                <div className="footerlink">
+                <FooterLink>
                   <a
                     href="https://shop.saizeriya.co.jp/sz_restaurant/"
                     target="_blank"
@@ -118,17 +108,60 @@ export const Main: NextPage<Props> = ({ menus }) => {
                   >
                     Twitter
                   </a>
-                </div>
+                </FooterLink>
               </div>
             </div>
             {Boolean(!result.length) && <GoogleBoxAds />}
             <div className={`spacer ${invisibleClass}`}></div>
           </div>
         </div>
-      </div>
+      </Content>
       <GoogleColumnAds />
-    </div>
+    </Container>
   )
 }
 
 export default Main
+
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+  `
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+  `
+const Spacer = styled.div`
+    min-height: 97vh;
+    width: 0;
+  `
+const TitleComponent = styled.div`
+    border-bottom: 2px solid #007c00;
+    text-align: center;
+    margin-bottom: 0.2em;
+    padding-bottom: 0.2em;
+  `
+const Title = styled.h1`
+    font-size: 1.8em;
+    color: #d70002;
+  `
+const Button = styled.button`
+    width: 12em;
+    height: 4em;
+    margin: 0 auto;
+    border-style: none;
+    border-bottom: solid 4px #007c00;
+    border-radius: 3px;
+    background: rgba(0, 124, 0, 0.8);
+    font-family: inherit;
+    font-size: 100%;
+    font-size: 1em;
+    color: #ffffff;
+    user-select: none;
+  `
+const FooterLink = styled.div`
+    font-size: 0.8em;
+    margin-top: 10px;
+    text-align: center;
+  `

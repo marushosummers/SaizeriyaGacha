@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
     color: rgba(0, 100, 0);
     text-decoration: underline;
   }
-
 `
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {

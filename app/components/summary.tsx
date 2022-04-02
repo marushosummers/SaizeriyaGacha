@@ -1,5 +1,6 @@
 import { Menu } from '../domain/Menu'
 import { getSummary } from '../hooks/getSummary'
+import styled from 'styled-components'
 
 type Props = {
   result: Menu[]
@@ -20,22 +21,33 @@ export const Summary: React.FC<Props> = (props) => {
       <div className="summary-content">
         <ul>
           <li>
-            <span className="total-price">
+            <Price>
               {totalPrice.toLocaleString()} 円
-            </span>
+            </Price>
           </li>
           <li>
-            <span className="total-cal">
+            <Calorie>
               {totalCalorie.toLocaleString()} kcal
-            </span>
+            </Calorie>
           </li>
           <li>
-            <span className="total-solt">
+            <Salt>
               塩分 {totalSalt.toLocaleString()} g
-            </span>
+            </Salt>
           </li>
         </ul>
       </div>
     </div>
   )
 }
+
+const Price = styled.span`
+  font-size: 1.5em;
+  font-weight: bold;
+`
+const Calorie = styled.span`
+  font-size: 1.2em;
+`
+const Salt = styled.span`
+  font - size: 1.2em;
+`
