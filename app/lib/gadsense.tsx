@@ -14,7 +14,7 @@ export const GoogleBoxAds = (): JSX.Element => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
-        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
       } catch (err) {
         console.error(err)
       }
@@ -36,7 +36,7 @@ export const GoogleHeaderAds = (): JSX.Element => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
-        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
       } catch (err) {
         console.error(err)
       }
@@ -56,7 +56,7 @@ export const GoogleColumnAds = (): JSX.Element => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
-        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
       } catch (err) {
         console.error(err)
       }

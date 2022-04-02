@@ -6,7 +6,7 @@
     "production-build": "GENERATE_SOURCEMAP=false next build && next export",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
+    "format-write": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
@@ -22,8 +22,7 @@
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn lint",
-      "yarn format"
+      "yarn lint"
     ]
   },
   "dependencies": {
