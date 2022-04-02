@@ -8,7 +8,7 @@ const About = (): JSX.Element => (
       description={'サイゼリヤのメニューをガチャしよう！'}
       keyword={'サイゼリヤ,1000円,ガチャ'}
       url={process.env.NEXT_PUBLIC_BASE_URL}
-      noindex={ true }
+      noindex={true}
     />
     <AboutContent />
   </>

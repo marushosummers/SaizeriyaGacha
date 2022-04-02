@@ -1,32 +1,26 @@
-
-import {
-  TwitterShareButton,
-  TwitterIcon,
-} from 'next-share'
-import { getTweetText } from '../hooks/getTweetText';
-import { Menu } from '../domain/Menu';
+import { TwitterShareButton, TwitterIcon } from 'next-share'
+import { getTweetText } from '../hooks/getTweetText'
+import { Menu } from '../domain/Menu'
 
 type Props = {
-  result: Menu[];
+  result: Menu[]
 }
 
 export const Twitter: React.FC<Props> = (props) => {
-  const result = props.result;
+  const result = props.result
 
-  if (!result.length) return <div></div>;
+  if (!result.length) return <div></div>
 
   const tweetText = getTweetText(result)
-    return (
-      <div className="tweet">
-        <div className="balloon">
-          { "結果をツイート" }
-        </div>
-        <TwitterShareButton
-          url={process.env.NEXT_PUBLIC_BASE_URL}
-          title={tweetText}
-        >
-          <TwitterIcon size={40} round />
-        </TwitterShareButton>
-      </div>
-	);
+  return (
+    <div className="tweet">
+      <div className="balloon">{'結果をツイート'}</div>
+      <TwitterShareButton
+        url={process.env.NEXT_PUBLIC_BASE_URL}
+        title={tweetText}
+      >
+        <TwitterIcon size={40} round />
+      </TwitterShareButton>
+    </div>
+  )
 }

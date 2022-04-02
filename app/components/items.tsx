@@ -1,14 +1,13 @@
-
-import { Menu } from '../domain/Menu';
-import { Item } from './item';
+import { Menu } from '../domain/Menu'
+import { Item } from './item'
 
 type Props = {
-  result: Menu[];
+  result: Menu[]
 }
 
 export const Items: React.FC<Props> = (props) => {
-  const result = props.result;
-  if (!result.length) return <div></div>;
+  const result = props.result
+  if (!result.length) return <div></div>
 
   return (
     <div className="items">
@@ -16,5 +15,5 @@ export const Items: React.FC<Props> = (props) => {
         <Item key={index} menu={menu} />
       ))}
     </div>
-	);
+  )
 }
