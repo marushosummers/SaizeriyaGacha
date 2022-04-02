@@ -20,6 +20,16 @@ export const Main: NextPage<Props> = ({ menus }) => {
   const [loading, useLoading] = useState(false)
   const input = 1000;
 
+  // Unregister old service worker
+  // useEffect(() => {
+  //   window.navigator.serviceWorker.getRegistrations()
+  //     .then(registrations => {
+  //       for (const registration of registrations) {
+  //         registration.unregister();
+  //       }
+  //     });
+  // }, [])
+
   // TODO: refactor
   let pageClass = "page";
   if (!result.length) {

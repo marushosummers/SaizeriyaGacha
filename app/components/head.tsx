@@ -22,7 +22,7 @@ export const _Head: React.FC<Props> = ({
       <title>{title}</title>
       {/* safari */}
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="apple-mobile-web-app-title" content="saizeriya1000" />
       <link
         rel="apple-touch-icon"

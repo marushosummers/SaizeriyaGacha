@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
 import Script from 'next/script'
-import { useEffect } from 'react'
 
 // ref: https://panda-program.com/posts/nextjs-google-analytics
 
@@ -23,25 +21,6 @@ export const event = ({ action, category, label, value = '' }: Event): void => {
     event_label: label ? JSON.stringify(label) : '',
     value,
   })
-}
-
-export const usePageView = (): void => {
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!existsGaId) {
-      return
-    }
-
-    const handleRouteChange = (path: string) => {
-      pageview(path)
-    }
-
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
 }
 
 export const GoogleAnalytics = (): JSX.Element => (
