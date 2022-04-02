@@ -1,7 +1,3 @@
 export const Divider: React.FC = () => {
-  return (
-    <div className="divider">
-      { "🍝" }
-    </div>
-  );
+  return <div className="divider">{'🍝'}</div>
 }

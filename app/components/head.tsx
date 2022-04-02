@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Head from 'next/head';
+import * as React from 'react'
+import Head from 'next/head'
 
 interface Props {
-  title: string;
-  description: string;
-  keyword: string;
-  url: string;
-  noindex?: boolean;
+  title: string
+  description: string
+  keyword: string
+  url: string
+  noindex?: boolean
 }
 
 export const _Head: React.FC<Props> = ({
@@ -16,13 +16,15 @@ export const _Head: React.FC<Props> = ({
   url,
   noindex = false,
 }: Props) => {
-
   return (
     <Head>
       <title>{title}</title>
       {/* safari */}
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      />
       <meta name="apple-mobile-web-app-title" content="saizeriya1000" />
       <link
         rel="apple-touch-icon"
@@ -58,5 +60,5 @@ export const _Head: React.FC<Props> = ({
       {/* noindex */}
       {noindex && <meta key="robots" name="robots" content="noindex" />}
     </Head>
-  );
-};
+  )
+}

@@ -1,9 +1,12 @@
 import { GetStaticProps } from 'next'
+
 import { _Head } from '../components/head'
 import { Main } from '../components/main'
 
 const Home = ({ menus }): JSX.Element => {
-  if (!menus) {return <></>}
+  if (!menus) {
+    return <></>
+  }
   return (
     <>
       <_Head
@@ -21,15 +24,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${process.env.API_URL}`, {
     headers: {
       Authorization: `token ${process.env.API_TOKEN}`,
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=utf-8"
-    }
-  });
+      Accept: 'application/json',
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+  })
   const menus = await res.json()
   return {
-    props: { menus: menus }
+    props: { menus: menus },
   }
 }
-
 
 export default Home

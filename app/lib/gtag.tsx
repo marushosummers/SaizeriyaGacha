@@ -5,7 +5,7 @@ import Script from 'next/script'
 export const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ''
 export const existsGaId = GA_ID !== ''
 
-export const pageview = (path: string):void => {
+export const pageview = (path: string): void => {
   window.gtag('config', GA_ID, {
     page_path: path,
   })
@@ -27,7 +27,11 @@ export const GoogleAnalytics = (): JSX.Element => (
   <>
     {existsGaId && (
       <>
-        <Script defer src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script
+          defer
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
         <Script
           defer
           dangerouslySetInnerHTML={{
@@ -50,7 +54,7 @@ type ClickEvent = {
   category: 'gacha'
 }
 
-export type Event = (ClickEvent) & {
+export type Event = ClickEvent & {
   label?: string
   value?: string
 }

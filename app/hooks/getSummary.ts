@@ -1,11 +1,6 @@
+import { Menu } from '../domain/Menu'
 
-import { Menu } from '../domain/Menu';
-
-type Summary = [
-  price: number,
-  calorie: number,
-  salt: number,
-]
+type Summary = [price: number, calorie: number, salt: number]
 export const getSummary = (result: Menu[]): Summary => {
   const totalPrice = result.reduce((sum, item) => sum + item.price, 0)
   const totalCalorie = result.reduce((sum, item) => sum + item.calorie, 0)

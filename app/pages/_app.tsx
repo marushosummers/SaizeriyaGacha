@@ -1,7 +1,7 @@
-import "../styles/global.css";
+import '../styles/global.css'
 import { AppProps } from 'next/app'
-import { GoogleAnalytics } from "../lib/gtag";
-import { GoogleAdsHeader } from "../lib/gadsense";
+import { GoogleAnalytics } from '../lib/gtag'
+import { GoogleAdsHeader } from '../lib/gadsense'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <GoogleAdsHeader />
       <Component {...pageProps} />
     </>
-)}
+  )
+}
 
 export default MyApp
