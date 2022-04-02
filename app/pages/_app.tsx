@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: underline;
   }
 
-`;
+`
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
