@@ -26,7 +26,6 @@ export const Twitter: React.FC<Props> = (props) => {
   )
 }
 
-
 const StyledContainer = styled.div`
   margin-top: 20px;
   text-align: center;

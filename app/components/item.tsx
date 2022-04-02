@@ -11,9 +11,7 @@ export const Item: React.FC<Props> = (props) => {
   return (
     <Card>
       <h3 className="ribbon">{menu.order_code}</h3>
-      {menu.name.length < threshold && (
-        <MenuName>{menu.name}</MenuName>
-      )}
+      {menu.name.length < threshold && <MenuName>{menu.name}</MenuName>}
       {menu.name.length >= threshold && (
         <MenuNameSmall>{menu.name}</MenuNameSmall>
       )}
@@ -33,7 +31,7 @@ const Card = styled.div`
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
   padding: 0.5em 1em;
   background: #e5f2e5;
-  
+
   span {
     display: inline-block;
   }

@@ -9,7 +9,7 @@ import CloseBtn from './close.svg'
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
-import styled from "styled-components";
+import styled from 'styled-components'
 
 interface Props {
   menus: Menu[]
@@ -123,45 +123,44 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
 export default Main
 
-
 const Container = styled.div`
-    display: flex;
-    justify-content: center;
-  `
+  display: flex;
+  justify-content: center;
+`
 const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-  `
+  display: flex;
+  flex-direction: column;
+`
 const Spacer = styled.div`
-    min-height: 97vh;
-    width: 0;
-  `
+  min-height: 97vh;
+  width: 0;
+`
 const TitleComponent = styled.div`
-    border-bottom: 2px solid #007c00;
-    text-align: center;
-    margin-bottom: 0.2em;
-    padding-bottom: 0.2em;
-  `
+  border-bottom: 2px solid #007c00;
+  text-align: center;
+  margin-bottom: 0.2em;
+  padding-bottom: 0.2em;
+`
 const Title = styled.h1`
-    font-size: 1.8em;
-    color: #d70002;
-  `
+  font-size: 1.8em;
+  color: #d70002;
+`
 const Button = styled.button`
-    width: 12em;
-    height: 4em;
-    margin: 0 auto;
-    border-style: none;
-    border-bottom: solid 4px #007c00;
-    border-radius: 3px;
-    background: rgba(0, 124, 0, 0.8);
-    font-family: inherit;
-    font-size: 100%;
-    font-size: 1em;
-    color: #ffffff;
-    user-select: none;
-  `
+  width: 12em;
+  height: 4em;
+  margin: 0 auto;
+  border-style: none;
+  border-bottom: solid 4px #007c00;
+  border-radius: 3px;
+  background: rgba(0, 124, 0, 0.8);
+  font-family: inherit;
+  font-size: 100%;
+  font-size: 1em;
+  color: #ffffff;
+  user-select: none;
+`
 const FooterLink = styled.div`
-    font-size: 0.8em;
-    margin-top: 10px;
-    text-align: center;
-  `
+  font-size: 0.8em;
+  margin-top: 10px;
+  text-align: center;
+`

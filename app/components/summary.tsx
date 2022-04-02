@@ -21,19 +21,13 @@ export const Summary: React.FC<Props> = (props) => {
       <div className="summary-content">
         <ul>
           <li>
-            <Price>
-              {totalPrice.toLocaleString()} 円
-            </Price>
+            <Price>{totalPrice.toLocaleString()} 円</Price>
           </li>
           <li>
-            <Calorie>
-              {totalCalorie.toLocaleString()} kcal
-            </Calorie>
+            <Calorie>{totalCalorie.toLocaleString()} kcal</Calorie>
           </li>
           <li>
-            <Salt>
-              塩分 {totalSalt.toLocaleString()} g
-            </Salt>
+            <Salt>塩分 {totalSalt.toLocaleString()} g</Salt>
           </li>
         </ul>
       </div>
