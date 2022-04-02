@@ -23,8 +23,10 @@ services:
     volumes:
       # Update this to wherever you want VS Code to mount the folder of your project
       - .:/workspace:cached
+      - ~/.ssh:/root/.ssh #sshキー
       - ~/.gitconfig:/root/.gitconfig #gitの設定
       - ~/.vimrc:/root/.vimrc #vimの設定
+      - ~/.vim/colors/iceberg.vim:/root/.vim/colors/iceberg.vim #vimのカラーテーマ
 
       # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
       # - /var/run/docker.sock:/var/run/docker.sock 
