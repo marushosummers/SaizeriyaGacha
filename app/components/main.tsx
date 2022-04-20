@@ -10,6 +10,7 @@ import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
 import styled from 'styled-components'
+import { Frame } from './styled/frame'
 
 interface Props {
   menus: Menu[]
@@ -66,7 +67,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
       <GoogleColumnAds />
       <Content>
         {Boolean(result.length) && <GoogleHeaderAds />}
-        <div className="frame">
+        <Frame>
           <Spacer />
           <div className={pageClass}>
             <TitleComponent>
@@ -114,7 +115,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
             {Boolean(!result.length) && <GoogleBoxAds />}
             <div className={`spacer ${invisibleClass}`}></div>
           </div>
-        </div>
+        </Frame>
       </Content>
       <GoogleColumnAds />
     </Container>

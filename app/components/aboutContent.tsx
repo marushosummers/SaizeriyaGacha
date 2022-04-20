@@ -1,11 +1,14 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
+import styled from 'styled-components'
+import { device } from './styled/meida'
 import { Divider } from './divider'
+import { Frame } from './styled/frame'
 
 export const AboutContent: NextPage = () => {
   return (
-    <div className="frame">
-      <div className="about">
+    <Frame>
+      <Container>
         <h2>サイゼリヤガチャについて</h2>
         <Divider />
         <p>
@@ -71,9 +74,28 @@ export const AboutContent: NextPage = () => {
         <div className="center">
           <Link href="/">トップへ</Link>
         </div>
-      </div>
-    </div>
+      </Container>
+    </Frame>
   )
 }
 
 export default AboutContent
+
+const Container = styled.div`
+  padding: 15px;
+  color: #535353;
+
+  p {
+    font-size: 0.9em;
+    margin: 10px 0;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  @media ${device.laptop} {
+    padding: 15px 100px;
+    color: #535353;
+  }
+`

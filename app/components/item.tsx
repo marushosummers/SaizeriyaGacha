@@ -1,5 +1,6 @@
 import { Menu } from '../domain/Menu'
 import styled from 'styled-components'
+import { device } from './styled/meida'
 
 type Props = {
   menu: Menu
@@ -10,7 +11,7 @@ export const Item: React.FC<Props> = (props) => {
   const threshold = 15
   return (
     <Card>
-      <h3 className="ribbon">{menu.order_code}</h3>
+      <OrderLabel className="ribbon">{menu.order_code}</OrderLabel>
       {menu.name.length < threshold && <MenuName>{menu.name}</MenuName>}
       {menu.name.length >= threshold && (
         <MenuNameSmall>{menu.name}</MenuNameSmall>
@@ -22,6 +23,30 @@ export const Item: React.FC<Props> = (props) => {
     </Card>
   )
 }
+
+const OrderLabel = styled.h3`
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  padding: 0 6px;
+  margin: 0;
+  height: 14px;
+  line-height: 14px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: white;
+  font-style: normal;
+  background: rgba(0, 124, 0, 0.3);
+  box-shadow: 0 2px 2px rgba(0, 124, 0, 0.1);
+
+  @media ${device.laptop} {
+    padding: 0 12px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.8em;
+  }
+`
 
 const Card = styled.div`
   display: block;
