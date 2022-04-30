@@ -139,7 +139,7 @@ const MainContent = styled.div<{ isResult: boolean }>`
         `
       }
 `
-const ButtonArea = styled.div<{ isResult: boolean, isButtonAreaFloat: booklean }>`
+const ButtonArea = styled.div<{ isResult: boolean, isButtonAreaFloat: boolean }>`
   text-align: center;
 
   // ガチャ結果があるときはボタンを下に固定
