@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { device } from './styled/meida'
+import { device } from './styled/media'
 import { Divider } from './divider'
 import { Frame } from './styled/frame'
 

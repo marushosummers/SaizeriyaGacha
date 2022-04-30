@@ -1,4 +1,3 @@
-import '../styles/global.css'
 import { AppProps } from 'next/app'
 import { GoogleAnalytics } from '../lib/gtag'
 import { GoogleAdsHeader } from '../lib/gadsense'

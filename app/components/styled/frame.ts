@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from './meida'
+import { device } from './media'
 
 export const Frame = styled.div`
   display: flex;

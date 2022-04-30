@@ -1,6 +1,6 @@
 import { Menu } from '../domain/Menu'
 import styled from 'styled-components'
-import { device } from './styled/meida'
+import { device } from './styled/media'
 
 type Props = {
   menu: Menu

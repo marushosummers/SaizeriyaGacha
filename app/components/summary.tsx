@@ -1,7 +1,7 @@
 import { Menu } from '../domain/Menu'
 import { getSummary } from '../hooks/getSummary'
 import styled from 'styled-components'
-import { device } from './styled/meida'
+import { device } from './styled/media'
 
 type Props = {
   result: Menu[]

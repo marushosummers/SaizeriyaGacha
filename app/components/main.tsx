@@ -5,12 +5,13 @@ import { Result } from './result'
 import { doGacha } from '../hooks/doGatya'
 import { Menu } from '../domain/Menu'
 import { Spinner } from './spinner'
-import CloseBtn from './close.svg'
+import CloseIcon from './close.svg'
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
-import styled from 'styled-components'
 import { Frame } from './styled/frame'
+import { device } from './styled/media'
+import styled, { css } from 'styled-components'
 
 interface Props {
   menus: Menu[]
@@ -18,24 +19,10 @@ interface Props {
 
 export const Main: NextPage<Props> = ({ menus }) => {
   const [result, useResult] = useState([])
-  const [btnareaFloat, useBtnareaFloat] = useState(false)
+  const [isButtonAreaFloat, useButtonAreaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const input = 1000
-
-  // TODO: refactor
-  let pageClass = 'page'
-  if (!result.length) {
-    pageClass = 'page page-top'
-  }
-  let btnareaClass = 'buttonarea'
-  if (result.length) {
-    btnareaClass = 'buttonarea buttonarea-fixed'
-  }
-  let invisibleClass = ''
-  if (!btnareaFloat) {
-    btnareaClass = 'buttonarea'
-    invisibleClass = 'invisible'
-  }
+  const isResult = Boolean(result.length)
 
   const returnTop = () => {
     window.scrollTo({
@@ -48,7 +35,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
     const newResult = doGacha(menus, input)
     await _sleep(200)
     useResult(newResult)
-    useBtnareaFloat(true)
+    useButtonAreaFloat(true)
     returnTop()
     useLoading(false)
     gtag.event({
@@ -59,7 +46,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
   }
 
   const handleCloseButton = () => {
-    useBtnareaFloat(false)
+    useButtonAreaFloat(false)
   }
 
   return (
@@ -69,14 +56,14 @@ export const Main: NextPage<Props> = ({ menus }) => {
         {Boolean(result.length) && <GoogleHeaderAds />}
         <Frame>
           <Spacer />
-          <div className={pageClass}>
+          <MainContent isResult={isResult}>
             <TitleComponent>
               <Title>サイゼリヤ</Title>
               <Title>1000円ガチャ</Title>
             </TitleComponent>
             <Result result={result} />
-            <div className={btnareaClass}>
-              <div className="buttonarea-container">
+            <ButtonArea isResult={isResult} isButtonAreaFloat={isButtonAreaFloat}>
+              <ButtoneAreaContainer>
                 <Button
                   onClick={() => {
                     handleButton()
@@ -85,11 +72,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 >
                   {loading ? <Spinner /> : 'ガチャを回す'}
                 </Button>
-                <CloseBtn
+                <CloseButton
                   onClick={() => {
                     handleCloseButton()
                   }}
-                  className={`close-btn ${invisibleClass}`}
+                  isInvisible={!isButtonAreaFloat}
                 />
                 <FooterLink>
                   <a
@@ -110,11 +97,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
                     Twitter
                   </a>
                 </FooterLink>
-              </div>
-            </div>
+              </ButtoneAreaContainer>
+            </ButtonArea>
             {Boolean(!result.length) && <GoogleBoxAds />}
-            <div className={`spacer ${invisibleClass}`}></div>
-          </div>
+            <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />
+          </MainContent>
         </Frame>
       </Content>
       <GoogleColumnAds />
@@ -135,6 +122,68 @@ const Content = styled.div`
 const Spacer = styled.div`
   min-height: 97vh;
   width: 0;
+`
+const MainContent = styled.div<{ isResult: boolean }>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  // ガチャをしてない状態はタイトルを中央に配置
+  ${(props) =>
+    !props.isResult
+      && css`
+        flex-flow: column;
+        justify-content: center;
+        margin: 2px 5px;
+        width: 100%;
+        `
+      }
+`
+const ButtonArea = styled.div<{ isResult: boolean, isButtonAreaFloat: booklean }>`
+  text-align: center;
+
+  // ガチャ結果があるときはボタンを下に固定
+  ${(props) =>
+    props.isResult && props.isButtonAreaFloat
+      && css`
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+
+        @media ${device.laptop} {
+          position: fixed;
+          bottom: 10px;
+          left: 0px;
+          width: 100%;
+        }
+        `
+      }
+`
+const CloseButton = styled(CloseIcon)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-style: none;
+  font-size: 1em;
+  width: 1.5em;
+  border-radius: 90px;
+  color: rgba(0, 124, 0, 0.8);
+  display: ${({isInvisible}) => isInvisible ? "none" : "block"};
+`
+const ButtoneAreaContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  justify-content: center;
+  background: rgb(185, 226, 185);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.33);
+  height: 120px;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 300px;
+  border-radius: 10px;
 `
 const TitleComponent = styled.div`
   border-bottom: 2px solid #007c00;
@@ -160,8 +209,14 @@ const Button = styled.button`
   color: #ffffff;
   user-select: none;
 `
+const ButtonAreaSpacer = styled.div`
+  min-height: 160px;
+  display: ${({isInvisible}) => isInvisible ? "none" : "block"};
+`
 const FooterLink = styled.div`
   font-size: 0.8em;
   margin-top: 10px;
   text-align: center;
 `
+
+
