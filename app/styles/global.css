@@ -57,41 +57,7 @@
   color: rgba(0, 124, 0, 0.8);
 }
 
-.ads-block {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  width: 320px;
-  height: 200px;
-}
-
-.ads-header {
-  display: inline-block;
-  min-width: 300px;
-  max-width: 970px;
-  width: 100%;
-  height: 50px;
-}
-
-.ads-column {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
 @media screen and (min-width: 960px) {
-  .ads-header {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-
-  .ads-column {
-    display: inline-block;
-    width: 300px;
-    height: 600px;
-  }
-
   .buttonarea-fixed {
     position: fixed;
     bottom: 10px;
