@@ -160,7 +160,7 @@ const ButtonArea = styled.div<{ isResult: boolean, isButtonAreaFloat: booklean }
         `
       }
 `
-const CloseButton = styled(CloseIcon)`
+const CloseButton = styled(CloseIcon)<{ isInvisible: boolean }>`
   position: absolute;
   top: 10px;
   right: 10px;
@@ -209,7 +209,7 @@ const Button = styled.button`
   color: #ffffff;
   user-select: none;
 `
-const ButtonAreaSpacer = styled.div`
+const ButtonAreaSpacer = styled.div<{ isInvisible: boolean }>`
   min-height: 160px;
   display: ${({isInvisible}) => isInvisible ? "none" : "block"};
 `
