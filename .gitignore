@@ -106,3 +106,6 @@ dist
 # PWA
 *sw.js*
 *workbox*
+
+# DS Store
+**.DS_Store
