@@ -12,6 +12,7 @@ import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
 import { Frame } from './styled/frame'
 import { device } from './styled/media'
 import styled, { css } from 'styled-components'
+import { Checkbox } from './checkbox'
 
 interface Props {
   menus: Menu[]
@@ -19,6 +20,7 @@ interface Props {
 
 export const Main: NextPage<Props> = ({ menus }) => {
   const [result, useResult] = useState([])
+  const [isExtractAlcohol, setExtractAlcohol] = useState(false)
   const [isButtonAreaFloat, useButtonAreaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const input = 1000
@@ -32,7 +34,10 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   const handleButton = async () => {
     useLoading(true)
-    const newResult = doGacha(menus, input)
+    const filteredMenus = isExtractAlcohol
+      ? menus.filter((menu) => menu.name_en !== 'Alcohol')
+      : menus
+    const newResult = doGacha(filteredMenus, input)
     await _sleep(200)
     useResult(newResult)
     useButtonAreaFloat(true)
@@ -49,6 +54,10 @@ export const Main: NextPage<Props> = ({ menus }) => {
     useButtonAreaFloat(false)
   }
 
+  const handleChangeExceptAlcohol = () => {
+    setExtractAlcohol(!isExtractAlcohol)
+  }
+
   return (
     <Container>
       <GoogleColumnAds />
@@ -62,8 +71,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
               <Title>1000円ガチャ</Title>
             </TitleComponent>
             <Result result={result} />
-            <ButtonArea isResult={isResult} isButtonAreaFloat={isButtonAreaFloat}>
-              <ButtoneAreaContainer>
+            <ButtonArea
+              isResult={isResult}
+              isButtonAreaFloat={isButtonAreaFloat}
+            >
+              <ButtonAreaContainer>
                 <Button
                   onClick={() => {
                     handleButton()
@@ -72,6 +84,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 >
                   {loading ? <Spinner /> : 'ガチャを回す'}
                 </Button>
+                <Checkbox
+                  checked={isExtractAlcohol}
+                  onChange={handleChangeExceptAlcohol}
+                  labelText={'アルコール類を除く'}
+                />
                 <CloseButton
                   onClick={() => {
                     handleCloseButton()
@@ -97,7 +114,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
                     Twitter
                   </a>
                 </FooterLink>
-              </ButtoneAreaContainer>
+              </ButtonAreaContainer>
             </ButtonArea>
             {Boolean(!result.length) && <GoogleBoxAds />}
             <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />
@@ -130,35 +147,37 @@ const MainContent = styled.div<{ isResult: boolean }>`
 
   // ガチャをしてない状態はタイトルを中央に配置
   ${(props) =>
-    !props.isResult
-      && css`
-        flex-flow: column;
-        justify-content: center;
-        margin: 2px 5px;
-        width: 100%;
-        `
-      }
+    !props.isResult &&
+    css`
+      flex-flow: column;
+      justify-content: center;
+      margin: 2px 5px;
+      width: 100%;
+    `}
 `
-const ButtonArea = styled.div<{ isResult: boolean, isButtonAreaFloat: boolean }>`
+const ButtonArea = styled.div<{
+  isResult: boolean
+  isButtonAreaFloat: boolean
+}>`
   text-align: center;
 
   // ガチャ結果があるときはボタンを下に固定
   ${(props) =>
-    props.isResult && props.isButtonAreaFloat
-      && css`
+    props.isResult &&
+    props.isButtonAreaFloat &&
+    css`
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+
+      @media ${device.laptop} {
         position: fixed;
-        bottom: 0px;
+        bottom: 10px;
         left: 0px;
         width: 100%;
-
-        @media ${device.laptop} {
-          position: fixed;
-          bottom: 10px;
-          left: 0px;
-          width: 100%;
-        }
-        `
       }
+    `}
 `
 const CloseButton = styled(CloseIcon)<{ isInvisible: boolean }>`
   position: absolute;
@@ -169,9 +188,9 @@ const CloseButton = styled(CloseIcon)<{ isInvisible: boolean }>`
   width: 1.5em;
   border-radius: 90px;
   color: rgba(0, 124, 0, 0.8);
-  display: ${({isInvisible}) => isInvisible ? "none" : "block"};
+  display: ${({ isInvisible }) => (isInvisible ? 'none' : 'block')};
 `
-const ButtoneAreaContainer = styled.div`
+const ButtonAreaContainer = styled.div`
   position: relative;
   display: flex;
   flex-flow: column;
@@ -211,12 +230,9 @@ const Button = styled.button`
 `
 const ButtonAreaSpacer = styled.div<{ isInvisible: boolean }>`
   min-height: 160px;
-  display: ${({isInvisible}) => isInvisible ? "none" : "block"};
+  display: ${({ isInvisible }) => (isInvisible ? 'none' : 'block')};
 `
 const FooterLink = styled.div`
   font-size: 0.8em;
-  margin-top: 10px;
   text-align: center;
 `
-
-

@@ -1,9 +1,14 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 
 import { _Head } from '../components/head'
 import { Main } from '../components/main'
+import { Menu } from '../domain/Menu'
 
-const Home = ({ menus }): JSX.Element => {
+type Props = {
+  menus: Menu[]
+}
+
+const Home: NextPage<Props> = ({ menus }) => {
   if (!menus) {
     return <></>
   }
