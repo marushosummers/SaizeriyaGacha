@@ -53,7 +53,7 @@ export const AboutContent: NextPage = () => {
         <p>
           カロリー・塩分の記載が無い商品については、0kcal・塩分0gとしています
         </p>
-        (2022.04.10 更新)
+        (2022.12.29 更新)
         <Divider />
         <h3>免責事項</h3>
         <p>
