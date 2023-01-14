@@ -179,7 +179,7 @@ const ButtonArea = styled.div<{
       }
     `}
 `
-const CloseButton = styled(CloseIcon)<{ isInvisible: boolean }>`
+const CloseButton = styled(CloseIcon)`
   position: absolute;
   top: 10px;
   right: 10px;
