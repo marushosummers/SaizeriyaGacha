@@ -28,11 +28,12 @@
   "dependencies": {
     "@types/gtag.js": "^0.0.8",
     "@types/styled-components": "^5.1.17",
-    "next": "^12.0.9",
+    "eslint-config-next": "^13.1.2",
+    "next": "^13.1.2",
     "next-pwa": "^5.4.4",
     "next-share": "^0.12.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "serve": "^13.0.2",
     "styled-components": "^5.3.3"
   },
