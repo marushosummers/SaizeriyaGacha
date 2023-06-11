@@ -10,9 +10,7 @@
     "lint": "eslint . --ext ts --ext tsx",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
-    "serve": "serve ./out",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "serve": "serve ./out"
   },
   "husky": {
     "hooks": {
@@ -39,10 +37,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
-    "@storybook/addon-actions": "^6.4.18",
-    "@storybook/addon-essentials": "^6.4.18",
-    "@storybook/addon-links": "^6.4.18",
-    "@storybook/react": "^6.4.18",
     "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.14.25",
