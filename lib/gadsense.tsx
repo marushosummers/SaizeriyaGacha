@@ -1,6 +1,7 @@
+'use client'
+
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import { device } from './../components/styled/media'
+
 
 export const GoogleAdsHeader = (): JSX.Element => (
   <>
@@ -24,13 +25,13 @@ export const GoogleBoxAds = (): JSX.Element => {
   }, [])
 
   return (
-    <AdsBoxInsert
+    <ins
       className="adsbygoogle"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7072512565"
       data-ad-format="auto"
       data-full-width-responsive="false"
-    ></AdsBoxInsert>
+    ></ins>
   )
 }
 
@@ -46,11 +47,11 @@ export const GoogleHeaderAds = (): JSX.Element => {
   }, [])
 
   return (
-    <AdsHeaderInsert
+    <ins
       className="adsbygoogle"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="1694695821"
-    ></AdsHeaderInsert>
+    ></ins>
   )
 }
 
@@ -66,44 +67,44 @@ export const GoogleColumnAds = (): JSX.Element => {
   }, [])
 
   return (
-    <AdsColumnInsert
+    <ins
       className="adsbygoogle"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7849040636"
-    ></AdsColumnInsert>
+    ></ins>
   )
 }
 
-const AdsBoxInsert = styled.ins`
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  width: 320px;
-  height: 200px;
-`
+// const AdsBoxInsert = styled.ins`
+//   display: block;
+//   text-align: center;
+//   margin: 0 auto;
+//   width: 320px;
+//   height: 200px;
+// `
 
-const AdsHeaderInsert = styled.ins`
-  display: inline-block;
-  min-width: 300px;
-  max-width: 970px;
-  width: 100%;
-  height: 50px;
+// const AdsHeaderInsert = styled.ins`
+//   display: inline-block;
+//   min-width: 300px;
+//   max-width: 970px;
+//   width: 100%;
+//   height: 50px;
 
-  @media ${device.laptop} {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-`
+//   @media ${device.laptop} {
+//     display: none;
+//     width: 0;
+//     height: 0;
+//   }
+// `
 
-const AdsColumnInsert = styled.ins`
-  display: none;
-  width: 0;
-  height: 0;
+// const AdsColumnInsert = styled.ins`
+//   display: none;
+//   width: 0;
+//   height: 0;
 
-  @media ${device.laptop} {
-    display: inline-block;
-    width: 300px;
-    height: 600px;
-  }
-`
+//   @media ${device.laptop} {
+//     display: inline-block;
+//     width: 300px;
+//     height: 600px;
+//   }
+// `

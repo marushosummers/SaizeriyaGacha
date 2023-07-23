@@ -33,6 +33,7 @@ export const GoogleAnalytics = (): JSX.Element => (
           strategy="afterInteractive"
         />
         <Script
+          id='ga-script'
           defer
           dangerouslySetInnerHTML={{
             __html: `

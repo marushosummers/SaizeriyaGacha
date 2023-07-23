@@ -1,5 +1,5 @@
-import { Menu } from '../domain/Menu'
 import { Item } from './item'
+import { Menu } from '../domain/Menu'
 
 type Props = {
   result: Menu[]

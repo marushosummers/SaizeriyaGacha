@@ -1,5 +1,6 @@
-import * as React from 'react'
+/* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head'
+import * as React from 'react'
 
 interface Props {
   title: string
