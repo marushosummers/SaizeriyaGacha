@@ -1,7 +1,9 @@
 'use client'
 
 import React, { useEffect } from 'react'
+import styled from 'styled-components'
 
+import { device } from '@/components/styled/media'
 
 export const GoogleAdsHeader = (): JSX.Element => (
   <>
@@ -25,13 +27,13 @@ export const GoogleBoxAds = (): JSX.Element => {
   }, [])
 
   return (
-    <ins
+    <AdsBoxInsert
       className="adsbygoogle"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7072512565"
       data-ad-format="auto"
       data-full-width-responsive="false"
-    ></ins>
+    ></AdsBoxInsert>
   )
 }
 
@@ -47,11 +49,11 @@ export const GoogleHeaderAds = (): JSX.Element => {
   }, [])
 
   return (
-    <ins
+    <AdsHeaderInsert
       className="adsbygoogle"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="1694695821"
-    ></ins>
+    ></AdsHeaderInsert>
   )
 }
 
@@ -67,44 +69,44 @@ export const GoogleColumnAds = (): JSX.Element => {
   }, [])
 
   return (
-    <ins
+    <AdsColumnInsert
       className="adsbygoogle"
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7849040636"
-    ></ins>
+    ></AdsColumnInsert>
   )
 }
 
-// const AdsBoxInsert = styled.ins`
-//   display: block;
-//   text-align: center;
-//   margin: 0 auto;
-//   width: 320px;
-//   height: 200px;
-// `
+const AdsBoxInsert = styled.ins`
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 320px;
+  height: 200px;
+`
 
-// const AdsHeaderInsert = styled.ins`
-//   display: inline-block;
-//   min-width: 300px;
-//   max-width: 970px;
-//   width: 100%;
-//   height: 50px;
+const AdsHeaderInsert = styled.ins`
+  display: inline-block;
+  min-width: 300px;
+  max-width: 970px;
+  width: 100%;
+  height: 50px;
 
-//   @media ${device.laptop} {
-//     display: none;
-//     width: 0;
-//     height: 0;
-//   }
-// `
+  @media ${device.laptop} {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+`
 
-// const AdsColumnInsert = styled.ins`
-//   display: none;
-//   width: 0;
-//   height: 0;
+const AdsColumnInsert = styled.ins`
+  display: none;
+  width: 0;
+  height: 0;
 
-//   @media ${device.laptop} {
-//     display: inline-block;
-//     width: 300px;
-//     height: 600px;
-//   }
-// `
+  @media ${device.laptop} {
+    display: inline-block;
+    width: 300px;
+    height: 600px;
+  }
+`

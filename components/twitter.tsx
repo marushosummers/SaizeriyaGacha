@@ -1,5 +1,5 @@
 import { TwitterShareButton, TwitterIcon } from 'next-share'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 import { Menu } from '../domain/Menu'
 import { getTweetText } from '../hooks/getTweetText'
@@ -15,43 +15,43 @@ export const Twitter: React.FC<Props> = (props) => {
 
   const tweetText = getTweetText(result)
   return (
-    <>
-      <>{'結果をツイート'}</>
+    <StyledContainer>
+      <Baloon>{'結果をツイート'}</Baloon>
       <TwitterShareButton
         url={process.env.NEXT_PUBLIC_BASE_URL}
         title={tweetText}
       >
         <TwitterIcon size={40} round />
       </TwitterShareButton>
-    </>
+    </StyledContainer>
   )
 }
 
-// const StyledContainer = styled.div`
-//   margin-top: 20px;
-//   text-align: center;
-// `
+const StyledContainer = styled.div`
+  margin-top: 20px;
+  text-align: center;
+`
 
-// const Baloon = styled.div`
-//   position: relative;
-//   text-align: center;
-//   margin: 0 auto 10px;
-//   padding: 7px 10px;
-//   width: 100px;
-//   height: 15px;
-//   color: rgba(0, 124, 0, 1);
-//   font-size: 0.7em;
+const Baloon = styled.div`
+  position: relative;
+  text-align: center;
+  margin: 0 auto 10px;
+  padding: 7px 10px;
+  width: 100px;
+  height: 15px;
+  color: rgba(0, 124, 0, 1);
+  font-size: 0.7em;
 
-//   background: #e5f2e5;
-//   border-radius: 15px;
+  background: #e5f2e5;
+  border-radius: 15px;
 
-//   &:before {
-//     content: '';
-//     position: absolute;
-//     top: 100%;
-//     left: 50%;
-//     margin-left: -5px;
-//     border: 5px solid transparent;
-//     border-top: 5px solid #e0edff;
-//   }
-// `
+  &:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-top: 5px solid #e0edff;
+  }
+`
