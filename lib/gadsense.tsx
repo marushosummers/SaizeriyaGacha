@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
-import { device } from '@/components/styled/media'
+import { device } from '@/components/styled/media';
 
 export const GoogleAdsHeader = (): JSX.Element => (
   <>
@@ -13,18 +13,18 @@ export const GoogleAdsHeader = (): JSX.Element => (
       data-ad-client="ca-pub-7961076646821939"
     />
   </>
-)
+);
 
 export const GoogleBoxAds = (): JSX.Element => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({})
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
     }
-  }, [])
+  }, []);
 
   return (
     <AdsBoxInsert
@@ -34,19 +34,19 @@ export const GoogleBoxAds = (): JSX.Element => {
       data-ad-format="auto"
       data-full-width-responsive="false"
     ></AdsBoxInsert>
-  )
-}
+  );
+};
 
 export const GoogleHeaderAds = (): JSX.Element => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({})
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
     }
-  }, [])
+  }, []);
 
   return (
     <AdsHeaderInsert
@@ -54,19 +54,19 @@ export const GoogleHeaderAds = (): JSX.Element => {
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="1694695821"
     ></AdsHeaderInsert>
-  )
-}
+  );
+};
 
 export const GoogleColumnAds = (): JSX.Element => {
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({})
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
     }
-  }, [])
+  }, []);
 
   return (
     <AdsColumnInsert
@@ -74,8 +74,8 @@ export const GoogleColumnAds = (): JSX.Element => {
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7849040636"
     ></AdsColumnInsert>
-  )
-}
+  );
+};
 
 const AdsBoxInsert = styled.ins`
   display: block;
@@ -83,7 +83,7 @@ const AdsBoxInsert = styled.ins`
   margin: 0 auto;
   width: 320px;
   height: 200px;
-`
+`;
 
 const AdsHeaderInsert = styled.ins`
   display: inline-block;
@@ -97,7 +97,7 @@ const AdsHeaderInsert = styled.ins`
     width: 0;
     height: 0;
   }
-`
+`;
 
 const AdsColumnInsert = styled.ins`
   display: none;
@@ -109,4 +109,4 @@ const AdsColumnInsert = styled.ins`
     width: 300px;
     height: 600px;
   }
-`
+`;

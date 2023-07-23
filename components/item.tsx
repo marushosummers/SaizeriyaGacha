@@ -1,30 +1,27 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { device } from './styled/media'
+import { device } from './styled/media';
 
-import { Menu } from '@/domain/Menu'
+import { Menu } from '@/domain/Menu';
 
 type Props = {
-  menu: Menu
-}
+  menu: Menu;
+};
 
 export const Item: React.FC<Props> = (props) => {
-  const menu = props.menu
-  const threshold = 15
+  const menu = props.menu;
+  const threshold = 15;
   return (
     <Card>
       <OrderLabel className="ribbon">{menu.order_code}</OrderLabel>
       {menu.name.length < threshold && <MenuName>{menu.name}</MenuName>}
-      {menu.name.length >= threshold && (
-        <MenuNameSmall>{menu.name}</MenuNameSmall>
-      )}
+      {menu.name.length >= threshold && <MenuNameSmall>{menu.name}</MenuNameSmall>}
       <p>
-        {menu.price}円 {menu.calorie}kcal 塩分 {Math.round(menu.salt * 10) / 10}{' '}
-        g
+        {menu.price}円 {menu.calorie}kcal 塩分 {Math.round(menu.salt * 10) / 10} g
       </p>
     </Card>
-  )
-}
+  );
+};
 
 const OrderLabel = styled.h3`
   display: inline-block;
@@ -48,7 +45,7 @@ const OrderLabel = styled.h3`
     line-height: 30px;
     font-size: 0.8em;
   }
-`
+`;
 
 const Card = styled.div`
   display: block;
@@ -73,11 +70,11 @@ const Card = styled.div`
     margin: 0;
     padding: 0;
   }
-`
+`;
 
 const MenuName = styled.h2`
   font-size: 1.2em;
-`
+`;
 const MenuNameSmall = styled.h2`
   font-size: 0.9em;
-`
+`;

@@ -40,15 +40,7 @@
     "import/order": [
       "warn",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          ["parent", "sibling"],
-          "object",
-          "type",
-          "index"
-        ],
+        "groups": ["builtin", "external", "internal", ["parent", "sibling"], "object", "type", "index"],
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": { "order": "asc", "caseInsensitive": true }

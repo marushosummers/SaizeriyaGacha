@@ -1,36 +1,33 @@
-import { TwitterShareButton, TwitterIcon } from 'next-share'
-import styled from 'styled-components'
+import { TwitterShareButton, TwitterIcon } from 'next-share';
+import styled from 'styled-components';
 
-import { Menu } from '../domain/Menu'
-import { getTweetText } from '../lib/getTweetText'
+import { Menu } from '../domain/Menu';
+import { getTweetText } from '../lib/getTweetText';
 
 type Props = {
-  result: Menu[]
-}
+  result: Menu[];
+};
 
 export const Twitter: React.FC<Props> = (props) => {
-  const result = props.result
+  const result = props.result;
 
-  if (!result.length) return <div></div>
+  if (!result.length) return <div></div>;
 
-  const tweetText = getTweetText(result)
+  const tweetText = getTweetText(result);
   return (
     <StyledContainer>
       <Baloon>{'結果をツイート'}</Baloon>
-      <TwitterShareButton
-        url={process.env.NEXT_PUBLIC_BASE_URL}
-        title={tweetText}
-      >
+      <TwitterShareButton url={process.env.NEXT_PUBLIC_BASE_URL} title={tweetText}>
         <TwitterIcon size={40} round />
       </TwitterShareButton>
     </StyledContainer>
-  )
-}
+  );
+};
 
 const StyledContainer = styled.div`
   margin-top: 20px;
   text-align: center;
-`
+`;
 
 const Baloon = styled.div`
   position: relative;
@@ -54,4 +51,4 @@ const Baloon = styled.div`
     border: 5px solid transparent;
     border-top: 5px solid #e0edff;
   }
-`
+`;

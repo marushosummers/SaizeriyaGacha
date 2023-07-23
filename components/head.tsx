@@ -1,37 +1,24 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import Head from 'next/head'
-import * as React from 'react'
+import Head from 'next/head';
+import * as React from 'react';
 
 interface Props {
-  title: string
-  description: string
-  keyword: string
-  url: string
-  noindex?: boolean
+  title: string;
+  description: string;
+  keyword: string;
+  url: string;
+  noindex?: boolean;
 }
 
-export const _Head: React.FC<Props> = ({
-  title,
-  description,
-  keyword,
-  url,
-  noindex = false,
-}: Props) => {
+export const _Head: React.FC<Props> = ({ title, description, keyword, url, noindex = false }: Props) => {
   return (
     <Head>
       <title>{title}</title>
       {/* safari */}
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta
-        name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent"
-      />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="apple-mobile-web-app-title" content="saizeriya1000" />
-      <link
-        rel="apple-touch-icon"
-        sizes="120x120"
-        href="/apple-touch-icon-120x120.png"
-      />
+      <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
       {/* 一般 */}
       <link rel="manifest" href="/manifest.json" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -53,13 +40,10 @@ export const _Head: React.FC<Props> = ({
       <link rel="apple-touch-icon" href={`${url}/apple-touch-icon.png`} />
 
       {/* Font */}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@800&display=swap"
-        rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@800&display=swap" rel="stylesheet" />
 
       {/* noindex */}
       {noindex && <meta key="robots" name="robots" content="noindex" />}
     </Head>
-  )
-}
+  );
+};

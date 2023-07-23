@@ -1,6 +1,5 @@
-
-import { _Head } from '../components/head'
-import { Main } from '../components/main'
+import { _Head } from '../components/head';
+import { Main } from '../components/main';
 
 export default async function Home() {
   const res = await fetch(`${process.env.API_URL}`, {
@@ -9,11 +8,11 @@ export default async function Home() {
       Accept: 'application/json',
       'Content-Type': 'application/json;charset=utf-8',
     },
-  })
-  const menus = await res.json()
+  });
+  const menus = await res.json();
 
   if (!menus) {
-    return <></>
+    return <></>;
   }
 
   return (
@@ -26,6 +25,5 @@ export default async function Home() {
       />
       <Main menus={menus} />
     </>
-  )
+  );
 }
-

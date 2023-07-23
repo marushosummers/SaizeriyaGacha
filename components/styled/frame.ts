@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { device } from './media'
+import { device } from './media';
 
 export const Frame = styled.div`
   display: flex;
@@ -21,4 +21,4 @@ export const Frame = styled.div`
     padding: 1em;
     background: white;
   }
-`
+`;

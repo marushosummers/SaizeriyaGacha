@@ -1,19 +1,19 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { device } from './styled/media'
-import { Menu } from '../domain/Menu'
-import { getSummary } from '../lib/getSummary'
+import { device } from './styled/media';
+import { Menu } from '../domain/Menu';
+import { getSummary } from '../lib/getSummary';
 
 type Props = {
-  result: Menu[]
-}
+  result: Menu[];
+};
 
 export const Summary: React.FC<Props> = (props) => {
-  const result = props.result
+  const result = props.result;
 
-  if (!result.length) return <div></div>
+  if (!result.length) return <div></div>;
 
-  const [totalPrice, totalCalorie, totalSalt] = getSummary(result)
+  const [totalPrice, totalCalorie, totalSalt] = getSummary(result);
 
   return (
     <SummaryWrapper>
@@ -34,8 +34,8 @@ export const Summary: React.FC<Props> = (props) => {
         </ul>
       </SummaryContent>
     </SummaryWrapper>
-  )
-}
+  );
+};
 
 const SummaryWrapper = styled.div`
   display: flex;
@@ -49,9 +49,8 @@ const SummaryWrapper = styled.div`
     margin: 1em auto;
     max-width: 300px;
   }
-`
-const SummaryLabel = styled.div`
-`
+`;
+const SummaryLabel = styled.div``;
 const SummaryContent = styled.div`
   ul {
     margin: 0;
@@ -61,19 +60,19 @@ const SummaryContent = styled.div`
   }
 
   @media ${device.laptop} {
-  span {
-    font-size: 1.5em;
-    font-weight: bold;
+    span {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
   }
-  }
-`
+`;
 const Price = styled.span`
   font-size: 1.5em;
   font-weight: bold;
-`
+`;
 const Calorie = styled.span`
   font-size: 1.2em;
-`
+`;
 const Salt = styled.span`
   font - size: 1.2em;
-`
+`;

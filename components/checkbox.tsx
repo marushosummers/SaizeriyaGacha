@@ -1,19 +1,14 @@
-import { ChangeEventHandler } from 'react'
-import styled from 'styled-components'
+import { ChangeEventHandler } from 'react';
+import styled from 'styled-components';
 
 type Props = {
-  checked: boolean
-  onChange: ChangeEventHandler<HTMLInputElement>
-  className?: string
-  labelText: string
-}
+  checked: boolean;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  className?: string;
+  labelText: string;
+};
 
-export const Checkbox: React.FC<Props> = ({
-  checked,
-  onChange,
-  className,
-  labelText,
-}) => {
+export const Checkbox: React.FC<Props> = ({ checked, onChange, className, labelText }) => {
   return (
     <label>
       <CheckboxContainer className={className}>
@@ -26,20 +21,20 @@ export const Checkbox: React.FC<Props> = ({
       </CheckboxContainer>
       <Text>{labelText}</Text>
     </label>
-  )
-}
+  );
+};
 
 const Text = styled.span`
   margin-left: 8px;
   font-size: 0.7em;
   font-weight: 50;
   color: rgba(0, 124, 0, 1);
-`
+`;
 
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: -7px;
-`
+`;
 
 const Icon = styled.svg`
   fill: none;
@@ -47,7 +42,7 @@ const Icon = styled.svg`
   stroke-width: 2px;
   width: 12px;
   hight: 12px;
-`
+`;
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
@@ -60,11 +55,11 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   white-space: nowrap;
   width: 1px;
-`
+`;
 
 type StyledProps = {
-  checked: boolean
-}
+  checked: boolean;
+};
 
 const StyledCheckbox = styled.div<StyledProps>`
   display: inline-block;
@@ -82,4 +77,4 @@ const StyledCheckbox = styled.div<StyledProps>`
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
     vertical-align: 5px;
   }
-`
+`;
