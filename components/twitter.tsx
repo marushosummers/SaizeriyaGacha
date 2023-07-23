@@ -2,7 +2,7 @@ import { TwitterShareButton, TwitterIcon } from 'next-share'
 import styled from 'styled-components'
 
 import { Menu } from '../domain/Menu'
-import { getTweetText } from '../hooks/getTweetText'
+import { getTweetText } from '../lib/getTweetText'
 
 type Props = {
   result: Menu[]

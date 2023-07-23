@@ -1,5 +1,5 @@
-import { Menu } from '../domain/Menu'
 import { getSummary } from './getSummary'
+import { Menu } from '../domain/Menu'
 
 export const getTweetText = (result: Menu[]): string => {
   const menus = result.reduce((txt, item) => txt + item.name + '\n', '')

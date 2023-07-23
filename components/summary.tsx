@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { device } from './styled/media'
 import { Menu } from '../domain/Menu'
-import { getSummary } from '../hooks/getSummary'
+import { getSummary } from '../lib/getSummary'
 
 type Props = {
   result: Menu[]
