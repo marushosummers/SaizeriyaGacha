@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { device } from './styled/media';
-
 import { Menu } from '@/domain/Menu';
+
+import { device } from './styled/media';
 
 type Props = {
   menu: Menu;
