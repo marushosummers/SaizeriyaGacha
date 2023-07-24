@@ -2,7 +2,10 @@ import { Menu } from '../domain/Menu'
 import { getSummary } from './getSummary'
 
 export const getTweetText = (result: Menu[]): string => {
-  const menus = result.reduce((txt, item) => txt + item.name + '\n', '')
+  const menus = result.reduce(
+    (txt, item) => txt + item.emoji + ' ' + item.name + '\n',
+    ''
+  )
   const [totalPrice, totalCalorie, totalSalt] = getSummary(result)
   const summary =
     '計 ' +

@@ -5,4 +5,5 @@ export type Menu = {
   price: number
   calorie: number
   salt: number
+  emoji: string
 }

@@ -48,12 +48,20 @@ export const AboutContent: NextPage = () => {
           >
             グランドメニュー
           </a>
+          ・
+          <a
+            href="https://allergy.saizeriya.co.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            アレルゲン一覧
+          </a>
           を参照しています
         </p>
         <p>
           カロリー・塩分の記載が無い商品については、0kcal・塩分0gとしています
         </p>
-        (2022.12.29 更新)
+        (2023.07.25 更新)
         <Divider />
         <h3>免責事項</h3>
         <p>
