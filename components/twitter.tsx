@@ -1,8 +1,9 @@
-import { TwitterShareButton, TwitterIcon } from 'next-share';
-import styled from 'styled-components';
+import { TwitterShareButton } from 'next-share'
+import styled from 'styled-components'
 
-import { Menu } from '../domain/Menu';
-import { getTweetText } from '../lib/getTweetText';
+import { getTweetText } from '@/lib/getTweetText';
+
+import { Menu } from '../domain/Menu'
 
 type Props = {
   result: Menu[];
@@ -17,8 +18,17 @@ export const Twitter: React.FC<Props> = (props) => {
   return (
     <StyledContainer>
       <Baloon>{'結果をツイート'}</Baloon>
-      <TwitterShareButton url={process.env.NEXT_PUBLIC_BASE_URL} title={tweetText}>
-        <TwitterIcon size={40} round />
+      <TwitterShareButton
+        url={process.env.NEXT_PUBLIC_BASE_URL}
+        title={tweetText}
+      >
+        <IconWrapper style={{ width: '35px', height: '35px' }}>
+          <img
+            src={`${process.env.NEXT_PUBLIC_BASE_URL}/twitter-x-logo.png`}
+            alt="Twitter"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </IconWrapper>
       </TwitterShareButton>
     </StyledContainer>
   );
@@ -51,4 +61,10 @@ const Baloon = styled.div`
     border: 5px solid transparent;
     border-top: 5px solid #e0edff;
   }
-`;
+`
+
+const IconWrapper = styled.div`
+  margin: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+`

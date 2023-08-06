@@ -1,12 +1,10 @@
-import { Metadata } from 'next';
-import { ReactNode } from 'react';
-
 import { _Head } from '@/components/head';
 import { GoogleAdsHeader } from '@/lib/gadsense';
 import { GoogleAnalytics } from '@/lib/gtag';
 import StyledComponentsRegistry from '@/lib/registry';
+import { ReactNode } from 'react';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'サイゼリヤ1000円ガチャ',
   description: 'サイゼリヤのメニューでガチャしよう！',
 };
