@@ -71,6 +71,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
               <Title>1000円ガチャ</Title>
             </TitleComponent>
             <Result result={result} />
+            {Boolean(result.length) && <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />}
             <ButtonArea
               isResult={isResult}
               isButtonAreaFloat={isButtonAreaFloat}
@@ -116,7 +117,6 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 </FooterLink>
               </ButtonAreaContainer>
             </ButtonArea>
-            {Boolean(result.length) && <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />}
             <GoogleBoxAds />
           </MainContent>
         </Frame>
@@ -166,17 +166,10 @@ const ButtonArea = styled.div<{
     props.isResult &&
     props.isButtonAreaFloat &&
     css`
-      position: fixed;
+      position: sticky;
       bottom: 0px;
       left: 0px;
       width: 100%;
-
-      @media ${device.laptop} {
-        position: fixed;
-        bottom: 10px;
-        left: 0px;
-        width: 100%;
-      }
     `}
 `
 const CloseButton = styled(CloseIcon)`
