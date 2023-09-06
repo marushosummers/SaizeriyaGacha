@@ -77,7 +77,9 @@ export const GoogleColumnAds = (): JSX.Element => {
 const AdsBoxInsert = styled.ins`
   display: block;
   text-align: center;
-  margin: 10px auto;
+  margin: 0 auto;
+  width: 320px;
+  height: 200px;
 `
 
 const AdsHeaderInsert = styled.ins`
