@@ -10,7 +10,6 @@ import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
 import { Frame } from './styled/frame'
-import { device } from './styled/media'
 import styled, { css } from 'styled-components'
 import { Checkbox } from './checkbox'
 
@@ -222,7 +221,7 @@ const Button = styled.button`
   user-select: none;
 `
 const ButtonAreaSpacer = styled.div<{ isInvisible: boolean }>`
-  min-height: 160px;
+  min-height: 180px;
   display: ${({ isInvisible }) => (isInvisible ? 'none' : 'block')};
 `
 const FooterLink = styled.div`
