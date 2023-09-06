@@ -29,7 +29,7 @@ export const GoogleBoxAds = (): JSX.Element => {
       data-ad-client="ca-pub-7961076646821939"
       data-ad-slot="7072512565"
       data-ad-format="auto"
-      data-full-width-responsive="false"
+      data-full-width-responsive="true"
     ></AdsBoxInsert>
   )
 }
@@ -77,9 +77,7 @@ export const GoogleColumnAds = (): JSX.Element => {
 const AdsBoxInsert = styled.ins`
   display: block;
   text-align: center;
-  margin: 0 auto;
-  width: 320px;
-  height: 200px;
+  margin: 10px auto;
 `
 
 const AdsHeaderInsert = styled.ins`
