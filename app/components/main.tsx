@@ -116,8 +116,8 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 </FooterLink>
               </ButtonAreaContainer>
             </ButtonArea>
+            {Boolean(result.length) && <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />}
             <GoogleBoxAds />
-            <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />
           </MainContent>
         </Frame>
       </Content>
