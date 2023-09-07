@@ -3,6 +3,7 @@ import { device } from './media'
 
 export const Frame = styled.div`
   display: flex;
+  flex-direction: column;
   margin: 0 5px;
   padding: 2px 10px;
   border: 5px double #007c00;
