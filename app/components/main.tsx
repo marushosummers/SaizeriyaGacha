@@ -61,7 +61,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
     <Container>
       <GoogleColumnAds />
       <Content>
-        {Boolean(result.length) && <GoogleHeaderAds />}
+        <GoogleHeaderAds />
         <Frame>
           <Spacer />
           <MainContent isResult={isResult}>
@@ -69,8 +69,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
               <Title>サイゼリヤ</Title>
               <Title>1000円ガチャ</Title>
             </TitleComponent>
-            <Result result={result} />
-            {Boolean(result.length) && <ButtonAreaSpacer isInvisible={!isButtonAreaFloat} />}
+            {Boolean(result.length) && (
+              <ResultContent>
+                <Result result={result} />
+              </ResultContent>
+            )}
             <ButtonArea
               isResult={isResult}
               isButtonAreaFloat={isButtonAreaFloat}
@@ -116,8 +119,8 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 </FooterLink>
               </ButtonAreaContainer>
             </ButtonArea>
-            <GoogleBoxAds />
           </MainContent>
+          <GoogleBoxAds />
         </Frame>
       </Content>
       <GoogleColumnAds />
@@ -135,14 +138,14 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
 `
-const Spacer = styled.div`
-  min-height: 97vh;
-  width: 0;
+const ResultContent = styled.div`
+  min-height: 80vh;
 `
 const MainContent = styled.div<{ isResult: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 80vh;
 
   // ガチャをしてない状態はタイトルを中央に配置
   ${(props) =>
@@ -219,10 +222,6 @@ const Button = styled.button`
   font-size: 1em;
   color: #ffffff;
   user-select: none;
-`
-const ButtonAreaSpacer = styled.div<{ isInvisible: boolean }>`
-  min-height: 180px;
-  display: ${({ isInvisible }) => (isInvisible ? 'none' : 'block')};
 `
 const FooterLink = styled.div`
   font-size: 0.8em;
