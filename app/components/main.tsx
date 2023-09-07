@@ -63,7 +63,6 @@ export const Main: NextPage<Props> = ({ menus }) => {
       <Content>
         <GoogleHeaderAds />
         <Frame>
-          <Spacer />
           <MainContent isResult={isResult}>
             <TitleComponent>
               <Title>サイゼリヤ</Title>
