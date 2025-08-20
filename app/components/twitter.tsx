@@ -15,7 +15,7 @@ export const Twitter: React.FC<Props> = (props) => {
   const tweetText = getTweetText(result)
   return (
     <StyledContainer>
-      <Baloon>{'結果をツイート'}</Baloon>
+      <Baloon>{'結果をポスト'}</Baloon>
       <TwitterShareButton
         url={process.env.NEXT_PUBLIC_BASE_URL}
         title={tweetText}
@@ -23,7 +23,7 @@ export const Twitter: React.FC<Props> = (props) => {
         <IconWrapper style={{ width: '35px', height: '35px' }}>
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_URL}/twitter-x-logo.png`}
-            alt="Twitter"
+            alt="X"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </IconWrapper>

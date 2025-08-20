@@ -113,7 +113,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Twitter
+                    X
                   </a>
                 </FooterLink>
               </ButtonAreaContainer>
