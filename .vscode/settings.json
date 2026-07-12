@@ -1,3 +1,14 @@
 {
-  "cSpell.words": ["Gacha"]
+  "cSpell.words": ["Gacha"],
+  "window.title": "${rootName} ${activeEditorShort}${separator}${appName}",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#4A7C59",
+    "titleBar.activeForeground": "#F5F5DC",
+    "titleBar.inactiveBackground": "#6BA876",
+    "titleBar.inactiveForeground": "#FFFFFF",
+    "activityBar.background": "#5A9B6E",
+    "activityBar.foreground": "#FFFFFF",
+    "statusBar.background": "#4A7C59",
+    "statusBar.foreground": "#F5F5DC"
+  }
 }
