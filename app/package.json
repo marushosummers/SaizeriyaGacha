@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "PORT=3200 next dev",
+    "dev": "PORT=3200 next dev -H 127.0.0.1",
     "build": "next build",
     "production-build": "GENERATE_SOURCEMAP=false next build",
     "start": "PORT=3201 next start",
