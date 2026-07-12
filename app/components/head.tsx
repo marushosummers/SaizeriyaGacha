@@ -51,12 +51,6 @@ export const _Head: React.FC<Props> = ({
       <link rel="shortcut icon" href={`${url}/favicon.ico`} />
       <link rel="apple-touch-icon" href={`${url}/apple-touch-icon.png`} />
 
-      {/* Font */}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@800&display=swap"
-        rel="stylesheet"
-      />
-
       {/* noindex */}
       {noindex && <meta key="robots" name="robots" content="noindex" />}
     </Head>
