@@ -5,7 +5,6 @@ import { Result } from './result'
 import { doGacha } from '../hooks/doGatya'
 import { Menu } from '../domain/Menu'
 import { Spinner } from './spinner'
-import CloseIcon from './close.svg'
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
 import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
@@ -63,7 +62,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
       <Content>
         <GoogleHeaderAds />
         <Frame>
-          <MainContent isResult={isResult}>
+          <MainContent $isResult={isResult}>
             <TitleComponent>
               <Title>サイゼリヤ</Title>
               <Title>1000円ガチャ</Title>
@@ -74,8 +73,8 @@ export const Main: NextPage<Props> = ({ menus }) => {
               </ResultContent>
             )}
             <ButtonArea
-              isResult={isResult}
-              isButtonAreaFloat={isButtonAreaFloat}
+              $isResult={isResult}
+              $isButtonAreaFloat={isButtonAreaFloat}
             >
               <ButtonAreaContainer>
                 <Button
@@ -92,10 +91,12 @@ export const Main: NextPage<Props> = ({ menus }) => {
                   labelText={'アルコール類を除く'}
                 />
                 <CloseButton
+                  type="button"
+                  aria-label="閉じる"
                   onClick={() => {
                     handleCloseButton()
                   }}
-                  isInvisible={!isButtonAreaFloat}
+                  $isInvisible={!isButtonAreaFloat}
                 />
                 <FooterLink>
                   <a
@@ -140,7 +141,7 @@ const Content = styled.div`
 const ResultContent = styled.div`
   min-height: 80vh;
 `
-const MainContent = styled.div<{ isResult: boolean }>`
+const MainContent = styled.div<{ $isResult: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -148,7 +149,7 @@ const MainContent = styled.div<{ isResult: boolean }>`
 
   // ガチャをしてない状態はタイトルを中央に配置
   ${(props) =>
-    !props.isResult &&
+    !props.$isResult &&
     css`
       flex-flow: column;
       justify-content: center;
@@ -157,15 +158,15 @@ const MainContent = styled.div<{ isResult: boolean }>`
     `}
 `
 const ButtonArea = styled.div<{
-  isResult: boolean
-  isButtonAreaFloat: boolean
+  $isResult: boolean
+  $isButtonAreaFloat: boolean
 }>`
   text-align: center;
 
   // ガチャ結果があるときはボタンを下に固定
   ${(props) =>
-    props.isResult &&
-    props.isButtonAreaFloat &&
+    props.$isResult &&
+    props.$isButtonAreaFloat &&
     css`
       position: sticky;
       bottom: 0px;
@@ -173,16 +174,39 @@ const ButtonArea = styled.div<{
       width: 100%;
     `}
 `
-const CloseButton = styled(CloseIcon)`
+const CloseButton = styled.button<{ $isInvisible: boolean }>`
   position: absolute;
   top: 10px;
   right: 10px;
   border-style: none;
-  font-size: 1em;
-  width: 1.5em;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
   border-radius: 90px;
+  background: transparent;
   color: rgba(0, 124, 0, 0.8);
-  display: ${({ isInvisible }) => (isInvisible ? 'none' : 'block')};
+  display: ${({ $isInvisible }) => ($isInvisible ? 'none' : 'block')};
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 2px;
+    border-radius: 1px;
+    background: currentColor;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 `
 const ButtonAreaContainer = styled.div`
   position: relative;
