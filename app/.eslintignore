@@ -1,3 +1,5 @@
 **/node_modules/*
 **/out/*
 **/.next/*
+# Next.js が生成する型宣言
+next-env.d.ts
