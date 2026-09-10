@@ -1,819 +1,665 @@
-- order_code: AA01
+- order_code: 1202
+  name_en: ShrimpSalad
+  name: 小エビのサラダ
+  price: 350
+  calorie: 197
+  salt: 1.5
+  emoji: 🥗
+- order_code: 1205
+  name_en: SeaweedSalad
+  name: わかめのサラダ
+  price: 350
+  calorie: 169
+  salt: 0.9
+  emoji: 🥗
+- order_code: 1209
+  name_en: ChickenSalad
+  name: チキンのサラダ
+  price: 350
+  calorie: 235
+  salt: 1.5
+  emoji: 🥗
+- order_code: 1301
+  name_en: CornCreamSoup
+  name: コーンクリームスープ
+  price: 150
+  calorie: 150
+  salt: 1
+  emoji: 🥣
+- order_code: 1302
+  name_en: ColdCreamPumpkinSoup
+  name: '[季節限定] 冷たいパンプキンスープ'
+  price: 180
+  calorie: 111
+  salt: 0.9
+  emoji: 🎃
+- order_code: 1305
+  name_en: Minestrone
+  name: 田舎風ミネストローネ
+  price: 300
+  calorie: 183
+  salt: 2.5
+  emoji: 🥣
+- order_code: 1307
+  name_en: OnionSoupWithBreadAndCheese
+  name: たまねぎのズッパ
+  price: 300
+  calorie: 283
+  salt: 2.4
+  emoji: 🧅
+- order_code: 1401
   name_en: GrilledSpicyChicken
   name: 辛味チキン
   price: 300
   calorie: 295
   salt: 1.8
   emoji: 🍗
-- order_code: AA02
+- order_code: 1402
   name_en: GrilledSkeweredLamb
   name: アロスティチーニ
   price: 400
-  calorie: 224
-  salt: 0.6
+  calorie: 188
+  salt: 0.7
   emoji: 🍢
-- order_code: AA03
+- order_code: 1403
   name_en: SauteedSpinach
   name: ほうれん草のソテー
   price: 200
   calorie: 223
-  salt: 1.2
+  salt: 1.3
   emoji: 🥬
-- order_code: AA04
+- order_code: 1404
   name_en: FriedShrimp
   name: ポップコーンシュリンプ
   price: 300
-  calorie: 234
-  salt: 1.2
+  calorie: 257
+  salt: 1.1
   emoji: 🍤
-- order_code: AA05
+- order_code: 1405
   name_en: GrilledEscargots
   name: エスカルゴのオーブン焼き
   price: 400
   calorie: 220
-  salt: 1.3
+  salt: 1.4
   emoji: 🐚
-- order_code: AA25
-  name_en: GreenPeaswithPecorinoCheese&Egg
-  name: 柔らか青豆の温サラダ
-  price: 200
-  calorie: 199
-  salt: 1
-  emoji: 🫛
-- order_code: AA06
-  name_en: ShrimpWithSAIZERIYADressing
+- order_code: 1406
+  name_en: ShrimpWithSaizeriyaDressing
   name: 小エビのカクテル
   price: 280
-  calorie: 126
-  salt: 2.3
+  calorie: 124
+  salt: 1.3
   emoji: 🍤
-- order_code: AA07
+- order_code: 1407
   name_en: GrilledSpicySausage
   name: チョリソー
   price: 400
-  calorie: 425
-  salt: 2.9
-  emoji: 🌭
-- order_code: AA08
-  name_en: ChickenWitchFlavoredVegetableSouce
-  name: 鶏ささみの香味ソース
-  price: 280
-  calorie: 190
+  calorie: 382
   salt: 2.3
+  emoji: 🌭
+- order_code: 1408
+  name_en: ChickenWithFlavoredVegetableSauce
+  name: 蒸し鶏の香味ソース
+  price: 280
+  calorie: 125
+  salt: 1.3
   emoji: 🐔
-- order_code: AA10
-  name_en: GrilledGreenMusselswithVegetableSalsa
+- order_code: 1410
+  name_en: GrilledGreenMusselsWithVegetableSauce
   name: ムール貝のガーリック焼き
   price: 400
-  calorie: 170
-  salt: 1.4
+  calorie: 320
+  salt: 2.3
   emoji: 🦪
-- order_code: AA13
+- order_code: 1413
   name_en: ShreddedCarrot
-  name: 爽やかにんじんサラダ
+  name: キャロットラぺ
   price: 200
-  calorie: 93
-  salt: 0.9
+  calorie: 92
+  salt: 0.7
   emoji: 🥕
-- order_code: AA15
-  name_en: GrilledPotato
-  name: カリッとポテト
-  price: 280
-  calorie: 389
-  salt: 2.1
-  emoji: 🥔
-- order_code: AA20
-  name_en: BuffaloMozzarellaCheese
-  name: バッファローモッツァレラ
+- order_code: 1416
+  name_en: HashedPotato
+  name: ポテトのグリル
   price: 300
-  calorie: 209
-  salt: 0.5
+  calorie: 307
+  salt: 1.6
+  emoji: 🥔
+- order_code: 1417
+  name_en: BuffaloMozzarellaCheeseAndTomato
+  name: バッファローモッツァレラのカプレーゼ
+  price: 430
+  calorie: 254
+  salt: 0.4
   emoji: 🧀
-- order_code: AA52
+- order_code: 1422
+  name_en: CuredHam
+  name: 生ハム
+  price: 320
+  calorie: 36
+  salt: 0.9
+  emoji: 🥓
+- order_code: 1423
+  name_en: CuredHamAndBuffaloMozzarellaCheese
+  name: 生ハムとバッファローモッツァレラの盛合せ
+  price: 500
+  calorie: 146
+  salt: 1
+  emoji: 🥓
+- order_code: 1425
+  name_en: GreenPeasWithCheeseAndEgg
+  name: 柔らか青豆の温サラダ
+  price: 200
+  calorie: 215
+  salt: 0.9
+  emoji: 🫛
+- order_code: 1452
   name_en: GrilledSkeweredLamb
   name: アロスティチーニ Wサイズ
   price: 800
-  calorie: 448
-  salt: 1.2
+  calorie: 376
+  salt: 1.4
   emoji: 🍢
-- order_code: AA70
-  name_en: BuffaloMozzarellaCheese
-  name: バッファローモッツァレラ Wサイズ
-  price: 600
-  calorie: 418
-  salt: 1
+- order_code: 2101
+  name_en: DoriaWithMeatSauce
+  name: ミラノ風ドリア
+  price: 300
+  calorie: 556
+  salt: 2.6
   emoji: 🧀
-- order_code: BR01
+- order_code: 2103
+  name_en: DoriaWithMeatSauceAndEgg
+  name: 半熟卵のミラノ風ドリア
+  price: 350
+  calorie: 639
+  salt: 2.8
+  emoji: 🥚
+- order_code: 2108
+  name_en: DoriaWithMeatSauceAndCheese
+  name: 焼チーズ ミラノ風ドリア
+  price: 350
+  calorie: 674
+  salt: 3.2
+  emoji: 🧀
+- order_code: 2110
+  name_en: DoriaWithTarakoSauceAndFriedShrimp
+  name: タラコとポップコーンシュリンプのドリア
+  price: 400
+  calorie: 622
+  salt: 2.7
+  emoji: 🍤
+- order_code: 2115
+  name_en: GratinWithFriedShrimpAndTarakoSauce
+  name: ポップコーンシュリンプとタラコのクリームグラタン
+  price: 430
+  calorie: 601
+  salt: 2.3
+  emoji: 🍤
+- order_code: 2203
+  name_en: PizzaWithBuffaloMozzarellaCheese
+  name: バッファローモッツァレラのマルゲリータピザ
+  price: 400
+  calorie: 559
+  salt: 1.8
+  emoji: 🍕
+- order_code: 2204
+  name_en: PizzaWithMushroomAndVegetableSauce
+  name: 野菜ときのこのピザ
+  price: 400
+  calorie: 591
+  salt: 2.3
+  emoji: 🍕
+- order_code: 2206
+  name_en: PizzaWithCorn
+  name: たっぷりコーンのピザ
+  price: 400
+  calorie: 590
+  salt: 2.2
+  emoji: 🌽
+- order_code: 2208
+  name_en: PizzaWithSausage
+  name: ソーセージピザ
+  price: 400
+  calorie: 663
+  salt: 3.3
+  emoji: 🍕
+- order_code: 2301
+  name_en: SpaghettiTarakoSauce
+  name: タラコソースシシリー風
+  price: 400
+  calorie: 495
+  salt: 1.9
+  emoji: 🍝
+- order_code: 2303
+  name_en: SpaghettiPeperoncino
+  name: ペペロンチーノ
+  price: 300
+  calorie: 542
+  salt: 2.3
+  emoji: 🌶️
+- order_code: 2304
+  name_en: SpaghettiWithTomatoAndPancetta
+  name: パルマ風スパゲッティ
+  price: 400
+  calorie: 677
+  salt: 3.3
+  emoji: 🍅
+- order_code: 2305
+  name_en: SpaghettiCarbonara
+  name: カルボナーラ
+  price: 500
+  calorie: 732
+  salt: 2.9
+  emoji: 🍝
+- order_code: 2306
+  name_en: SpaghettiWithMeatSauce
+  name: ミートソースボロニア風
+  price: 400
+  calorie: 542
+  salt: 2.7
+  emoji: 🍝
+- order_code: 2310
+  name_en: SpaghettiVongole
+  name: スープ入り塩味ボンゴレ
+  price: 500
+  calorie: 649
+  salt: 2.7
+  emoji: 🦪
+- order_code: 2316
+  name_en: SpaghettiWithMeatSauceAndEgg
+  name: 半熟卵のミートソースボロニア風
+  price: 450
+  calorie: 625
+  salt: 2.9
+  emoji: 🥚
+- order_code: 2317
+  name_en: SpaghettiPeperoncinoWithEgg
+  name: 半熟卵のペペロンチーノ
+  price: 350
+  calorie: 625
+  salt: 2.5
+  emoji: 🥚
+- order_code: 2318
+  name_en: SpaghettiCarbonaraWithEgg
+  name: 半熟卵のカルボナーラ
+  price: 550
+  calorie: 815
+  salt: 3.1
+  emoji: 🥚
+- order_code: 2320
+  name_en: SpaghettiTarakoSauceWithShrimp
+  name: 小エビのタラコソース
+  price: 540
+  calorie: 528
+  salt: 2.5
+  emoji: 🍤
+- order_code: 2321
+  name_en: SpaghettiMushroomCreamWithSpinach
+  name: きのことほうれん草のクリームスパゲッティ
+  price: 600
+  calorie: 713
+  salt: 2.5
+  emoji: 🍄
+- order_code: 2325
+  name_en: PenneArrabbiata
+  name: ペンネアラビアータ
+  price: 430
+  calorie: 420
+  salt: 2.6
+  emoji: 🌶️
+- order_code: 2328
+  name_en: SpaghettiNeroDiSeppia
+  name: イカの墨入りセピアソース
+  price: 500
+  calorie: 547
+  salt: 2.1
+  emoji: 🦑
+- order_code: 2403
+  name_en: HamburgerSteakWithCheeseAndTomatoSauce
+  name: イタリアンハンバーグ
+  price: 500
+  calorie: 631
+  salt: 3
+  emoji: 🧀
+- order_code: 2406
+  name_en: HamburgerSteak
+  name: ハンバーグステーキ
+  price: 400
+  calorie: 557
+  salt: 2.6
+  emoji: 🍖
+- order_code: 2407
+  name_en: HamburgerSteakWithVegetableSauce
+  name: ディアボラ風ハンバーグ
+  price: 500
+  calorie: 664
+  salt: 2.9
+  emoji: 🍖
+- order_code: 2417
+  name_en: LambRumpSteak
+  name: ラム（仔羊）のランプステーキ
+  price: 1090
+  calorie: 407
+  salt: 2.2
+  emoji: 🐑
+- order_code: 2418
+  name_en: HamburgerSteakWithSpicyChickenAndFriedShrimp
+  name: ミックスグリル
+  price: 650
+  calorie: 730
+  salt: 3.6
+  emoji: 🍖
+- order_code: 2419
+  name_en: BeefSteak
+  name: ビーフステーキ
+  price: 1090
+  calorie: 418
+  salt: 2.5
+  emoji: 🥩
+- order_code: 3101
+  name_en: Rice
+  name: ライス
+  price: 150
+  calorie: 303
+  salt: 0.1
+  emoji: 🍚
+- order_code: 3102
+  name_en: LargeRice
+  name: ラージライス
+  price: 200
+  calorie: 455
+  salt: 0.1
+  emoji: 🍚
+- order_code: 3103
+  name_en: SmallRice
+  name: スモールライス
+  price: 100
+  calorie: 152
+  salt: 0.1
+  emoji: 🍚
+- order_code: 3110
+  name_en: Focaccia
+  name: フォッカチオ
+  price: 150
+  calorie: 241
+  salt: 0.6
+  emoji: 🫓
+- order_code: 3111
+  name_en: FocacciaWithGarlicButter
+  name: ガーリックフォッカチオ
+  price: 200
+  calorie: 297
+  salt: 0.8
+  emoji: 🧄
+- order_code: 3112
+  name_en: FocacciaWithCinnamonSugar
+  name: シナモンフォッカチオ
+  price: 200
+  calorie: 273
+  salt: 0.6
+  emoji: 🫓
+- order_code: 3113
+  name_en: FocacciaWithTarakoSauceAndCheese
+  name: タラコフォッカチオ
+  price: 250
+  calorie: 322
+  salt: 1.2
+  emoji: 🫓
+- order_code: 3114
+  name_en: FocacciaWithCheese
+  name: チーズフォッカチオ
+  price: 250
+  calorie: 318
+  salt: 1.1
+  emoji: 🧀
+- order_code: 3201
+  name_en: Tiramisu
+  name: ティラミスクラシコ
+  price: 300
+  calorie: 233
+  salt: 0.2
+  emoji: 🍰
+- order_code: 3205
+  name_en: MilkGelato
+  name: ミルクジェラート
+  price: 250
+  calorie: 121
+  salt: 0.1
+  emoji: 🍨
+- order_code: 3206
+  name_en: ItalianCustardPudding
+  name: イタリアンプリン
+  price: 250
+  calorie: 223
+  salt: 0.2
+  emoji: 🍮
+- order_code: 3207
+  name_en: ChocolateCake
+  name: チョコレートケーキ
+  price: 300
+  calorie: 179
+  salt: 0.2
+  emoji: 🍰
+- order_code: 3212
+  name_en: ItalianCustardPuddingAndTiramisu
+  name: プリンとティラミスクラシコの盛合せ
+  price: 500
+  calorie: 456
+  salt: 0.3
+  emoji: 🍮
+- order_code: 3213
+  name_en: TruffleIceCream
+  name: トリフアイスクリーム
+  price: 350
+  calorie: 171
+  salt: 0.1
+  emoji: 🍨
+- order_code: 3214
+  name_en: MilkGelatoAndCinnamonFocaccia
+  name: ジェラート＆シナモンフォッカチオ
+  price: 450
+  calorie: 393
+  salt: 0.7
+  emoji: 🍨
+- order_code: 3215
+  name_en: CoffeeJellyWithMilkGelato
+  name: コーヒーゼリー＆ミルクジェラート
+  price: 350
+  calorie: 173
+  salt: 0.1
+  emoji: ☕
+- order_code: 3216
+  name_en: ChocolateCakeAndMilkGelato
+  name: チョコレートケーキ＆ミルクジェラート
+  price: 500
+  calorie: 299
+  salt: 0.3
+  emoji: 🍰
+- order_code: 3301
   name_en: Alcohol
   name: キリン一番搾り ジョッキ
   price: 400
   calorie: 0
   salt: 0
   emoji: 🍺
-- order_code: BR02
+- order_code: 3302
   name_en: Alcohol
   name: キリン一番搾り グラスビール
-  price: 300
+  price: 280
   calorie: 0
   salt: 0
   emoji: 🍺
-- order_code: BR03
+- order_code: 3303
   name_en: Alcohol
-  name: サントリーオールフリー
+  name: アサヒドライゼロ
   price: 250
   calorie: 0
   salt: 0
   emoji: 🍺
-- order_code: BR04
+- order_code: 3304
   name_en: Alcohol
   name: キリン氷結シチリア産レモン
   price: 350
   calorie: 0
   salt: 0
-  emoji: 🍺
-- order_code: BR06
+  emoji: 🍋
+- order_code: 3306
   name_en: Alcohol
   name: グラッパ
   price: 300
   calorie: 0
   salt: 0
-  emoji: 🍸
-- order_code: DB01
-  name_en: DrinkBar
-  name: セットドリンクバー
-  price: 200
-  calorie: 0
-  salt: 0
-  emoji: 🥤
-- order_code: DE01
-  name_en: Tiramisu
-  name: ティラミス クラシコ
-  price: 300
-  calorie: 229
-  salt: 0.1
-  emoji: 🧁
-- order_code: DE04
-  name_en: PetitFocacciawithCinnamonSugar&ItalianGelato
-  name: ジェラート&シナモンプチフォッカ
-  price: 450
-  calorie: 367
-  salt: 0.9
-  emoji: 🍨
-- order_code: DE05
-  name_en: ItalianGelato
-  name: イタリアンジェラート
-  price: 250
-  calorie: 121
-  salt: 0.1
-  emoji: 🍨
-- order_code: DE06
-  name_en: ItalianCustardPudding
-  name: イタリアンプリン
-  price: 250
-  calorie: 216
-  salt: 0.1
-  emoji: 🍮
-- order_code: DE07
-  name_en: ChocolateCake
-  name: チョコレートケーキ
-  price: 300
-  calorie: 166
-  salt: 0.3
-  emoji: 🍰
-- order_code: DE12
-  name_en: Tiramisu&ItalianCustardPudding
-  name: プリンとティラミスクラシコの盛合せ
-  price: 500
-  calorie: 445
-  salt: 0.2
-  emoji: 🍮
-- order_code: DE13
-  name_en: TruffleIceCream
-  name: トリフアイスクリーム
-  price: 350
-  calorie: 164
-  salt: 0.1
-  emoji: 🍨
-- order_code: DE15
-  name_en: CoffeeJellywithItalianGelato
-  name: コーヒーゼリー&イタリアンジェラート
-  price: 350
-  calorie: 171
-  salt: 0.1
-  emoji: 🍨
-- order_code: DE25
-  name_en: PistachioGaleto
-  name: シチリア産ピスタチオのジェラート
-  price: 350
-  calorie: 145
-  salt: 0.1
-  emoji: 🍨
-- order_code: DG01
-  name_en: DoriawithMeatSauce
-  name: ミラノ風ドリア
-  price: 300
-  calorie: 521
-  salt: 2.5
-  emoji: 🥘
-- order_code: DG03
-  name_en: DoriawithMeatSauce&Egg
-  name: 半熟卵のミラノ風ドリア
-  price: 350
-  calorie: 604
-  salt: 2.7
-  emoji: 🥘
-- order_code: DG06
-  name_en: DoriaWithTARAKOSauce&Shrimp
-  name: タラコとエビのドリア
-  price: 400
-  calorie: 578
-  salt: 2.8
-  emoji: 🥘
-- order_code: DG07
-  name_en: Tomato&CreamGratinwithShrimp
-  name: エビクリームグラタン
-  price: 400
-  calorie: 530
-  salt: 2
-  emoji: 🥘
-- order_code: DG08
-  name_en: DoriawithMeatSauce&Cheese
-  name: 焼チーズ ミラノ風ドリア
-  price: 350
-  calorie: 652
-  salt: 2.9
-  emoji: 🥘
-- order_code: MT01
-  name_en: HamburgSteak
-  name: ハンバーグステーキ
-  price: 400
-  calorie: 582
-  salt: 2.7
-  emoji: 🍖
-- order_code: MT02
-  name_en: GrilledChickenwithVegetableSalsa
-  name: 若鶏のディアボラ風
-  price: 500
-  calorie: 730
-  salt: 2.8
-  emoji: 🍗
-- order_code: MT03
-  name_en: HamburgSteakwithCheese&TomatoSauce
-  name: イタリアンハンバーグ
-  price: 500
-  calorie: 702
-  salt: 2.9
-  emoji: 🍖
-- order_code: MT04
-  name_en: GrilledChickenwithChees&TomatoSauce
-  name: 柔らかチキンのチーズ焼き
-  price: 500
-  calorie: 763
-  salt: 2.8
-  emoji: 🍗
-- order_code: MT07
-  name_en: HamburgSteakwithVegetableSalsa
-  name: ディアボラ風ハンバーグ
-  price: 500
-  calorie: 653
-  salt: 3.1
-  emoji: 🍖
-- order_code: MT09
-  name_en: RibSteak
-  name: リブステーキ
-  price: 1000
-  calorie: 539
-  salt: 1.8
-  emoji: 🍖
-- order_code: MT15
-  name_en: HamburgSteakwithGrilledSpicySausage
-  name: チョリソーとハンバーグの盛合せ
-  price: 550
-  calorie: 700
-  salt: 3.6
-  emoji: 🍖
-- order_code: PA01
-  name_en: SpaghettiTARAKOSauce
-  name: タラコソースシシリー風
-  price: 400
-  calorie: 553
-  salt: 2.2
-  emoji: 🍝
-- order_code: PA02
-  name_en: SpaghettiwithMeatSauce
-  name: ミートソースボロニア風
-  price: 400
-  calorie: 583
-  salt: 2.5
-  emoji: 🍝
-- order_code: PA03
-  name_en: SpaghettiPEPERONCINO
-  name: ペペロンチーノ
-  price: 300
-  calorie: 656
-  salt: 1.6
-  emoji: 🍝
-- order_code: PA05
-  name_en: SpaghettiCARBONARA
-  name: カルボナーラ
-  price: 500
-  calorie: 742
-  salt: 2.5
-  emoji: 🍝
-- order_code: PA07
-  name_en: SpaghettiPOMODORO
-  name: スパゲッティポモドーロ
-  price: 400
-  calorie: 689
-  salt: 2.5
-  emoji: 🍝
-- order_code: PA11
-  name_en: SpaghettiNERODISEPPIA
-  name: イカの墨入りスパゲッティ
-  price: 500
-  calorie: 658
-  salt: 2.7
-  emoji: 🍝
-- order_code: PA12
-  name_en: SpaghettiwithMeatSauce
-  name: 半熟卵のミートソースボロニア風
-  price: 450
-  calorie: 666
-  salt: 2.7
-  emoji: 🍝
-- order_code: PA16
-  name_en: SpaghettiWithMushroom&Chicken
-  name: きのことチキンのスパゲッティ
-  price: 500
-  calorie: 738
-  salt: 2.7
-  emoji: 🍝
-- order_code: PA14
-  name_en: SpachettiWithShrimp&Asparagus
-  name: エビとアスパラガスのオーロラソース
-  price: 500
-  calorie: 695
-  salt: 2.4
-  emoji: 🍝
-- order_code: PA17
-  name_en: SpaghettiPEPERONCINO
-  name: 半熟卵のペペロンチーノ
-  price: 350
-  calorie: 739
-  salt: 1.8
-  emoji: 🍝
-- order_code: PA18
-  name_en: SpaghettiCARBONARA
-  name: たっぷりペコリーノチーズのカルボナーラ
-  price: 600
-  calorie: 820
-  salt: 3.3
-  emoji: 🍝
-- order_code: PA23
-  name_en: SpaghettiPOMODORO
-  name: たっぷりペコリーノチーズのポモドーロ
-  price: 500
-  calorie: 767
-  salt: 3.3
-  emoji: 🍝
-- order_code: PA25
-  name_en: Penne“ARRABIATA”withOliveAnchovySauce&Chili
-  name: ペンネアラビアータ
-  price: 400
-  calorie: 456
-  salt: 2.8
-  emoji: 🍝
-- order_code: PZ01
-  name_en: PIZZAwithBuffaloMozzarellaCheese
-  name: マルゲリータピザ
-  price: 400
-  calorie: 559
-  salt: 2.6
-  emoji: 🍕
-- order_code: PZ02
-  name_en: PIZZAwithTripleBuffaloMozzarellaCheese
-  name: バッファローモッツァレラのピザ
-  price: 500
-  calorie: 566
-  salt: 2.2
-  emoji: 🍕
-- order_code: PZ04
-  name_en: PIZZAwithMushroom&VegetableSalsa
-  name: 野菜ときのこのピザ
-  price: 400
-  calorie: 593
-  salt: 3.2
-  emoji: 🍕
-- order_code: PZ06
-  name_en: CornPIZZAwithWhiteSauce
-  name: たっぷりコーンのピザ
-  price: 400
-  calorie: 624
-  salt: 2.6
-  emoji: 🍕
-- order_code: PZ08
-  name_en: SausagePIZZAwithWhiteSauce
-  name: ソーセージピザ
-  price: 400
-  calorie: 710
-  salt: 4.1
-  emoji: 🍕
-- order_code: PZ51
-  name_en: PIZZAwithBuffaloMozzarellaCheese
-  name: マルゲリータピザ Wチーズ
-  price: 500
-  calorie: 762
-  salt: 3.6
-  emoji: 🍕
-- order_code: PZ52
-  name_en: PIZZAwithTripleBuffaloMozzarellaCheese
-  name: バッファローモッツァレラのピザ Wチーズ
-  price: 600
-  calorie: 768
-  salt: 3
-  emoji: 🍕
-- order_code: PZ54
-  name_en: PIZZAwithMushroom&VegetableSalsa
-  name: 野菜ときのこのピザ
-  price: 500
-  calorie: 793
-  salt: 4.2
-  emoji: 🍕
-- order_code: PZ56
-  name_en: CornPIZZAwithWhiteSauce
-  name: たっぷりコーンのピザ Wチーズ
-  price: 500
-  calorie: 827
-  salt: 3.6
-  emoji: 🍕
-- order_code: PZ58
-  name_en: SausagePIZZAwithWhiteSauce
-  name: ソーセージピザ Wチーズ
-  price: 500
-  calorie: 909
-  salt: 5
-  emoji: 🍕
-- order_code: RP01
-  name_en: Rice
-  name: ライス
-  price: 150
-  calorie: 303
-  salt: 0
-  emoji: 🍚
-- order_code: RP02
-  name_en: LargeRice
-  name: ラージライス
-  price: 200
-  calorie: 454
-  salt: 0
-  emoji: 🍚
-- order_code: RP03
-  name_en: SmallRice
-  name: スモールライス
-  price: 100
-  calorie: 151
-  salt: 0
-  emoji: 🍚
-- order_code: RP04
-  name_en: PetitFocacciawithCinnamonSugar
-  name: シナモンプチフォッカ
-  price: 200
-  calorie: 246
-  salt: 0.8
-  emoji: 🍞
-- order_code: RP06
-  name_en: PetitFocaccia
-  name: プチフォッカ
-  price: 150
-  calorie: 214
-  salt: 0.8
-  emoji: 🍞
-- order_code: RP08
-  name_en: MiniFicelle
-  name: ミニフィセル
-  price: 150
-  calorie: 189
-  salt: 1
-  emoji: 🥖
-- order_code: RP09
-  name_en: GarlicToast
-  name: ガーリックトースト
-  price: 200
-  calorie: 245
-  salt: 1.1
-  emoji: 🥖
-- order_code: SA02
-  name_en: ShrimpSalad
-  name: 小エビのサラダ
-  price: 350
-  calorie: 192
-  salt: 1.5
-  emoji: 🥗
-- order_code: SA03
-  name_en: ChikenSalad
-  name: チキンのサラダ
-  price: 350
-  calorie: 224
-  salt: 1.3
-  emoji: 🥗
-- order_code: SA05
-  name_en: SeaweedSalad
-  name: わかめのサラダ
-  price: 350
-  calorie: 174
-  salt: 2.9
-  emoji: 🥗
-- order_code: SA07
-  name_en: GreenSaladWithBuffaloMozzarellaCheese
-  name: モッツァレラのサラダ
-  price: 400
-  calorie: 243
-  salt: 0.6
-  emoji: 🥗
-- order_code: SA08
-  name_en: GreenSalad
-  name: グリーンサラダ
-  price: 350
-  calorie: 166
-  salt: 0.7
-  emoji: 🥗
-- order_code: SU01
-  name_en: CreamCornSoup
-  name: コーンクリームスープ
-  price: 150
-  calorie: 130
-  salt: 1
-  emoji: 🥣
-- order_code: SU03
-  name_en: ColdCreamPumpkinSoup
-  name: '[季節限定] 冷たいパンプキンスープ'
-  price: 150
-  calorie: 107
-  salt: 0.9
-  emoji: 🥣
-- order_code: SU05
-  name_en: Minestrone
-  name: 田舎風ミネストローネ
-  price: 300
-  calorie: 227
-  salt: 3
-  emoji: 🥣
-- order_code: SU07
-  name_en: OnionSoupWithBread&Cheese
-  name: たまねぎのズッパ
-  price: 300
-  calorie: 228
-  salt: 2
-  emoji: 🥣
-- order_code: TP01
-  name_en: topping
-  name: トッピング半熟卵
-  price: 50
-  calorie: 83
-  salt: 0.3
-  emoji: 🥚
-- order_code: TP04
-  name_en: topping
-  name: 野菜ペースト
-  price: 100
-  calorie: 72
-  salt: 0.3
-  emoji: 🥗
-- order_code: TP07
-  name_en: topping
-  name: トッピング粉チーズ(グランモラビア)
-  price: 100
-  calorie: 91
-  salt: 0.3
-  emoji: 🧀
-- order_code: WN01
+  emoji: 🥃
+- order_code: 3401
   name_en: Alcohol
   name: グラスワイン 赤
   price: 100
   calorie: 0
   salt: 0
   emoji: 🍷
-- order_code: WN02
+- order_code: 3402
   name_en: Alcohol
   name: グラスワイン 白
   price: 100
   calorie: 0
   salt: 0
-  emoji: 🍷
-- order_code: WN03
+  emoji: 🥂
+- order_code: 3403
   name_en: Alcohol
   name: デカンタ 赤 250ml
   price: 200
   calorie: 0
   salt: 0
   emoji: 🍷
-- order_code: WN04
+- order_code: 3404
   name_en: Alcohol
   name: デカンタ 白 250ml
   price: 200
   calorie: 0
   salt: 0
-  emoji: 🍷
-- order_code: WN05
+  emoji: 🥂
+- order_code: 3405
   name_en: Alcohol
   name: デカンタ 赤 500ml
   price: 400
   calorie: 0
   salt: 0
   emoji: 🍷
-- order_code: WN06
+- order_code: 3406
   name_en: Alcohol
   name: デカンタ 白 500ml
   price: 400
   calorie: 0
   salt: 0
-  emoji: 🍷
-- order_code: WN07
+  emoji: 🥂
+- order_code: 3407
   name_en: Alcohol
   name: マグナム 赤 1500ml
   price: 1100
   calorie: 0
   salt: 0
-  emoji: 🍾
-- order_code: WN08
+  emoji: 🍷
+- order_code: 3408
   name_en: Alcohol
   name: マグナム 白 1500ml
   price: 1100
   calorie: 0
   salt: 0
-  emoji: 🍾
-- order_code: WN12
+  emoji: 🥂
+- order_code: 3412
   name_en: Alcohol
-  name: ランブルスコ（ロゼ）
+  name: ランブルスコロゼ
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
-- order_code: WN13
+- order_code: 3413
   name_en: Alcohol
-  name: ドン ラファエロ
+  name: ドンラファエロ
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
-- order_code: WN14
+- order_code: 3414
   name_en: Alcohol
-  name: ランブルスコ セッコ
+  name: ランブルスコセッコ
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
-- order_code: WN15
+- order_code: 3415
   name_en: Alcohol
   name: ベルデッキオ
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
-- order_code: WN16
+- order_code: 3416
   name_en: Alcohol
   name: キャンティ
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
-- order_code: WN19
+- order_code: 3419
   name_en: Alcohol
-  name: キャンティ ルフィナ リゼルバ
+  name: キャンティ ルフィナ
   price: 2200
   calorie: 0
   salt: 0
   emoji: 🍾
-- order_code: 301
-  name_en: TakeOut
-  name: '[テイクアウト] やみつきスパイス(袋入り20g)'
+- order_code: 4301
+  name_en: HalfBoiledEgg
+  name: トッピング半熟卵
+  price: 50
+  calorie: 83
+  salt: 0.2
+  emoji: 🥚
+- order_code: 4304
+  name_en: VegetableSauce
+  name: トッピング野菜ソース
+  price: 100
+  calorie: 132
+  salt: 0.5
+  emoji: 🧅
+- order_code: 4307
+  name_en: GratedCheese
+  name: トッピング粉チーズ
+  price: 100
+  calorie: 93
+  salt: 0.7
+  emoji: 🧀
+- order_code: 5101
+  name_en: DrinkBar
+  name: セットドリンクバー
+  price: 200
+  calorie: 0
+  salt: 0
+  emoji: 🥤
+- order_code: 5102
+  name_en: DrinkBar
+  name: キッズドリンクバー
+  price: 100
+  calorie: 0
+  salt: 0
+  emoji: 🥤
+- order_code: 5103
+  name_en: DrinkBar
+  name: 単品ドリンクバー
   price: 300
   calorie: 0
   salt: 0
-  emoji: 🥡
-- order_code: 303
-  name_en: TakeOut
+  emoji: 🥤
+- order_code: 5305
+  name_en: SaizeriyaDressing
   name: '[テイクアウト] サイゼリヤドレッシング 500ml'
   price: 500
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 304
-  name_en: TakeOut
+  calorie: 142
+  salt: 0.9
+  emoji: 🧴
+- order_code: 5306
+  name_en: ExtraVirginOliveOil
   name: '[テイクアウト] エクストラ・バージン・オリーブオイル 500ml'
-  price: 850
-  calorie: 0
+  price: 1200
+  calorie: 9
   salt: 0
-  emoji: 🥡
-- order_code: 306
-  name_en: TakeOut
-  name: '[テイクアウト] 唐辛子フレーク(容器付き)'
-  price: 500
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 307
-  name_en: TakeOut
-  name: '[テイクアウト] ホットソース(容器付き)'
-  price: 500
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 101
-  name_en: TakeOut
-  name: '[テイクアウト] 冷凍 辛味チキン(1.5kg)'
-  price: 2200
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 107
-  name_en: TakeOut
-  name: '[テイクアウト] 冷凍 ポップコーンシュリンプ(500g)'
-  price: 1500
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 92
-  name_en: TakeOut
-  name: '[テイクアウト] 冷凍 イタリアンプリン'
-  price: 240
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 91
-  name_en: TakeOut
-  name: '[テイクアウト] 冷凍 ティラミスクラシコ (500g)'
-  price: 1760
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 24
-  name_en: TakeOut
-  name: '[テイクアウト] 辛味チキン'
-  price: 300
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 35
-  name_en: TakeOut
-  name: '[テイクアウト] マルゲリータピザ'
-  price: 400
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 36
-  name_en: TakeOut
-  name: '[テイクアウト] 野菜ときのこのピザ'
-  price: 400
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 37
-  name_en: TakeOut
-  name: '[テイクアウト] ソーセージピザ'
-  price: 400
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 38
-  name_en: TakeOut
-  name: '[テイクアウト] たっぷりコーンのピザ'
-  price: 400
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 39
-  name_en: TakeOut
-  name: '[テイクアウト] バッファローモッツァレラのピザ'
-  price: 500
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 45
-  name_en: TakeOut
-  name: '[テイクアウト] ミラノ風ドリア'
-  price: 300
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 46
-  name_en: TakeOut
-  name: '[テイクアウト] エビクリームグラタン'
-  price: 400
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 102
-  name_en: TakeOut
-  name: '[テイクアウト] 冷凍ミラノ風ドリア'
-  price: 350
-  calorie: 0
-  salt: 0
-  emoji: 🥡
-- order_code: 105
-  name_en: TakeOut
-  name: '[テイクアウト] 冷凍ミラノ風ドリア 3袋セット'
-  price: 990
-  calorie: 0
-  salt: 0
-  emoji: 🥡
+  emoji: 🫒

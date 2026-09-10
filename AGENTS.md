@@ -43,7 +43,8 @@ yarn production-build
 - `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID`
 - `NEXT_PUBLIC_BASE_URL`
 
-`pages/index.tsx` の `getStaticProps` は `app/menu.yaml` を読み込みます。メニュー取得用の API 接続や認証情報は不要です。メニュー更新時は YAML の配列順序と `Menu` 型の値・単位を維持してください。秘密情報はファイルに書き込まないでください。
+`pages/index.tsx` の `getStaticProps` は `app/menu.yaml` を読み込みます。
+メニュー更新時は YAML の配列順序と `Menu` 型の値・単位を維持してください。秘密情報はファイルに書き込まないでください。
 
 ## Code Style
 
