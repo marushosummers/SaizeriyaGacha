@@ -10,6 +10,7 @@
     "lint": "eslint . --ext ts --ext tsx",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
+    "bot:dry-run": "DRY_RUN=true node --no-warnings --experimental-strip-types scripts/post-gacha.ts",
     "serve": "serve ./out"
   },
   "husky": {
