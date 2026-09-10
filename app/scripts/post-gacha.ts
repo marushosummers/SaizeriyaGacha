@@ -121,7 +121,6 @@ const getPostText = (menus: Menu[]): string => {
     `計 ${totalPrice}円 ${totalCalorie}kcal 塩分 ${Math.round(totalSalt * 10) / 10}g`,
     '',
     '#サイゼリヤガチャ',
-    '詳しくはプロフィールから',
   ].join('\n')
 }
 
