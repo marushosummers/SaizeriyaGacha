@@ -3,6 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { _Head } from '../components/head'
 import { Main } from '../components/main'
 import { Menu } from '../domain/Menu'
+import { loadMenus } from '../lib/loadMenus'
 
 type Props = {
   menus: Menu[]
@@ -26,14 +27,7 @@ const Home: NextPage<Props> = ({ menus }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.API_URL}`, {
-    headers: {
-      Authorization: `token ${process.env.API_TOKEN}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-  })
-  const menus = await res.json()
+  const menus = await loadMenus()
   return {
     props: { menus: menus },
   }
