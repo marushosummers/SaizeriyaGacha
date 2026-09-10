@@ -1,0 +1,44 @@
+name: post daily gacha to X
+
+on:
+  schedule:
+    # 11:17 JST (02:17 UTC)。毎時0分付近の混雑を避ける。
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 実際にXへ投稿する
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: post-daily-gacha
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: yarn
+          cache-dependency-path: app/yarn.lock
+      - name: install
+        working-directory: app
+        run: yarn install --frozen-lockfile
+      - name: generate and post
+        working-directory: app
+        env:
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.publish != true }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node --no-warnings --experimental-strip-types scripts/post-gacha.ts
