@@ -45,3 +45,14 @@ describe('parseMenus', () => {
 it('リポジトリの menu.yaml を有効なメニューとして読み込める', async () => {
   await expect(loadMenus()).resolves.toEqual(expect.any(Array))
 })
+
+it('テイクアウト調味料は500ml商品全体のカロリーを保持する', async () => {
+  const menus = await loadMenus()
+
+  expect(menus.find(({ order_code }) => order_code === 5305)?.calorie).toBe(
+    2430,
+  )
+  expect(menus.find(({ order_code }) => order_code === 5306)?.calorie).toBe(
+    4050,
+  )
+})
