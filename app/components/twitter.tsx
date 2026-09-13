@@ -2,9 +2,12 @@ import { TwitterShareButton } from 'next-share'
 import { getTweetText } from '../hooks/getTweetText'
 import { Menu } from '../domain/Menu'
 import styled from 'styled-components'
+import { GachaUnit } from '../hooks/doGatya'
 
 type Props = {
   result: Menu[]
+  limit: number
+  unit: GachaUnit
 }
 
 export const Twitter: React.FC<Props> = (props) => {
@@ -12,7 +15,7 @@ export const Twitter: React.FC<Props> = (props) => {
 
   if (!result.length) return <div></div>
 
-  const tweetText = getTweetText(result)
+  const tweetText = getTweetText(result, props.limit, props.unit)
   return (
     <StyledContainer>
       <Baloon>{'結果をポスト'}</Baloon>

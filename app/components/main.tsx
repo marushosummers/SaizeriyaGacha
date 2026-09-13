@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { Result } from './result'
-import { doGacha } from '../hooks/doGatya'
+import { doGacha, GachaUnit } from '../hooks/doGatya'
 import { Menu } from '../domain/Menu'
 import { Spinner } from './spinner'
 import * as gtag from '../lib/gtag'
@@ -17,12 +17,23 @@ interface Props {
 }
 
 export const Main: NextPage<Props> = ({ menus }) => {
-  const [result, useResult] = useState([])
+  const [result, useResult] = useState<Menu[]>([])
   const [isExtractAlcohol, setExtractAlcohol] = useState(false)
   const [isButtonAreaFloat, useButtonAreaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
-  const input = 1000
+  const [limitInput, setLimitInput] = useState('1000')
+  const [unit, setUnit] = useState<GachaUnit>('price')
+  const [resultCondition, setResultCondition] = useState<{
+    limit: number
+    unit: GachaUnit
+  }>({ limit: 1000, unit: 'price' })
   const isResult = Boolean(result.length)
+
+  const normalizeLimit = (value: string) => {
+    const parsedValue = Number(value)
+    if (!Number.isFinite(parsedValue)) return 1
+    return Math.min(10000, Math.max(1, Math.trunc(parsedValue)))
+  }
 
   const returnTop = () => {
     window.scrollTo({
@@ -32,19 +43,22 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   const handleButton = async () => {
     useLoading(true)
+    const limit = normalizeLimit(limitInput)
+    setLimitInput(String(limit))
     const filteredMenus = isExtractAlcohol
       ? menus.filter((menu) => menu.name_en !== 'Alcohol')
       : menus
-    const newResult = doGacha(filteredMenus, input)
+    const newResult = doGacha(filteredMenus, limit, unit)
     await _sleep(200)
     useResult(newResult)
+    setResultCondition({ limit, unit })
     useButtonAreaFloat(true)
     returnTop()
     useLoading(false)
     gtag.event({
       action: 'click',
       category: 'gacha',
-      label: '1000yen',
+      label: `${limit}${unit === 'price' ? 'yen' : 'kcal'}`,
     })
   }
 
@@ -65,11 +79,51 @@ export const Main: NextPage<Props> = ({ menus }) => {
           <MainContent $isResult={isResult}>
             <TitleComponent>
               <Title>サイゼリヤ</Title>
-              <Title>1000円ガチャ</Title>
+              <Title>
+                <LimitInput
+                  type="number"
+                  min="1"
+                  max="10000"
+                  step="1"
+                  inputMode="numeric"
+                  aria-label="ガチャの上限"
+                  value={limitInput}
+                  style={{ width: `${Math.max(limitInput.length, 1)}ch` }}
+                  onChange={(event) => {
+                    const value = event.target.value
+                    if (value === '' || /^\d{1,5}$/.test(value)) {
+                      setLimitInput(
+                        value === ''
+                          ? value
+                          : String(Math.min(10000, Number(value))),
+                      )
+                    }
+                  }}
+                  onBlur={() =>
+                    setLimitInput(String(normalizeLimit(limitInput)))
+                  }
+                />
+                <UnitButton
+                  type="button"
+                  aria-label={`単位を${unit === 'price' ? 'kcal' : '円'}に切り替える`}
+                  onClick={() =>
+                    setUnit((currentUnit) =>
+                      currentUnit === 'price' ? 'calorie' : 'price',
+                    )
+                  }
+                >
+                  {unit === 'price' ? '円' : 'kcal'}
+                </UnitButton>
+                ガチャ
+              </Title>
             </TitleComponent>
             {Boolean(result.length) && (
               <ResultContent>
-                <Result result={result} />
+                <Result
+                  result={result}
+                  limit={resultCondition.limit}
+                  unit={resultCondition.unit}
+                />
               </ResultContent>
             )}
             <ButtonArea
@@ -231,6 +285,40 @@ const TitleComponent = styled.div`
 const Title = styled.h1`
   font-size: 1.8em;
   color: #d70002;
+`
+const LimitInput = styled.input`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: right;
+  appearance: textfield;
+
+  &:focus {
+    box-shadow: inset 0 -1px currentColor;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+`
+const UnitButton = styled.button`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  cursor: text;
 `
 const Button = styled.button`
   width: 12em;
