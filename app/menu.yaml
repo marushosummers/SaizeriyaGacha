@@ -653,13 +653,13 @@
   name_en: SaizeriyaDressing
   name: '[テイクアウト] サイゼリヤドレッシング 500ml'
   price: 500
-  calorie: 142
+  calorie: 2430
   salt: 0.9
   emoji: 🧴
 - order_code: 5306
   name_en: ExtraVirginOliveOil
   name: '[テイクアウト] エクストラ・バージン・オリーブオイル 500ml'
   price: 1200
-  calorie: 9
+  calorie: 4050
   salt: 0
   emoji: 🫒
