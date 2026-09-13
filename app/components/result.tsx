@@ -3,9 +3,12 @@ import { Items } from './items'
 import { Summary } from './summary'
 import { Twitter } from './twitter'
 import styled from 'styled-components'
+import { GachaUnit } from '../hooks/doGatya'
 
 type Props = {
   result: Menu[]
+  limit: number
+  unit: GachaUnit
 }
 
 const StyledContainer = styled.div`
@@ -19,7 +22,7 @@ export const Result: React.FC<Props> = (props) => {
     <StyledContainer>
       <Items result={result} />
       <Summary result={result} />
-      <Twitter result={result} />
+      <Twitter result={result} limit={props.limit} unit={props.unit} />
     </StyledContainer>
   )
 }
