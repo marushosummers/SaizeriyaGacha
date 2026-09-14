@@ -17,7 +17,7 @@ const Home: NextPage<Props> = ({ menus }) => {
   return (
     <>
       <_Head
-        title={`${SITE_NAME} | 予算・カロリー内でメニューをランダム選択`}
+        title={`${SITE_NAME} | 最新メニュー・無料ガチャ`}
         description={DEFAULT_DESCRIPTION}
       />
       <script

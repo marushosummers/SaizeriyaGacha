@@ -51,7 +51,7 @@ export const _Head: React.FC<Props> = ({
       <meta property="og:image:height" content="630" key="og:image:height" />
       <meta
         property="og:image:alt"
-        content={`${SITE_NAME}のイメージ`}
+        content={`${SITE_NAME}`}
         key="og:image:alt"
       />
       <meta property="og:site_name" content={SITE_NAME} key="og:site_name" />
@@ -59,7 +59,7 @@ export const _Head: React.FC<Props> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
-      <meta name="twitter:image:alt" content={`${SITE_NAME}のイメージ`} />
+      <meta name="twitter:image:alt" content={`${SITE_NAME}`} />
       {!noindex && <link rel="canonical" href={url} />}
       <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
