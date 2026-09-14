@@ -635,20 +635,20 @@
   calorie: 0
   salt: 0
   emoji: 🥤
-- order_code: 5102
-  name_en: DrinkBar
-  name: キッズドリンクバー
-  price: 100
-  calorie: 0
-  salt: 0
-  emoji: 🥤
-- order_code: 5103
-  name_en: DrinkBar
-  name: 単品ドリンクバー
-  price: 300
-  calorie: 0
-  salt: 0
-  emoji: 🥤
+# - order_code: 5102
+#   name_en: DrinkBar
+#   name: キッズドリンクバー
+#   price: 100
+#   calorie: 0
+#   salt: 0
+#   emoji: 🥤
+# - order_code: 5103
+#   name_en: DrinkBar
+#   name: 単品ドリンクバー
+#   price: 300
+#   calorie: 0
+#   salt: 0
+#   emoji: 🥤
 - order_code: 5305
   name_en: SaizeriyaDressing
   name: '[テイクアウト] サイゼリヤドレッシング 500ml'
