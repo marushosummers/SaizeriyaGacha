@@ -17,6 +17,8 @@ import {
   MIN_GACHA_LIMIT,
   normalizeGachaLimit,
 } from '../hooks/normalizeGachaLimit'
+import { useMediaQuery } from '../hooks/useMediaQuery'
+import { device } from './styled/media'
 
 interface Props {
   menus: Menu[]
@@ -35,6 +37,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
     unit: GachaUnit
   }>({ limit: 1000, unit: 'price' })
   const isResult = Boolean(result.length)
+  const isDesktop = useMediaQuery(device.laptop)
 
   const returnTop = () => {
     window.scrollTo({
@@ -78,9 +81,9 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   return (
     <Container>
-      <GoogleColumnAds />
+      {isDesktop === true && <GoogleColumnAds />}
       <Content>
-        <GoogleHeaderAds />
+        {isDesktop === false && <GoogleHeaderAds />}
         <Frame>
           <MainContent $isResult={isResult}>
             <TitleComponent>
@@ -188,7 +191,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
           <GoogleBoxAds />
         </Frame>
       </Content>
-      <GoogleColumnAds />
+      {isDesktop === true && <GoogleColumnAds />}
     </Container>
   )
 }
