@@ -15,7 +15,7 @@ export const Checkbox: React.FC<Props> = ({
   labelText,
 }) => {
   return (
-    <Label>
+    <label>
       <CheckboxContainer className={className}>
         <HiddenCheckbox checked={checked} onChange={onChange} />
         <StyledCheckbox checked={checked}>
@@ -25,28 +25,20 @@ export const Checkbox: React.FC<Props> = ({
         </StyledCheckbox>
       </CheckboxContainer>
       <Text>{labelText}</Text>
-    </Label>
+    </label>
   )
 }
-
-const Label = styled.label`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-`
 
 const Text = styled.span`
   margin-left: 8px;
   font-size: 0.7em;
   font-weight: 50;
-  line-height: 14px;
   color: rgba(0, 124, 0, 1);
 `
 
 const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  vertical-align: -7px;
 `
 
 const Icon = styled.svg`
@@ -54,7 +46,7 @@ const Icon = styled.svg`
   stroke: #007c00;
   stroke-width: 2px;
   width: 12px;
-  height: 12px;
+  hight: 12px;
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -75,9 +67,7 @@ type StyledProps = {
 }
 
 const StyledCheckbox = styled.div<StyledProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   width: 14px;
   height: 14px;
   background: white;
@@ -90,5 +80,6 @@ const StyledCheckbox = styled.div<StyledProps>`
 
   ${Icon} {
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
+    vertical-align: 5px;
   }
 `
