@@ -40,11 +40,13 @@ const Text = styled.span`
   margin-left: 8px;
   font-size: 0.7em;
   font-weight: 50;
+  line-height: 14px;
   color: rgba(0, 124, 0, 1);
 `
 
 const CheckboxContainer = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
 `
 
 const Icon = styled.svg`
@@ -52,7 +54,7 @@ const Icon = styled.svg`
   stroke: #007c00;
   stroke-width: 2px;
   width: 12px;
-  hight: 12px;
+  height: 12px;
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -73,7 +75,9 @@ type StyledProps = {
 }
 
 const StyledCheckbox = styled.div<StyledProps>`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 14px;
   height: 14px;
   background: white;
@@ -86,6 +90,5 @@ const StyledCheckbox = styled.div<StyledProps>`
 
   ${Icon} {
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
-    vertical-align: 5px;
   }
 `
