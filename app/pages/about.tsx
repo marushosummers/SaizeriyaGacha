@@ -1,14 +1,13 @@
 import AboutContent from '../components/aboutContent'
 import { _Head } from '../components/head'
+import { SITE_NAME } from '../lib/seo'
 
 const About = (): JSX.Element => (
   <>
     <_Head
-      title={'サイゼリヤ1000円ガチャ'}
-      description={'サイゼリヤのメニューをガチャしよう！'}
-      keyword={'サイゼリヤ,1000円,ガチャ'}
-      url={process.env.NEXT_PUBLIC_BASE_URL}
-      noindex={true}
+      title={`このサイトについて | ${SITE_NAME}`}
+      description={`${SITE_NAME}の概要、メニュー情報の出典、免責事項、Cookieの利用についてご案内します。`}
+      path="/about/"
     />
     <AboutContent />
   </>

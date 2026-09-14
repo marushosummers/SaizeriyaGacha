@@ -4,6 +4,7 @@ import { _Head } from '../components/head'
 import { Main } from '../components/main'
 import { Menu } from '../domain/Menu'
 import { loadMenus } from '../lib/loadMenus'
+import { DEFAULT_DESCRIPTION, getSiteUrl, SITE_NAME } from '../lib/seo'
 
 type Props = {
   menus: Menu[]
@@ -16,10 +17,28 @@ const Home: NextPage<Props> = ({ menus }) => {
   return (
     <>
       <_Head
-        title={'サイゼリヤ1000円ガチャ'}
-        description={'サイゼリヤのメニューでガチャしよう！'}
-        keyword={'サイゼリヤ,1000円,ガチャ'}
-        url={process.env.NEXT_PUBLIC_BASE_URL}
+        title={`${SITE_NAME} | 予算・カロリー内でメニューをランダム選択`}
+        description={DEFAULT_DESCRIPTION}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebApplication',
+            name: SITE_NAME,
+            url: getSiteUrl(),
+            description: DEFAULT_DESCRIPTION,
+            applicationCategory: 'EntertainmentApplication',
+            operatingSystem: 'Web',
+            inLanguage: 'ja-JP',
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'JPY',
+            },
+          }),
+        }}
       />
       <Main menus={menus} />
     </>

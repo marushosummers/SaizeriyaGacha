@@ -9,7 +9,7 @@ export const AboutContent: NextPage = () => {
   return (
     <Frame>
       <Container>
-        <h2>サイゼリヤガチャについて</h2>
+        <h1>サイゼリヤガチャについて</h1>
         <Divider />
         <p>
           このサイトは、

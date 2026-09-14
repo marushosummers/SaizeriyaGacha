@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="ja">
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@800&display=swap"
