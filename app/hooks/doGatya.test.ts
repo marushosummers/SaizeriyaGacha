@@ -5,6 +5,7 @@ const menu = (price: number, calorie: number): Menu => ({
   order_code: `${price}-${calorie}`,
   name_en: 'Food',
   name: 'テストメニュー',
+  category: 'main',
   price,
   calorie,
   salt: 0,

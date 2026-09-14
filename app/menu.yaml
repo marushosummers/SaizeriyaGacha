@@ -1,6 +1,7 @@
 - order_code: 1202
   name_en: ShrimpSalad
   name: 小エビのサラダ
+  category: salad
   price: 350
   calorie: 197
   salt: 1.5
@@ -8,6 +9,7 @@
 - order_code: 1205
   name_en: SeaweedSalad
   name: わかめのサラダ
+  category: salad
   price: 350
   calorie: 169
   salt: 0.9
@@ -15,6 +17,7 @@
 - order_code: 1209
   name_en: ChickenSalad
   name: チキンのサラダ
+  category: salad
   price: 350
   calorie: 235
   salt: 1.5
@@ -22,6 +25,7 @@
 - order_code: 1301
   name_en: CornCreamSoup
   name: コーンクリームスープ
+  category: soup
   price: 150
   calorie: 150
   salt: 1
@@ -29,6 +33,7 @@
 - order_code: 1302
   name_en: ColdCreamPumpkinSoup
   name: '[季節限定] 冷たいパンプキンスープ'
+  category: soup
   price: 180
   calorie: 111
   salt: 0.9
@@ -36,6 +41,7 @@
 - order_code: 1305
   name_en: Minestrone
   name: 田舎風ミネストローネ
+  category: soup
   price: 300
   calorie: 183
   salt: 2.5
@@ -43,6 +49,7 @@
 - order_code: 1307
   name_en: OnionSoupWithBreadAndCheese
   name: たまねぎのズッパ
+  category: soup
   price: 300
   calorie: 283
   salt: 2.4
@@ -50,6 +57,7 @@
 - order_code: 1401
   name_en: GrilledSpicyChicken
   name: 辛味チキン
+  category: appetizer
   price: 300
   calorie: 295
   salt: 1.8
@@ -57,6 +65,7 @@
 - order_code: 1402
   name_en: GrilledSkeweredLamb
   name: アロスティチーニ
+  category: appetizer
   price: 400
   calorie: 188
   salt: 0.7
@@ -64,6 +73,7 @@
 - order_code: 1403
   name_en: SauteedSpinach
   name: ほうれん草のソテー
+  category: appetizer
   price: 200
   calorie: 223
   salt: 1.3
@@ -71,6 +81,7 @@
 - order_code: 1404
   name_en: FriedShrimp
   name: ポップコーンシュリンプ
+  category: appetizer
   price: 300
   calorie: 257
   salt: 1.1
@@ -78,6 +89,7 @@
 - order_code: 1405
   name_en: GrilledEscargots
   name: エスカルゴのオーブン焼き
+  category: appetizer
   price: 400
   calorie: 220
   salt: 1.4
@@ -85,6 +97,7 @@
 - order_code: 1406
   name_en: ShrimpWithSaizeriyaDressing
   name: 小エビのカクテル
+  category: appetizer
   price: 280
   calorie: 124
   salt: 1.3
@@ -92,6 +105,7 @@
 - order_code: 1407
   name_en: GrilledSpicySausage
   name: チョリソー
+  category: appetizer
   price: 400
   calorie: 382
   salt: 2.3
@@ -99,6 +113,7 @@
 - order_code: 1408
   name_en: ChickenWithFlavoredVegetableSauce
   name: 蒸し鶏の香味ソース
+  category: appetizer
   price: 280
   calorie: 125
   salt: 1.3
@@ -106,6 +121,7 @@
 - order_code: 1410
   name_en: GrilledGreenMusselsWithVegetableSauce
   name: ムール貝のガーリック焼き
+  category: appetizer
   price: 400
   calorie: 320
   salt: 2.3
@@ -113,6 +129,7 @@
 - order_code: 1413
   name_en: ShreddedCarrot
   name: キャロットラぺ
+  category: appetizer
   price: 200
   calorie: 92
   salt: 0.7
@@ -120,6 +137,7 @@
 - order_code: 1416
   name_en: HashedPotato
   name: ポテトのグリル
+  category: appetizer
   price: 300
   calorie: 307
   salt: 1.6
@@ -127,6 +145,7 @@
 - order_code: 1417
   name_en: BuffaloMozzarellaCheeseAndTomato
   name: バッファローモッツァレラのカプレーゼ
+  category: appetizer
   price: 430
   calorie: 254
   salt: 0.4
@@ -134,6 +153,7 @@
 - order_code: 1422
   name_en: CuredHam
   name: 生ハム
+  category: appetizer
   price: 320
   calorie: 36
   salt: 0.9
@@ -141,6 +161,7 @@
 - order_code: 1423
   name_en: CuredHamAndBuffaloMozzarellaCheese
   name: 生ハムとバッファローモッツァレラの盛合せ
+  category: appetizer
   price: 500
   calorie: 146
   salt: 1
@@ -148,6 +169,7 @@
 - order_code: 1425
   name_en: GreenPeasWithCheeseAndEgg
   name: 柔らか青豆の温サラダ
+  category: appetizer
   price: 200
   calorie: 215
   salt: 0.9
@@ -155,6 +177,7 @@
 - order_code: 1452
   name_en: GrilledSkeweredLamb
   name: アロスティチーニ Wサイズ
+  category: appetizer
   price: 800
   calorie: 376
   salt: 1.4
@@ -162,6 +185,7 @@
 - order_code: 2101
   name_en: DoriaWithMeatSauce
   name: ミラノ風ドリア
+  category: doria
   price: 300
   calorie: 556
   salt: 2.6
@@ -169,6 +193,7 @@
 - order_code: 2103
   name_en: DoriaWithMeatSauceAndEgg
   name: 半熟卵のミラノ風ドリア
+  category: doria
   price: 350
   calorie: 639
   salt: 2.8
@@ -176,6 +201,7 @@
 - order_code: 2108
   name_en: DoriaWithMeatSauceAndCheese
   name: 焼チーズ ミラノ風ドリア
+  category: doria
   price: 350
   calorie: 674
   salt: 3.2
@@ -183,6 +209,7 @@
 - order_code: 2110
   name_en: DoriaWithTarakoSauceAndFriedShrimp
   name: タラコとポップコーンシュリンプのドリア
+  category: doria
   price: 400
   calorie: 622
   salt: 2.7
@@ -190,6 +217,7 @@
 - order_code: 2115
   name_en: GratinWithFriedShrimpAndTarakoSauce
   name: ポップコーンシュリンプとタラコのクリームグラタン
+  category: gratin
   price: 430
   calorie: 601
   salt: 2.3
@@ -197,6 +225,7 @@
 - order_code: 2203
   name_en: PizzaWithBuffaloMozzarellaCheese
   name: バッファローモッツァレラのマルゲリータピザ
+  category: pizza
   price: 400
   calorie: 559
   salt: 1.8
@@ -204,6 +233,7 @@
 - order_code: 2204
   name_en: PizzaWithMushroomAndVegetableSauce
   name: 野菜ときのこのピザ
+  category: pizza
   price: 400
   calorie: 591
   salt: 2.3
@@ -211,6 +241,7 @@
 - order_code: 2206
   name_en: PizzaWithCorn
   name: たっぷりコーンのピザ
+  category: pizza
   price: 400
   calorie: 590
   salt: 2.2
@@ -218,6 +249,7 @@
 - order_code: 2208
   name_en: PizzaWithSausage
   name: ソーセージピザ
+  category: pizza
   price: 400
   calorie: 663
   salt: 3.3
@@ -225,6 +257,7 @@
 - order_code: 2301
   name_en: SpaghettiTarakoSauce
   name: タラコソースシシリー風
+  category: pasta
   price: 400
   calorie: 495
   salt: 1.9
@@ -232,6 +265,7 @@
 - order_code: 2303
   name_en: SpaghettiPeperoncino
   name: ペペロンチーノ
+  category: pasta
   price: 300
   calorie: 542
   salt: 2.3
@@ -239,6 +273,7 @@
 - order_code: 2304
   name_en: SpaghettiWithTomatoAndPancetta
   name: パルマ風スパゲッティ
+  category: pasta
   price: 400
   calorie: 677
   salt: 3.3
@@ -246,6 +281,7 @@
 - order_code: 2305
   name_en: SpaghettiCarbonara
   name: カルボナーラ
+  category: pasta
   price: 500
   calorie: 732
   salt: 2.9
@@ -253,6 +289,7 @@
 - order_code: 2306
   name_en: SpaghettiWithMeatSauce
   name: ミートソースボロニア風
+  category: pasta
   price: 400
   calorie: 542
   salt: 2.7
@@ -260,6 +297,7 @@
 - order_code: 2310
   name_en: SpaghettiVongole
   name: スープ入り塩味ボンゴレ
+  category: pasta
   price: 500
   calorie: 649
   salt: 2.7
@@ -267,6 +305,7 @@
 - order_code: 2316
   name_en: SpaghettiWithMeatSauceAndEgg
   name: 半熟卵のミートソースボロニア風
+  category: pasta
   price: 450
   calorie: 625
   salt: 2.9
@@ -274,6 +313,7 @@
 - order_code: 2317
   name_en: SpaghettiPeperoncinoWithEgg
   name: 半熟卵のペペロンチーノ
+  category: pasta
   price: 350
   calorie: 625
   salt: 2.5
@@ -281,6 +321,7 @@
 - order_code: 2318
   name_en: SpaghettiCarbonaraWithEgg
   name: 半熟卵のカルボナーラ
+  category: pasta
   price: 550
   calorie: 815
   salt: 3.1
@@ -288,6 +329,7 @@
 - order_code: 2320
   name_en: SpaghettiTarakoSauceWithShrimp
   name: 小エビのタラコソース
+  category: pasta
   price: 540
   calorie: 528
   salt: 2.5
@@ -295,6 +337,7 @@
 - order_code: 2321
   name_en: SpaghettiMushroomCreamWithSpinach
   name: きのことほうれん草のクリームスパゲッティ
+  category: pasta
   price: 600
   calorie: 713
   salt: 2.5
@@ -302,6 +345,7 @@
 - order_code: 2325
   name_en: PenneArrabbiata
   name: ペンネアラビアータ
+  category: pasta
   price: 430
   calorie: 420
   salt: 2.6
@@ -309,6 +353,7 @@
 - order_code: 2328
   name_en: SpaghettiNeroDiSeppia
   name: イカの墨入りセピアソース
+  category: pasta
   price: 500
   calorie: 547
   salt: 2.1
@@ -316,6 +361,7 @@
 - order_code: 2403
   name_en: HamburgerSteakWithCheeseAndTomatoSauce
   name: イタリアンハンバーグ
+  category: main
   price: 500
   calorie: 631
   salt: 3
@@ -323,6 +369,7 @@
 - order_code: 2406
   name_en: HamburgerSteak
   name: ハンバーグステーキ
+  category: main
   price: 400
   calorie: 557
   salt: 2.6
@@ -330,6 +377,7 @@
 - order_code: 2407
   name_en: HamburgerSteakWithVegetableSauce
   name: ディアボラ風ハンバーグ
+  category: main
   price: 500
   calorie: 664
   salt: 2.9
@@ -337,6 +385,7 @@
 - order_code: 2417
   name_en: LambRumpSteak
   name: ラム（仔羊）のランプステーキ
+  category: main
   price: 1090
   calorie: 407
   salt: 2.2
@@ -344,6 +393,7 @@
 - order_code: 2418
   name_en: HamburgerSteakWithSpicyChickenAndFriedShrimp
   name: ミックスグリル
+  category: main
   price: 650
   calorie: 730
   salt: 3.6
@@ -351,6 +401,7 @@
 - order_code: 2419
   name_en: BeefSteak
   name: ビーフステーキ
+  category: main
   price: 1090
   calorie: 418
   salt: 2.5
@@ -358,6 +409,7 @@
 - order_code: 3101
   name_en: Rice
   name: ライス
+  category: rice
   price: 150
   calorie: 303
   salt: 0.1
@@ -365,6 +417,7 @@
 - order_code: 3102
   name_en: LargeRice
   name: ラージライス
+  category: rice
   price: 200
   calorie: 455
   salt: 0.1
@@ -372,6 +425,7 @@
 - order_code: 3103
   name_en: SmallRice
   name: スモールライス
+  category: rice
   price: 100
   calorie: 152
   salt: 0.1
@@ -379,6 +433,7 @@
 - order_code: 3110
   name_en: Focaccia
   name: フォッカチオ
+  category: bread
   price: 150
   calorie: 241
   salt: 0.6
@@ -386,6 +441,7 @@
 - order_code: 3111
   name_en: FocacciaWithGarlicButter
   name: ガーリックフォッカチオ
+  category: bread
   price: 200
   calorie: 297
   salt: 0.8
@@ -393,6 +449,7 @@
 - order_code: 3112
   name_en: FocacciaWithCinnamonSugar
   name: シナモンフォッカチオ
+  category: bread
   price: 200
   calorie: 273
   salt: 0.6
@@ -400,6 +457,7 @@
 - order_code: 3113
   name_en: FocacciaWithTarakoSauceAndCheese
   name: タラコフォッカチオ
+  category: bread
   price: 250
   calorie: 322
   salt: 1.2
@@ -407,6 +465,7 @@
 - order_code: 3114
   name_en: FocacciaWithCheese
   name: チーズフォッカチオ
+  category: bread
   price: 250
   calorie: 318
   salt: 1.1
@@ -414,6 +473,7 @@
 - order_code: 3201
   name_en: Tiramisu
   name: ティラミスクラシコ
+  category: dessert
   price: 300
   calorie: 233
   salt: 0.2
@@ -421,6 +481,7 @@
 - order_code: 3205
   name_en: MilkGelato
   name: ミルクジェラート
+  category: dessert
   price: 250
   calorie: 121
   salt: 0.1
@@ -428,6 +489,7 @@
 - order_code: 3206
   name_en: ItalianCustardPudding
   name: イタリアンプリン
+  category: dessert
   price: 250
   calorie: 223
   salt: 0.2
@@ -435,6 +497,7 @@
 - order_code: 3207
   name_en: ChocolateCake
   name: チョコレートケーキ
+  category: dessert
   price: 300
   calorie: 179
   salt: 0.2
@@ -442,6 +505,7 @@
 - order_code: 3212
   name_en: ItalianCustardPuddingAndTiramisu
   name: プリンとティラミスクラシコの盛合せ
+  category: dessert
   price: 500
   calorie: 456
   salt: 0.3
@@ -449,6 +513,7 @@
 - order_code: 3213
   name_en: TruffleIceCream
   name: トリフアイスクリーム
+  category: dessert
   price: 350
   calorie: 171
   salt: 0.1
@@ -456,6 +521,7 @@
 - order_code: 3214
   name_en: MilkGelatoAndCinnamonFocaccia
   name: ジェラート＆シナモンフォッカチオ
+  category: dessert
   price: 450
   calorie: 393
   salt: 0.7
@@ -463,6 +529,7 @@
 - order_code: 3215
   name_en: CoffeeJellyWithMilkGelato
   name: コーヒーゼリー＆ミルクジェラート
+  category: dessert
   price: 350
   calorie: 173
   salt: 0.1
@@ -470,139 +537,159 @@
 - order_code: 3216
   name_en: ChocolateCakeAndMilkGelato
   name: チョコレートケーキ＆ミルクジェラート
+  category: dessert
   price: 500
   calorie: 299
   salt: 0.3
   emoji: 🍰
 - order_code: 3301
-  name_en: Alcohol
+  name_en: KirinIchibanShiboriDraftBeer
   name: キリン一番搾り ジョッキ
+  category: alcohol
   price: 400
   calorie: 0
   salt: 0
   emoji: 🍺
 - order_code: 3302
-  name_en: Alcohol
+  name_en: KirinIchibanShiboriGlassBeer
   name: キリン一番搾り グラスビール
+  category: alcohol
   price: 280
   calorie: 0
   salt: 0
   emoji: 🍺
 - order_code: 3303
-  name_en: Alcohol
+  name_en: AsahiDryZero
   name: アサヒドライゼロ
+  category: alcohol
   price: 250
   calorie: 0
   salt: 0
   emoji: 🍺
 - order_code: 3304
-  name_en: Alcohol
+  name_en: KirinHyoketsuSicilianLemon
   name: キリン氷結シチリア産レモン
+  category: alcohol
   price: 350
   calorie: 0
   salt: 0
   emoji: 🍋
 - order_code: 3306
-  name_en: Alcohol
+  name_en: Grappa
   name: グラッパ
+  category: alcohol
   price: 300
   calorie: 0
   salt: 0
   emoji: 🥃
 - order_code: 3401
-  name_en: Alcohol
+  name_en: RedWineGlass
   name: グラスワイン 赤
+  category: alcohol
   price: 100
   calorie: 0
   salt: 0
   emoji: 🍷
 - order_code: 3402
-  name_en: Alcohol
+  name_en: WhiteWineGlass
   name: グラスワイン 白
+  category: alcohol
   price: 100
   calorie: 0
   salt: 0
   emoji: 🥂
 - order_code: 3403
-  name_en: Alcohol
+  name_en: RedWineDecanter250ml
   name: デカンタ 赤 250ml
+  category: alcohol
   price: 200
   calorie: 0
   salt: 0
   emoji: 🍷
 - order_code: 3404
-  name_en: Alcohol
+  name_en: WhiteWineDecanter250ml
   name: デカンタ 白 250ml
+  category: alcohol
   price: 200
   calorie: 0
   salt: 0
   emoji: 🥂
 - order_code: 3405
-  name_en: Alcohol
+  name_en: RedWineDecanter500ml
   name: デカンタ 赤 500ml
+  category: alcohol
   price: 400
   calorie: 0
   salt: 0
   emoji: 🍷
 - order_code: 3406
-  name_en: Alcohol
+  name_en: WhiteWineDecanter500ml
   name: デカンタ 白 500ml
+  category: alcohol
   price: 400
   calorie: 0
   salt: 0
   emoji: 🥂
 - order_code: 3407
-  name_en: Alcohol
+  name_en: RedWineMagnum1500ml
   name: マグナム 赤 1500ml
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍷
 - order_code: 3408
-  name_en: Alcohol
+  name_en: WhiteWineMagnum1500ml
   name: マグナム 白 1500ml
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🥂
 - order_code: 3412
-  name_en: Alcohol
+  name_en: LambruscoRose
   name: ランブルスコロゼ
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
 - order_code: 3413
-  name_en: Alcohol
+  name_en: DonRaffaele
   name: ドンラファエロ
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
 - order_code: 3414
-  name_en: Alcohol
+  name_en: LambruscoSecco
   name: ランブルスコセッコ
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
 - order_code: 3415
-  name_en: Alcohol
+  name_en: Verdicchio
   name: ベルデッキオ
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
 - order_code: 3416
-  name_en: Alcohol
+  name_en: Chianti
   name: キャンティ
+  category: alcohol
   price: 1100
   calorie: 0
   salt: 0
   emoji: 🍾
 - order_code: 3419
-  name_en: Alcohol
+  name_en: ChiantiRufina
   name: キャンティ ルフィナ
+  category: alcohol
   price: 2200
   calorie: 0
   salt: 0
@@ -610,6 +697,7 @@
 - order_code: 4301
   name_en: HalfBoiledEgg
   name: トッピング半熟卵
+  category: topping
   price: 50
   calorie: 83
   salt: 0.2
@@ -617,6 +705,7 @@
 - order_code: 4304
   name_en: VegetableSauce
   name: トッピング野菜ソース
+  category: topping
   price: 100
   calorie: 132
   salt: 0.5
@@ -624,6 +713,7 @@
 - order_code: 4307
   name_en: GratedCheese
   name: トッピング粉チーズ
+  category: topping
   price: 100
   calorie: 93
   salt: 0.7
@@ -631,6 +721,7 @@
 - order_code: 5101
   name_en: DrinkBar
   name: セットドリンクバー
+  category: drink
   price: 200
   calorie: 0
   salt: 0
@@ -652,6 +743,7 @@
 - order_code: 5305
   name_en: SaizeriyaDressing
   name: '[テイクアウト] サイゼリヤドレッシング 500ml'
+  category: takeout
   price: 500
   calorie: 2430
   salt: 0.9
@@ -659,6 +751,7 @@
 - order_code: 5306
   name_en: ExtraVirginOliveOil
   name: '[テイクアウト] エクストラ・バージン・オリーブオイル 500ml'
+  category: takeout
   price: 1200
   calorie: 4050
   salt: 0

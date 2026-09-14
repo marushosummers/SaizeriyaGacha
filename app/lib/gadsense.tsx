@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { RefObject, useEffect, useRef, useState } from 'react'
 import Script from 'next/script'
 import styled from 'styled-components'
 import { device } from './../components/styled/media'
@@ -18,13 +18,15 @@ export const GoogleAdsHeader = (): JSX.Element => (
 
 export const GoogleBoxAds = (): JSX.Element => {
   const isMounted = useIsMounted()
+  const adRef = useRef<HTMLModElement>(null)
 
-  useGoogleAds(isMounted)
+  useGoogleAds(adRef, isMounted)
 
   return (
     <AdsBox>
       {isMounted && (
         <AdsBoxInsert
+          ref={adRef}
           className="adsbygoogle"
           data-ad-client="ca-pub-7961076646821939"
           data-ad-slot="7072512565"
@@ -38,16 +40,20 @@ export const GoogleBoxAds = (): JSX.Element => {
 
 export const GoogleHeaderAds = (): JSX.Element => {
   const isMounted = useIsMounted()
+  const adRef = useRef<HTMLModElement>(null)
 
-  useGoogleAds(isMounted)
+  useGoogleAds(adRef, isMounted)
 
   return (
     <AdsHeader>
       {isMounted && (
         <AdsHeaderInsert
+          ref={adRef}
           className="adsbygoogle"
           data-ad-client="ca-pub-7961076646821939"
           data-ad-slot="1694695821"
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
         ></AdsHeaderInsert>
       )}
     </AdsHeader>
@@ -56,13 +62,15 @@ export const GoogleHeaderAds = (): JSX.Element => {
 
 export const GoogleColumnAds = (): JSX.Element => {
   const isMounted = useIsMounted()
+  const adRef = useRef<HTMLModElement>(null)
 
-  useGoogleAds(isMounted)
+  useGoogleAds(adRef, isMounted)
 
   return (
     <AdsColumn>
       {isMounted && (
         <AdsColumnInsert
+          ref={adRef}
           className="adsbygoogle"
           data-ad-client="ca-pub-7961076646821939"
           data-ad-slot="7849040636"
@@ -82,9 +90,17 @@ const useIsMounted = (): boolean => {
   return isMounted
 }
 
-const useGoogleAds = (isMounted: boolean): void => {
+const useGoogleAds = (
+  adRef: RefObject<HTMLModElement | null>,
+  isMounted: boolean,
+): void => {
   useEffect(() => {
     if (!isMounted || process.env.NODE_ENV === 'development') {
+      return
+    }
+
+    const ad = adRef.current
+    if (!ad || ad.offsetWidth === 0 || ad.offsetHeight === 0) {
       return
     }
 
@@ -94,7 +110,7 @@ const useGoogleAds = (isMounted: boolean): void => {
     } catch (err) {
       console.error(err)
     }
-  }, [isMounted])
+  }, [adRef, isMounted])
 }
 
 const AdsBox = styled.div`
@@ -112,8 +128,9 @@ const AdsBoxInsert = styled.ins`
 `
 
 const AdsHeader = styled.div`
-  display: inline-block;
-  min-width: 300px;
+  display: block;
+  overflow: hidden;
+  min-width: 0;
   max-width: 970px;
   width: 100%;
   height: 50px;
@@ -126,7 +143,7 @@ const AdsHeader = styled.div`
 `
 
 const AdsHeaderInsert = styled.ins`
-  display: inline-block;
+  display: block;
   width: 100%;
   height: 100%;
 `
