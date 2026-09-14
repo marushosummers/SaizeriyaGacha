@@ -37,4 +37,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./app/out
-          cname: saizeriya-1000yen.marusho.io
+          cname: saizeriya.gacha.me

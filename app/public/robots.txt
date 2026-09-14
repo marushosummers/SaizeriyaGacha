@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saizeriya-1000yen.marusho.io/sitemap.xml
+Sitemap: https://saizeriya.gacha.me/sitemap.xml
