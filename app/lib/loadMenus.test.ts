@@ -6,6 +6,7 @@ const menu = {
   order_code: '001',
   name_en: 'Pasta',
   name: '検証用メニュー',
+  category: 'pasta',
   price: 300,
   calorie: 450,
   salt: 1.2,
@@ -32,6 +33,7 @@ describe('parseMenus', () => {
     { calorie: -1 },
     { salt: Infinity },
     { name: null },
+    { category: 'invalid' },
     { order_code: null },
   ])('不正なメニューを拒否する: %p', (invalid) => {
     expect(() => parseMenus(dump([{ ...menu, ...invalid }]))).toThrow('1件目')

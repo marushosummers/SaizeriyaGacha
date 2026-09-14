@@ -11,6 +11,12 @@ import { GoogleBoxAds, GoogleColumnAds, GoogleHeaderAds } from '../lib/gadsense'
 import { Frame } from './styled/frame'
 import styled, { css } from 'styled-components'
 import { Checkbox } from './checkbox'
+import { filterMenus } from '../hooks/filterMenus'
+import {
+  MAX_GACHA_LIMIT,
+  MIN_GACHA_LIMIT,
+  normalizeGachaLimit,
+} from '../hooks/normalizeGachaLimit'
 
 interface Props {
   menus: Menu[]
@@ -19,6 +25,7 @@ interface Props {
 export const Main: NextPage<Props> = ({ menus }) => {
   const [result, useResult] = useState<Menu[]>([])
   const [isExtractAlcohol, setExtractAlcohol] = useState(false)
+  const [isExtractTakeout, setExtractTakeout] = useState(false)
   const [isButtonAreaFloat, useButtonAreaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const [limitInput, setLimitInput] = useState('1000')
@@ -29,12 +36,6 @@ export const Main: NextPage<Props> = ({ menus }) => {
   }>({ limit: 1000, unit: 'price' })
   const isResult = Boolean(result.length)
 
-  const normalizeLimit = (value: string) => {
-    const parsedValue = Number(value)
-    if (!Number.isFinite(parsedValue)) return 1
-    return Math.min(10000, Math.max(1, Math.trunc(parsedValue)))
-  }
-
   const returnTop = () => {
     window.scrollTo({
       top: 0,
@@ -43,11 +44,12 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   const handleButton = async () => {
     useLoading(true)
-    const limit = normalizeLimit(limitInput)
+    const limit = normalizeGachaLimit(limitInput)
     setLimitInput(String(limit))
-    const filteredMenus = isExtractAlcohol
-      ? menus.filter((menu) => menu.name_en !== 'Alcohol')
-      : menus
+    const filteredMenus = filterMenus(menus, {
+      excludeAlcohol: isExtractAlcohol,
+      excludeTakeout: isExtractTakeout,
+    })
     const newResult = doGacha(filteredMenus, limit, unit)
     await _sleep(200)
     useResult(newResult)
@@ -70,6 +72,10 @@ export const Main: NextPage<Props> = ({ menus }) => {
     setExtractAlcohol(!isExtractAlcohol)
   }
 
+  const handleChangeExceptTakeout = () => {
+    setExtractTakeout(!isExtractTakeout)
+  }
+
   return (
     <Container>
       <GoogleColumnAds />
@@ -82,8 +88,8 @@ export const Main: NextPage<Props> = ({ menus }) => {
               <Title>
                 <LimitInput
                   type="number"
-                  min="1"
-                  max="10000"
+                  min={MIN_GACHA_LIMIT}
+                  max={MAX_GACHA_LIMIT}
                   step="1"
                   inputMode="numeric"
                   aria-label="ガチャの上限"
@@ -95,12 +101,12 @@ export const Main: NextPage<Props> = ({ menus }) => {
                       setLimitInput(
                         value === ''
                           ? value
-                          : String(Math.min(10000, Number(value))),
+                          : String(Math.min(MAX_GACHA_LIMIT, Number(value))),
                       )
                     }
                   }}
                   onBlur={() =>
-                    setLimitInput(String(normalizeLimit(limitInput)))
+                    setLimitInput(String(normalizeGachaLimit(limitInput)))
                   }
                 />
                 <UnitButton
@@ -143,6 +149,11 @@ export const Main: NextPage<Props> = ({ menus }) => {
                   checked={isExtractAlcohol}
                   onChange={handleChangeExceptAlcohol}
                   labelText={'アルコール類を除く'}
+                />
+                <Checkbox
+                  checked={isExtractTakeout}
+                  onChange={handleChangeExceptTakeout}
+                  labelText={'テイクアウトを除く'}
                 />
                 <CloseButton
                   type="button"
@@ -270,7 +281,7 @@ const ButtonAreaContainer = styled.div`
   justify-content: center;
   background: rgb(185, 226, 185);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.33);
-  height: 120px;
+  min-height: 140px;
   margin: 20px auto;
   padding: 10px;
   max-width: 300px;

@@ -11,7 +11,7 @@ export const Item: React.FC<Props> = (props) => {
   const threshold = 15
   return (
     <Card>
-      <OrderLabel className="ribbon">{menu.order_code}</OrderLabel>
+      <OrderLabel>{menu.order_code}</OrderLabel>
       {menu.name.length < threshold && <MenuName>{menu.name}</MenuName>}
       {menu.name.length >= threshold && (
         <MenuNameSmall>{menu.name}</MenuNameSmall>
@@ -29,28 +29,32 @@ const OrderLabel = styled.h3`
   position: absolute;
   left: 0;
   top: 0px;
-  padding: 0 6px;
+  padding: 2px 8px;
   margin: 0;
-  height: 14px;
-  line-height: 14px;
-  font-size: 8px;
-  letter-spacing: 0.1em;
+  min-height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
   color: white;
   font-style: normal;
-  background: rgba(0, 124, 0, 0.3);
-  box-shadow: 0 2px 2px rgba(0, 124, 0, 0.1);
+  background: #007c00;
+  box-shadow: 0 2px 2px rgba(0, 80, 0, 0.25);
 
   @media ${device.laptop} {
     padding: 0 12px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 0.8em;
+    min-height: 24px;
+    line-height: 24px;
+    font-size: 0.85em;
   }
 `
 
 const Card = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
+  min-height: 64px;
   margin: 0.5em 0;
   border-left: solid 6px rgba(0, 124, 0, 1);
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);

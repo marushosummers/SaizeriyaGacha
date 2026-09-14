@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises'
 import path from 'path'
 import { load } from 'js-yaml'
-import { Menu } from '../domain/Menu'
+import { Menu, MENU_CATEGORIES } from '../domain/Menu'
 
 export const parseMenus = (source: string): Menu[] => {
   const menus: unknown = load(source)
@@ -18,9 +18,10 @@ export const parseMenus = (source: string): Menu[] => {
         (typeof menu.order_code === 'number' &&
           Number.isFinite(menu.order_code))
       ) ||
-      !['name_en', 'name', 'emoji'].every(
+      !['name_en', 'name', 'category', 'emoji'].every(
         (key) => typeof menu[key] === 'string',
       ) ||
+      !MENU_CATEGORIES.includes(menu.category as Menu['category']) ||
       !['price', 'calorie', 'salt'].every(
         (key) => typeof menu[key] === 'number' && Number.isFinite(menu[key]),
       ) ||
