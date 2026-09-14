@@ -15,7 +15,7 @@ export const Checkbox: React.FC<Props> = ({
   labelText,
 }) => {
   return (
-    <label>
+    <Label>
       <CheckboxContainer className={className}>
         <HiddenCheckbox checked={checked} onChange={onChange} />
         <StyledCheckbox checked={checked}>
@@ -25,9 +25,16 @@ export const Checkbox: React.FC<Props> = ({
         </StyledCheckbox>
       </CheckboxContainer>
       <Text>{labelText}</Text>
-    </label>
+    </Label>
   )
 }
+
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+`
 
 const Text = styled.span`
   margin-left: 8px;
@@ -38,7 +45,6 @@ const Text = styled.span`
 
 const CheckboxContainer = styled.div`
   display: inline-block;
-  vertical-align: -7px;
 `
 
 const Icon = styled.svg`

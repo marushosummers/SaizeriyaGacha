@@ -11,7 +11,7 @@ export const Item: React.FC<Props> = (props) => {
   const threshold = 15
   return (
     <Card>
-      <OrderLabel>注文番号: {menu.order_code}</OrderLabel>
+      <OrderLabel>{menu.order_code}</OrderLabel>
       {menu.name.length < threshold && <MenuName>{menu.name}</MenuName>}
       {menu.name.length >= threshold && (
         <MenuNameSmall>{menu.name}</MenuNameSmall>
@@ -50,12 +50,15 @@ const OrderLabel = styled.h3`
 `
 
 const Card = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
+  min-height: 64px;
   margin: 0.5em 0;
   border-left: solid 6px rgba(0, 124, 0, 1);
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
-  padding: 2em 1em 0.5em;
+  padding: 0.5em 1em;
   background: #e5f2e5;
 
   span {
