@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { Result } from './result'
 import { doGacha, GachaUnit } from '../hooks/doGatya'
-import { Menu } from '../domain/Menu'
+import { Menu, MenuCategory } from '../domain/Menu'
 import { Spinner } from './spinner'
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
@@ -24,10 +24,36 @@ interface Props {
   menus: Menu[]
 }
 
+type ConditionFilters = {
+  excludeAlcohol: boolean
+  excludeTakeout: boolean
+  excludeTopping: boolean
+  excludeDessert: boolean
+  excludeDrink: boolean
+  preventDuplicates: boolean
+  requireAlcohol: boolean
+  requireDessert: boolean
+  requireDrink: boolean
+}
+
+const initialConditionFilters: ConditionFilters = {
+  excludeAlcohol: false,
+  excludeTakeout: false,
+  excludeTopping: false,
+  excludeDessert: false,
+  excludeDrink: false,
+  preventDuplicates: false,
+  requireAlcohol: false,
+  requireDessert: false,
+  requireDrink: false,
+}
+
 export const Main: NextPage<Props> = ({ menus }) => {
   const [result, useResult] = useState<Menu[]>([])
-  const [isExtractAlcohol, setExtractAlcohol] = useState(false)
-  const [isExtractTakeout, setExtractTakeout] = useState(false)
+  const [conditionFilters, setConditionFilters] = useState(
+    initialConditionFilters,
+  )
+  const [isConditionOpen, setConditionOpen] = useState(false)
   const [isButtonAreaFloat, useButtonAreaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const [limitInput, setLimitInput] = useState('1000')
@@ -38,6 +64,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
   }>({ limit: 1000, unit: 'price' })
   const isResult = Boolean(result.length)
   const isDesktop = useMediaQuery(device.laptop)
+  const conditionPanelId = useId()
 
   const returnTop = () => {
     window.scrollTo({
@@ -47,13 +74,19 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   const handleButton = async () => {
     useLoading(true)
+    setConditionOpen(false)
     const limit = normalizeGachaLimit(limitInput)
     setLimitInput(String(limit))
-    const filteredMenus = filterMenus(menus, {
-      excludeAlcohol: isExtractAlcohol,
-      excludeTakeout: isExtractTakeout,
+    const filteredMenus = filterMenus(menus, conditionFilters)
+    const requiredCategories: MenuCategory[] = [
+      ...(conditionFilters.requireAlcohol ? (['alcohol'] as const) : []),
+      ...(conditionFilters.requireDessert ? (['dessert'] as const) : []),
+      ...(conditionFilters.requireDrink ? (['drink'] as const) : []),
+    ]
+    const newResult = doGacha(filteredMenus, limit, unit, {
+      requiredCategories,
+      preventDuplicates: conditionFilters.preventDuplicates,
     })
-    const newResult = doGacha(filteredMenus, limit, unit)
     await _sleep(200)
     useResult(newResult)
     setResultCondition({ limit, unit })
@@ -71,12 +104,20 @@ export const Main: NextPage<Props> = ({ menus }) => {
     useButtonAreaFloat(false)
   }
 
-  const handleChangeExceptAlcohol = () => {
-    setExtractAlcohol(!isExtractAlcohol)
-  }
-
-  const handleChangeExceptTakeout = () => {
-    setExtractTakeout(!isExtractTakeout)
+  const toggleCondition = (
+    condition: keyof ConditionFilters,
+    exclusiveCondition?: keyof ConditionFilters,
+  ) => {
+    setConditionFilters((currentFilters) => {
+      const checked = !currentFilters[condition]
+      return {
+        ...currentFilters,
+        [condition]: checked,
+        ...(checked && exclusiveCondition
+          ? { [exclusiveCondition]: false }
+          : {}),
+      }
+    })
   }
 
   return (
@@ -148,16 +189,96 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 >
                   {loading ? <Spinner /> : 'ガチャを回す'}
                 </Button>
-                <Checkbox
-                  checked={isExtractAlcohol}
-                  onChange={handleChangeExceptAlcohol}
-                  labelText={'アルコール類を除く'}
-                />
-                <Checkbox
-                  checked={isExtractTakeout}
-                  onChange={handleChangeExceptTakeout}
-                  labelText={'テイクアウトを除く'}
-                />
+                <ConditionAccordion>
+                  <ConditionButton
+                    type="button"
+                    aria-label="条件フィルター"
+                    aria-expanded={isConditionOpen}
+                    aria-controls={conditionPanelId}
+                    onClick={() => setConditionOpen((isOpen) => !isOpen)}
+                  >
+                    <ConditionButtonIcon $isOpen={isConditionOpen}>
+                      ▼
+                    </ConditionButtonIcon>
+                    条件フィルター
+                  </ConditionButton>
+                  <ConditionPanel
+                    id={conditionPanelId}
+                    aria-hidden={!isConditionOpen}
+                    $isOpen={isConditionOpen}
+                  >
+                    <ConditionPanelInner>
+                      <ConditionList>
+                        <Checkbox
+                          checked={conditionFilters.excludeAlcohol}
+                          disabled={!isConditionOpen}
+                          onChange={() =>
+                            toggleCondition('excludeAlcohol', 'requireAlcohol')
+                          }
+                          labelText="アルコール類を除く"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.excludeTakeout}
+                          disabled={!isConditionOpen}
+                          onChange={() => toggleCondition('excludeTakeout')}
+                          labelText="テイクアウトを除く"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.excludeTopping}
+                          disabled={!isConditionOpen}
+                          onChange={() => toggleCondition('excludeTopping')}
+                          labelText="トッピングを除く"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.excludeDessert}
+                          disabled={!isConditionOpen}
+                          onChange={() =>
+                            toggleCondition('excludeDessert', 'requireDessert')
+                          }
+                          labelText="デザートを除く"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.excludeDrink}
+                          disabled={!isConditionOpen}
+                          onChange={() =>
+                            toggleCondition('excludeDrink', 'requireDrink')
+                          }
+                          labelText="ドリンクバーを除く"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.preventDuplicates}
+                          disabled={!isConditionOpen}
+                          onChange={() => toggleCondition('preventDuplicates')}
+                          labelText="重複メニューは除く"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.requireAlcohol}
+                          disabled={!isConditionOpen}
+                          onChange={() =>
+                            toggleCondition('requireAlcohol', 'excludeAlcohol')
+                          }
+                          labelText="アルコール類を必ず含める"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.requireDessert}
+                          disabled={!isConditionOpen}
+                          onChange={() =>
+                            toggleCondition('requireDessert', 'excludeDessert')
+                          }
+                          labelText="デザートを必ず含める"
+                        />
+                        <Checkbox
+                          checked={conditionFilters.requireDrink}
+                          disabled={!isConditionOpen}
+                          onChange={() =>
+                            toggleCondition('requireDrink', 'excludeDrink')
+                          }
+                          labelText="ドリンクバーを必ず含める"
+                        />
+                      </ConditionList>
+                    </ConditionPanelInner>
+                  </ConditionPanel>
+                </ConditionAccordion>
                 <CloseButton
                   type="button"
                   aria-label="閉じる"
@@ -347,6 +468,65 @@ const Button = styled.button`
   font-size: 1em;
   color: #ffffff;
   user-select: none;
+`
+const ConditionAccordion = styled.div`
+  width: 12em;
+  margin: 16px auto 8px;
+  color: rgba(0, 124, 0, 1);
+`
+const ConditionButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 7px 12px;
+  border: 1px solid rgba(0, 124, 0, 0.8);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85em;
+  font-weight: bold;
+
+  &:focus-visible {
+    outline: 2px solid #007c00;
+    outline-offset: 2px;
+  }
+`
+const ConditionButtonIcon = styled.span<{ $isOpen: boolean }>`
+  display: inline-block;
+  font-size: 0.65em;
+  transform: rotate(${({ $isOpen }) => ($isOpen ? '180deg' : '0deg')});
+  transition: transform 250ms ease;
+`
+const ConditionPanel = styled.div<{ $isOpen: boolean }>`
+  display: grid;
+  grid-template-rows: ${({ $isOpen }) => ($isOpen ? '1fr' : '0fr')};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  transition:
+    grid-template-rows 250ms ease,
+    opacity 200ms ease;
+`
+const ConditionPanelInner = styled.div`
+  overflow: hidden;
+`
+const ConditionList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 10px 16px;
+  border: 1px solid rgba(0, 124, 0, 0.45);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  text-align: left;
+
+  & > label {
+    width: 100%;
+  }
 `
 const FooterLink = styled.div`
   font-size: 0.8em;
