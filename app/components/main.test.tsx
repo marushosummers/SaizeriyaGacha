@@ -1,6 +1,8 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { Main } from './main'
 
+jest.mock('./spinner', () => ({ Spinner: () => null }))
+
 const mockViewport = (matches: boolean) => {
   Object.defineProperty(window, 'matchMedia', {
     configurable: true,
@@ -52,6 +54,7 @@ describe('Mainの条件フィルター', () => {
   beforeEach(() => {
     mockViewport(false)
     window.adsbygoogle = []
+    window.scrollTo = jest.fn()
   })
 
   it('ガチャボタンの下に条件フィルターを表示する', () => {
@@ -91,5 +94,19 @@ describe('Mainの条件フィルター', () => {
     fireEvent.click(excludeCheckbox)
     expect(excludeCheckbox.checked).toBe(true)
     expect(requireCheckbox.checked).toBe(false)
+  })
+
+  it('開いた状態でガチャを回すと条件フィルターを閉じる', async () => {
+    render(<Main menus={[]} />)
+    const accordion = screen.getByRole('button', { name: '条件フィルター' })
+
+    fireEvent.click(accordion)
+    expect(accordion.getAttribute('aria-expanded')).toBe('true')
+
+    fireEvent.click(screen.getByRole('button', { name: 'ガチャを回す' }))
+
+    await waitFor(() => {
+      expect(accordion.getAttribute('aria-expanded')).toBe('false')
+    })
   })
 })

@@ -74,6 +74,7 @@ export const Main: NextPage<Props> = ({ menus }) => {
 
   const handleButton = async () => {
     useLoading(true)
+    setConditionOpen(false)
     const limit = normalizeGachaLimit(limitInput)
     setLimitInput(String(limit))
     const filteredMenus = filterMenus(menus, conditionFilters)
@@ -196,10 +197,10 @@ export const Main: NextPage<Props> = ({ menus }) => {
                     aria-controls={conditionPanelId}
                     onClick={() => setConditionOpen((isOpen) => !isOpen)}
                   >
-                    条件フィルター
                     <ConditionButtonIcon $isOpen={isConditionOpen}>
                       ▼
                     </ConditionButtonIcon>
+                    条件フィルター
                   </ConditionButton>
                   <ConditionPanel
                     id={conditionPanelId}
@@ -469,8 +470,8 @@ const Button = styled.button`
   user-select: none;
 `
 const ConditionAccordion = styled.div`
-  width: 260px;
-  margin: 8px auto 0;
+  width: 12em;
+  margin: 16px auto 8px;
   color: rgba(0, 124, 0, 1);
 `
 const ConditionButton = styled.button`
