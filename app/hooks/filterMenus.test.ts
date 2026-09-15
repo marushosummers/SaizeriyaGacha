@@ -30,6 +30,10 @@ const noFilters = {
 }
 
 describe('filterMenus', () => {
+  it('除外条件がなければ全メニューを元の順序で返す', () => {
+    expect(filterMenus(menus, noFilters)).toEqual(menus)
+  })
+
   it('カテゴリーがalcoholのメニューだけを除外する', () => {
     expect(filterMenus(menus, { ...noFilters, excludeAlcohol: true })).toEqual([
       menus[0],
@@ -63,5 +67,17 @@ describe('filterMenus', () => {
     expect(filterMenus(menus, { ...noFilters, [filterName]: true })).toEqual(
       menus.filter((item) => item.category !== category),
     )
+  })
+
+  it('すべての除外条件を同時に適用する', () => {
+    expect(
+      filterMenus(menus, {
+        excludeAlcohol: true,
+        excludeTakeout: true,
+        excludeTopping: true,
+        excludeDessert: true,
+        excludeDrink: true,
+      }),
+    ).toEqual([menus[0]])
   })
 })
