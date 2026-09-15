@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import { Result } from './result'
 import { doGacha, GachaUnit } from '../hooks/doGatya'
-import { Menu } from '../domain/Menu'
+import { Menu, MenuCategory } from '../domain/Menu'
 import { Spinner } from './spinner'
 import * as gtag from '../lib/gtag'
 import _sleep from '../hooks/sleep'
@@ -24,10 +24,35 @@ interface Props {
   menus: Menu[]
 }
 
+type ConditionFilters = {
+  excludeAlcohol: boolean
+  excludeTakeout: boolean
+  excludeTopping: boolean
+  excludeDessert: boolean
+  excludeDrink: boolean
+  preventDuplicates: boolean
+  requireAlcohol: boolean
+  requireDessert: boolean
+  requireDrink: boolean
+}
+
+const initialConditionFilters: ConditionFilters = {
+  excludeAlcohol: false,
+  excludeTakeout: false,
+  excludeTopping: false,
+  excludeDessert: false,
+  excludeDrink: false,
+  preventDuplicates: false,
+  requireAlcohol: false,
+  requireDessert: false,
+  requireDrink: false,
+}
+
 export const Main: NextPage<Props> = ({ menus }) => {
   const [result, useResult] = useState<Menu[]>([])
-  const [isExtractAlcohol, setExtractAlcohol] = useState(false)
-  const [isExtractTakeout, setExtractTakeout] = useState(false)
+  const [conditionFilters, setConditionFilters] = useState(
+    initialConditionFilters,
+  )
   const [isButtonAreaFloat, useButtonAreaFloat] = useState(false)
   const [loading, useLoading] = useState(false)
   const [limitInput, setLimitInput] = useState('1000')
@@ -49,11 +74,16 @@ export const Main: NextPage<Props> = ({ menus }) => {
     useLoading(true)
     const limit = normalizeGachaLimit(limitInput)
     setLimitInput(String(limit))
-    const filteredMenus = filterMenus(menus, {
-      excludeAlcohol: isExtractAlcohol,
-      excludeTakeout: isExtractTakeout,
+    const filteredMenus = filterMenus(menus, conditionFilters)
+    const requiredCategories: MenuCategory[] = [
+      ...(conditionFilters.requireAlcohol ? (['alcohol'] as const) : []),
+      ...(conditionFilters.requireDessert ? (['dessert'] as const) : []),
+      ...(conditionFilters.requireDrink ? (['drink'] as const) : []),
+    ]
+    const newResult = doGacha(filteredMenus, limit, unit, {
+      requiredCategories,
+      preventDuplicates: conditionFilters.preventDuplicates,
     })
-    const newResult = doGacha(filteredMenus, limit, unit)
     await _sleep(200)
     useResult(newResult)
     setResultCondition({ limit, unit })
@@ -71,12 +101,20 @@ export const Main: NextPage<Props> = ({ menus }) => {
     useButtonAreaFloat(false)
   }
 
-  const handleChangeExceptAlcohol = () => {
-    setExtractAlcohol(!isExtractAlcohol)
-  }
-
-  const handleChangeExceptTakeout = () => {
-    setExtractTakeout(!isExtractTakeout)
+  const toggleCondition = (
+    condition: keyof ConditionFilters,
+    exclusiveCondition?: keyof ConditionFilters,
+  ) => {
+    setConditionFilters((currentFilters) => {
+      const checked = !currentFilters[condition]
+      return {
+        ...currentFilters,
+        [condition]: checked,
+        ...(checked && exclusiveCondition
+          ? { [exclusiveCondition]: false }
+          : {}),
+      }
+    })
   }
 
   return (
@@ -148,16 +186,68 @@ export const Main: NextPage<Props> = ({ menus }) => {
                 >
                   {loading ? <Spinner /> : 'ガチャを回す'}
                 </Button>
-                <Checkbox
-                  checked={isExtractAlcohol}
-                  onChange={handleChangeExceptAlcohol}
-                  labelText={'アルコール類を除く'}
-                />
-                <Checkbox
-                  checked={isExtractTakeout}
-                  onChange={handleChangeExceptTakeout}
-                  labelText={'テイクアウトを除く'}
-                />
+                <ConditionAccordion>
+                  <ConditionSummary>条件フィルター</ConditionSummary>
+                  <ConditionList>
+                    <Checkbox
+                      checked={conditionFilters.excludeAlcohol}
+                      onChange={() =>
+                        toggleCondition('excludeAlcohol', 'requireAlcohol')
+                      }
+                      labelText="アルコール類を除く"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.excludeTakeout}
+                      onChange={() => toggleCondition('excludeTakeout')}
+                      labelText="テイクアウトを除く"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.excludeTopping}
+                      onChange={() => toggleCondition('excludeTopping')}
+                      labelText="トッピングを除く"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.excludeDessert}
+                      onChange={() =>
+                        toggleCondition('excludeDessert', 'requireDessert')
+                      }
+                      labelText="デザートを除く"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.excludeDrink}
+                      onChange={() =>
+                        toggleCondition('excludeDrink', 'requireDrink')
+                      }
+                      labelText="ドリンクバーを除く"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.preventDuplicates}
+                      onChange={() => toggleCondition('preventDuplicates')}
+                      labelText="重複メニューは不可"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.requireAlcohol}
+                      onChange={() =>
+                        toggleCondition('requireAlcohol', 'excludeAlcohol')
+                      }
+                      labelText="アルコール類を必ず含める"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.requireDessert}
+                      onChange={() =>
+                        toggleCondition('requireDessert', 'excludeDessert')
+                      }
+                      labelText="デザートを必ず含める"
+                    />
+                    <Checkbox
+                      checked={conditionFilters.requireDrink}
+                      onChange={() =>
+                        toggleCondition('requireDrink', 'excludeDrink')
+                      }
+                      labelText="ドリンクバーを必ず含める"
+                    />
+                  </ConditionList>
+                </ConditionAccordion>
                 <CloseButton
                   type="button"
                   aria-label="閉じる"
@@ -347,6 +437,24 @@ const Button = styled.button`
   font-size: 1em;
   color: #ffffff;
   user-select: none;
+`
+const ConditionAccordion = styled.details`
+  width: 12em;
+  margin: 8px auto 0;
+  color: rgba(0, 124, 0, 1);
+  text-align: left;
+`
+const ConditionSummary = styled.summary`
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-align: center;
+`
+const ConditionList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
 `
 const FooterLink = styled.div`
   font-size: 0.8em;

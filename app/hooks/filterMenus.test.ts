@@ -16,24 +16,52 @@ const menus = [
   menu('pasta', 'Pasta'),
   menu('alcohol', 'Wine'),
   menu('takeout', 'Dressing'),
+  menu('topping', 'Cheese'),
+  menu('dessert', 'Pudding'),
+  menu('drink', 'DrinkBar'),
 ]
+
+const noFilters = {
+  excludeAlcohol: false,
+  excludeTakeout: false,
+  excludeTopping: false,
+  excludeDessert: false,
+  excludeDrink: false,
+}
 
 describe('filterMenus', () => {
   it('カテゴリーがalcoholのメニューだけを除外する', () => {
-    expect(
-      filterMenus(menus, { excludeAlcohol: true, excludeTakeout: false }),
-    ).toEqual([menus[0], menus[2]])
+    expect(filterMenus(menus, { ...noFilters, excludeAlcohol: true })).toEqual([
+      menus[0],
+      ...menus.slice(2),
+    ])
   })
 
   it('カテゴリーがtakeoutのメニューだけを除外する', () => {
-    expect(
-      filterMenus(menus, { excludeAlcohol: false, excludeTakeout: true }),
-    ).toEqual([menus[0], menus[1]])
+    expect(filterMenus(menus, { ...noFilters, excludeTakeout: true })).toEqual([
+      menus[0],
+      menus[1],
+      ...menus.slice(3),
+    ])
   })
 
   it('両方の除外条件を同時に適用する', () => {
     expect(
-      filterMenus(menus, { excludeAlcohol: true, excludeTakeout: true }),
-    ).toEqual([menus[0]])
+      filterMenus(menus, {
+        ...noFilters,
+        excludeAlcohol: true,
+        excludeTakeout: true,
+      }),
+    ).toEqual([menus[0], ...menus.slice(3)])
+  })
+
+  it.each([
+    ['topping', 'excludeTopping'],
+    ['dessert', 'excludeDessert'],
+    ['drink', 'excludeDrink'],
+  ] as const)('%sカテゴリーを除外する', (category, filterName) => {
+    expect(filterMenus(menus, { ...noFilters, [filterName]: true })).toEqual(
+      menus.filter((item) => item.category !== category),
+    )
   })
 })

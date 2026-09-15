@@ -1,16 +1,28 @@
 import { Menu } from '../domain/Menu'
 
-type MenuFilters = {
+export type MenuFilters = {
   excludeAlcohol: boolean
   excludeTakeout: boolean
+  excludeTopping: boolean
+  excludeDessert: boolean
+  excludeDrink: boolean
 }
 
 export const filterMenus = (
   menus: Menu[],
-  { excludeAlcohol, excludeTakeout }: MenuFilters,
+  {
+    excludeAlcohol,
+    excludeTakeout,
+    excludeTopping,
+    excludeDessert,
+    excludeDrink,
+  }: MenuFilters,
 ): Menu[] =>
   menus.filter(
     (menu) =>
       (!excludeAlcohol || menu.category !== 'alcohol') &&
-      (!excludeTakeout || menu.category !== 'takeout'),
+      (!excludeTakeout || menu.category !== 'takeout') &&
+      (!excludeTopping || menu.category !== 'topping') &&
+      (!excludeDessert || menu.category !== 'dessert') &&
+      (!excludeDrink || menu.category !== 'drink'),
   )

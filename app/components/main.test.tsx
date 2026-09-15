@@ -1,4 +1,4 @@
-import { render, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { Main } from './main'
 
 const mockViewport = (matches: boolean) => {
@@ -45,5 +45,45 @@ describe('Mainの広告配置', () => {
       expect(getAdSlots()).toEqual(['7849040636', '7072512565', '7849040636'])
       expect(window.adsbygoogle).toHaveLength(3)
     })
+  })
+})
+
+describe('Mainの条件フィルター', () => {
+  beforeEach(() => {
+    mockViewport(false)
+    window.adsbygoogle = []
+  })
+
+  it('ガチャボタンの下に条件フィルターを表示する', () => {
+    render(<Main menus={[]} />)
+
+    const button = screen.getByRole('button', { name: 'ガチャを回す' })
+    const accordion = screen.getByText('条件フィルター')
+
+    expect(
+      button.compareDocumentPosition(accordion) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy()
+  })
+
+  it.each([
+    ['アルコール類を除く', 'アルコール類を必ず含める'],
+    ['デザートを除く', 'デザートを必ず含める'],
+    ['ドリンクバーを除く', 'ドリンクバーを必ず含める'],
+  ])('%sと%sは後から選んだ条件だけを有効にする', (exclude, require) => {
+    render(<Main menus={[]} />)
+    const excludeCheckbox = screen.getByLabelText(exclude) as HTMLInputElement
+    const requireCheckbox = screen.getByLabelText(require) as HTMLInputElement
+
+    fireEvent.click(excludeCheckbox)
+    expect(excludeCheckbox.checked).toBe(true)
+
+    fireEvent.click(requireCheckbox)
+    expect(requireCheckbox.checked).toBe(true)
+    expect(excludeCheckbox.checked).toBe(false)
+
+    fireEvent.click(excludeCheckbox)
+    expect(excludeCheckbox.checked).toBe(true)
+    expect(requireCheckbox.checked).toBe(false)
   })
 })
