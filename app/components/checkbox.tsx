@@ -5,6 +5,7 @@ type Props = {
   checked: boolean
   onChange: ChangeEventHandler<HTMLInputElement>
   className?: string
+  disabled?: boolean
   labelText: string
 }
 
@@ -12,12 +13,17 @@ export const Checkbox: React.FC<Props> = ({
   checked,
   onChange,
   className,
+  disabled = false,
   labelText,
 }) => {
   return (
     <label>
       <CheckboxContainer className={className}>
-        <HiddenCheckbox checked={checked} onChange={onChange} />
+        <HiddenCheckbox
+          checked={checked}
+          disabled={disabled}
+          onChange={onChange}
+        />
         <StyledCheckbox checked={checked}>
           <Icon viewBox="0 0 24 24">
             <polyline points="20 6 9 17 4 12" />

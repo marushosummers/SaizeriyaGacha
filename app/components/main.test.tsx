@@ -58,12 +58,17 @@ describe('Mainの条件フィルター', () => {
     render(<Main menus={[]} />)
 
     const button = screen.getByRole('button', { name: 'ガチャを回す' })
-    const accordion = screen.getByText('条件フィルター')
+    const accordion = screen.getByRole('button', { name: '条件フィルター' })
 
     expect(
       button.compareDocumentPosition(accordion) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy()
+    expect(accordion.getAttribute('aria-expanded')).toBe('false')
+
+    fireEvent.click(accordion)
+
+    expect(accordion.getAttribute('aria-expanded')).toBe('true')
   })
 
   it.each([
@@ -72,6 +77,7 @@ describe('Mainの条件フィルター', () => {
     ['ドリンクバーを除く', 'ドリンクバーを必ず含める'],
   ])('%sと%sは後から選んだ条件だけを有効にする', (exclude, require) => {
     render(<Main menus={[]} />)
+    fireEvent.click(screen.getByRole('button', { name: '条件フィルター' }))
     const excludeCheckbox = screen.getByLabelText(exclude) as HTMLInputElement
     const requireCheckbox = screen.getByLabelText(require) as HTMLInputElement
 
